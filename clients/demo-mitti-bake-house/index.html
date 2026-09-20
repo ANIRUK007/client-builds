@@ -3,194 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitti Bake House - Small-batch baking from Kondapur, Hyderabad</title>
+    <title>Mitti Bake House - Kondapur, Hyderabad</title>
 
-    <!-- Required Libraries (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Vollkorn:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Lora:wght@500&display=swap" rel="stylesheet">
 
+    <!-- CDN Libraries CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'text-primary': 'var(--text-primary)',
+            'text-on-dark': 'var(--text-on-dark-bg)',
+            'background-light': 'var(--background-light)',
+            'background-dark': 'var(--background-dark)',
+            'accent-primary': 'var(--accent-primary)',
+            'border-subtle': 'var(--border-subtle)',
+          },
+          fontFamily: {
+            heading: ['Lora', 'serif'],
+            body: ['Karla', 'sans-serif'],
+          }
+        }
+      }
+    }
+    </script>
+
+    <!-- Custom CSS Properties -->
     <style>
-        /* CSS Custom Properties from the Design Spec */
-        :root {
-            --background-page: #D9C4A9;
-            --background-highlight: #3B2A1E;
-            --text-primary: #3B2A1E;
-            --text-inverse: #D9C4A9;
-            --text-accent: #B5651D;
-        }
-
-        /* Base Styles & Typography */
-        body {
-            background-color: var(--background-page);
-            color: var(--text-primary);
-            font-family: 'Nunito Sans', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Vollkorn', serif;
-        }
-        
-        /* Custom Ordered List for 'How to Order' section to match the design philosophy */
-        .custom-ol {
-            counter-reset: item;
-            list-style-type: none;
-        }
-        .custom-ol li {
-            position: relative;
-            padding-left: 4.5rem;
-            margin-bottom: 1.5rem;
-            min-height: 2.5rem;
-            display: flex;
-            align-items: center;
-        }
-        .custom-ol li::before {
-            counter-increment: item;
-            content: "0" counter(item);
-            font-family: 'Vollkorn', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-accent);
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 3rem;
-            text-align: right;
-        }
+      :root {
+        --text-primary: #3B2A1E;
+        --text-on-dark-bg: #D9C4A9;
+        --background-light: #F9F6F1;
+        --background-dark: #3B2A1E;
+        --accent-primary: #B5651D;
+        --border-subtle: #D9C4A9;
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .hero-bg {
+        will-change: transform;
+      }
     </style>
 
-    <script>
-        // Tailwind CSS Configuration to use our custom properties and fonts
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'page': 'var(--background-page)',
-                        'highlight': 'var(--background-highlight)',
-                        'primary': 'var(--text-primary)',
-                        'inverse': 'var(--text-inverse)',
-                        'accent': 'var(--text-accent)',
-                    },
-                    fontFamily: {
-                        heading: ['Vollkorn', 'serif'],
-                        body: ['Nunito Sans', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- CDN Libraries JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
 </head>
-<body class="bg-page">
+<body class="bg-background-light font-body text-text-primary">
 
     <!-- Hero Section -->
+    <header id="home" class="hero relative min-h-screen overflow-hidden flex items-center justify-center text-center text-white">
+        <div class="hero-bg absolute inset-0 bg-background-dark bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1585478259715-876a6a81fc08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8c291cmRvdWdoJTIwY3J1bWIlMjBzaG90c3xlbnwxfDB8fHwxNzg5OTI5MTE5fDA&ixlib=rb-4.1.0&q=80&w=1080');"></div>
+        <div class="absolute inset-0 bg-background-dark opacity-50"></div>
+        <div class="relative z-10 p-8 max-w-3xl mx-auto" data-aos="fade-up">
+            <h1 class="font-heading text-4xl md:text-6xl text-background-light" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Thirty-Six Hour Sourdough, From Our Kondapur Kitchen.</h1>
+            <p class="mt-4 text-lg md:text-xl text-text-on-dark max-w-xl mx-auto" style="text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Naturally leavened bread and custom eggless cakes, baked the slow way.</p>
+            <a href="#order" class="mt-8 inline-block bg-accent-primary text-background-light font-bold py-3 px-8 rounded-sm shadow-lg transition-transform duration-300 hover:scale-105">
+                Order for the Weekend
+            </a>
+        </div>
+        <div class="absolute bottom-4 left-0 right-0 text-center text-xs text-white/50">
+            <p>Photo by <a href="https://unsplash.com/@tunnuz" target="_blank" rel="noopener" class="underline hover:text-white">Tommaso Urli</a> on Unsplash</p>
+        </div>
+    </header>
+
     <main>
-        <section class="min-h-screen flex items-center justify-center p-6 text-center">
-            <div data-aos="fade-up" class="max-w-3xl">
-                <h1 class="font-heading text-5xl md:text-7xl font-semibold leading-tight text-primary">
-                    A 36-hour ferment, from our kitchen to yours.
-                </h1>
-                <p class="mt-6 text-lg md:text-xl max-w-xl mx-auto leading-relaxed text-primary/90">
-                    Mitti Bake House is a home bakery in Kondapur, Hyderabad, specialising in naturally leavened sourdough and custom eggless cakes, baked the slow way.
-                </p>
-            </div>
-        </section>
 
-        <!-- Menu Section -->
-        <section class="py-20 md:py-32 px-6">
-            <div class="max-w-5xl mx-auto">
-                <div data-aos="fade-up" class="text-center mb-12 md:mb-16">
-                    <h2 class="font-heading text-4xl md:text-5xl text-accent">What We Bake to Order</h2>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-                    <!-- Column 1: Sourdough -->
-                    <div class="space-y-8">
-                        <h3 class="font-heading text-3xl md:text-4xl text-primary">Naturally Leavened Sourdough</h3>
-                        <div class="space-y-6">
+        <!-- Sourdough Section -->
+        <section id="sourdough" class="py-20 md:py-28">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="font-heading text-3xl md:text-4xl text-text-primary">Our 36-Hour Sourdough</h2>
+                        <p class="mt-4 text-lg text-text-primary/80">Each small-batch loaf is the result of a 36-hour fermentation process using natural leaven. This slow method develops a complex flavour, a beautifully open crumb, and makes the bread easier to digest.</p>
+                        <div class="mt-8 space-y-6 border-t border-border-subtle pt-6">
                             <div>
-                                <p class="font-bold text-lg text-primary">Classic Country Loaf</p>
-                                <p class="text-primary/80 leading-relaxed">Our signature sourdough. A beautiful open crumb with a satisfyingly chewy crust, developed over 36 hours.</p>
+                                <h3 class="font-bold text-lg text-text-primary">Classic Sourdough</h3>
+                                <p class="text-text-primary/80">Our signature loaf with a crisp crust and soft, chewy interior.</p>
                             </div>
                             <div>
-                                <p class="font-bold text-lg text-primary">Seeded Whole Wheat</p>
-                                <p class="text-primary/80 leading-relaxed">A wholesome loaf made with whole wheat flour and a mix of seeds for added texture and flavour.</p>
+                                <h3 class="font-bold text-lg text-text-primary">Whole Wheat Sourdough</h3>
+                                <p class="text-text-primary/80">A heartier loaf with the nutty flavour of whole grain flour.</p>
                             </div>
                         </div>
                     </div>
-                    <!-- Column 2: Cakes -->
-                    <div class="space-y-8">
-                        <h3 class="font-heading text-3xl md:text-4xl text-primary">Eggless Celebration Cakes</h3>
-                        <div class="space-y-6">
-                            <div>
-                                <p class="font-bold text-lg text-primary">Custom Cakes</p>
-                                <p class="text-primary/80 leading-relaxed">Baked to order for your special occasions. We can create a custom cake based on the flavour and style you have in mind.</p>
-                            </div>
+                    <div class="grid grid-cols-1 gap-6" data-aos="fade-left">
+                        <div class="relative">
+                           <img src="https://images.unsplash.com/photo-1594403758808-58d9e13cff40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8c291cmRvdWdoJTIwY3J1bWIlMjBzaG90c3xlbnwxfDB8fHwxNzg5OTI5MTE5fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A rustic sourdough loaf, cut open to show the airy crumb structure." class="rounded-sm w-full h-auto object-cover shadow-lg">
+                           <p class="mt-2 text-right text-xs text-text-primary/50">Photo by <a href="https://unsplash.com/@dan__burton" target="_blank" rel="noopener" class="underline">Dan Burton</a></p>
+                        </div>
+                        <div class="relative">
+                           <img src="https://images.unsplash.com/photo-1597604396383-b8ca64ed8fa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8c291cmRvdWdoJTIwY3J1bWIlMjBzaG90c3xlbnwxfDB8fHwxNzg5OTI5MTE5fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A beautifully scored sourdough loaf before baking." class="rounded-sm w-full h-auto object-cover shadow-lg">
+                           <p class="mt-2 text-right text-xs text-text-primary/50">Photo by <a href="https://unsplash.com/@debbiewidjaja" target="_blank" rel="noopener" class="underline">Debbie Widjaja</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Process Section -->
-        <section class="py-20 md:py-32 px-6 bg-highlight text-inverse">
-            <div data-aos="fade-up" class="max-w-2xl mx-auto text-center">
-                <h2 class="font-heading text-4xl md:text-5xl">Baked the Slow Way</h2>
-                <p class="mt-6 text-lg md:text-xl leading-relaxed text-inverse/90">
-                    Good bread takes time. Our sourdough is naturally leavened and fermented for a full 36 hours. This slow process develops a deep flavour and a more digestible crumb, using only flour, water, and salt. It’s bread from a home kitchen, not a factory.
-                </p>
+        <!-- Cakes Section -->
+        <section id="cakes" class="py-20 md:py-28 bg-white/50">
+            <div class="max-w-6xl mx-auto px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                    <h2 class="font-heading text-3xl md:text-4xl text-text-primary">Custom Eggless Celebration Cakes</h2>
+                    <p class="mt-4 text-lg text-text-primary/80">We create custom, eggless celebration cakes baked to order. Let us know the occasion and your preferred flavours, and we'll design a memorable centrepiece for your event.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-12">
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Y3VzdG9tJTIwYmlydGhkYXklMjBjYWtlc3xlbnwxfDB8fHwxNzg5OTI5MTIwfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A chocolate cake with frosting roses and Happy Birthday written in icing." class="w-full h-80 object-cover rounded-sm shadow-lg">
+                         <p class="mt-2 text-right text-xs text-text-primary/50">Photo by <a href="https://unsplash.com/@stephen2002" target="_blank" rel="noopener" class="underline">Stephen Wheeler</a></p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Y3VzdG9tJTIwYmlydGhkYXklMjBjYWtlc3xlbnwxfDB8fHwxNzg5OTI5MTIwfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A tall, elegant cake decorated with pink and white flowers." class="w-full h-80 object-cover rounded-sm shadow-lg">
+                        <p class="mt-2 text-right text-xs text-text-primary/50">Photo by <a href="https://unsplash.com/@davidholifield" target="_blank" rel="noopener" class="underline">David Holifield</a></p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1625649611137-df49dc542f6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Y3VzdG9tJTIwYmlydGhkYXklMjBjYWtlc3xlbnwxfDB8fHwxNzg5OTI5MTIwfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A cheerful birthday cake with lit candles." class="w-full h-80 object-cover rounded-sm shadow-lg">
+                         <p class="mt-2 text-right text-xs text-text-primary/50">Photo by <a href="https://unsplash.com/@imants72" target="_blank" rel="noopener" class="underline">Imants Kaziļuns</a></p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- How to Order Section -->
-        <section class="py-20 md:py-32 px-6">
-            <div class="max-w-2xl mx-auto">
-                <div data-aos="fade-up" class="text-center mb-12 md:mb-16">
-                    <h2 class="font-heading text-4xl md:text-5xl text-accent">Order for Weekend Collection</h2>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <ol class="custom-ol max-w-lg mx-auto text-lg leading-relaxed text-primary/90">
-                        <li>All orders are taken via Instagram Direct Message. We require two days' notice.</li>
-                        <li>Let us know what you'd like: sourdough, a custom cake, or both.</li>
-                        <li>We will confirm your order and arrange a collection time for the upcoming weekend.</li>
-                        <li>Collections are from our home kitchen in Kondapur.</li>
-                    </ol>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="text-center mt-12 md:mt-16">
-                    <a href="https://www.instagram.com/demo_mitti_bake_house" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-primary text-page py-4 px-8 font-body font-bold text-lg hover:bg-accent focus:outline-none focus:ring-4 focus:ring-accent/50 transition-colors duration-300">
-                        <i data-lucide="message-square" class="w-5 h-5"></i>
-                        Send a Message on Instagram
+        <!-- Order Section -->
+        <section id="order" class="py-20 md:py-28 bg-background-dark text-text-on-dark">
+            <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+                <div data-aos="fade-up">
+                    <h2 class="font-heading text-3xl md:text-4xl">How to Place Your Weekend Order</h2>
+                    <div class="mt-12 space-y-8 text-left max-w-xl mx-auto">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-accent-primary/20 rounded-full flex items-center justify-center">
+                                <i data-lucide="message-square" class="w-6 h-6 text-accent-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-text-on-dark">1. Send a Message</h3>
+                                <p class="text-text-on-dark/80">All orders are taken via Instagram DM. Please send us a message with what you'd like.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-accent-primary/20 rounded-full flex items-center justify-center">
+                                <i data-lucide="calendar-clock" class="w-6 h-6 text-accent-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-text-on-dark">2. Plan Ahead</h3>
+                                <p class="text-text-on-dark/80">We bake fresh to order, so we require at least two days' notice.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                             <div class="flex-shrink-0 w-12 h-12 bg-accent-primary/20 rounded-full flex items-center justify-center">
+                                <i data-lucide="map-pin" class="w-6 h-6 text-accent-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-text-on-dark">3. Weekend Collection</h3>
+                                <p class="text-text-on-dark/80">Collection is from our home kitchen in Kondapur on weekends. We will confirm the pickup details with you directly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.instagram.com/demo_mitti_bake_house" target="_blank" rel="noopener" class="mt-12 inline-flex items-center gap-3 bg-accent-primary text-background-light font-bold py-4 px-10 rounded-sm shadow-lg transition-transform duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        DM @demo_mitti_bake_house to Order
                     </a>
                 </div>
             </div>
         </section>
     </main>
-    
+
     <!-- Footer -->
-    <footer class="bg-page text-primary/70 text-center py-8 px-6 border-t border-primary/10">
-        <p>&copy; 2024 Mitti Bake House. A home bakery in Kondapur, Hyderabad.</p>
+    <footer class="bg-background-light border-t border-border-subtle">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 py-8 text-center text-text-primary/70">
+            <p class="font-bold text-lg text-text-primary">Mitti Bake House</p>
+            <p class="text-sm">Kondapur, Hyderabad</p>
+            <a href="https://www.instagram.com/demo_mitti_bake_house" target="_blank" rel="noopener" class="inline-block mt-4 text-accent-primary hover:text-text-primary transition-colors">
+                <i data-lucide="instagram" class="w-6 h-6"></i>
+                <span class="sr-only">Instagram</span>
+            </a>
+            <div class="mt-8 text-xs text-text-primary/50">
+                <p>&copy; 2024 Mitti Bake House. All rights reserved.</p>
+                <p class="mt-2">Website built by a Senior Frontend Developer. Photography credits on each image.</p>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        // Initialize AOS (Animate on Scroll)
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 50,
-        });
 
-        // Initialize Lucide Icons
-        lucide.createIcons();
+    <script>
+      // Initialize AOS (Animate on Scroll)
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 50,
+      });
+
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // GSAP Parallax for Hero Background
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to(".hero-bg", {
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: 1
+        },
+        scale: 1.15,
+        yPercent: 10,
+        ease: "none"
+      });
     </script>
 </body>
 </html>
