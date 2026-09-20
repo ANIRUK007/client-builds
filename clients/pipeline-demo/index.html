@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitti Bake House | Sourdough & Cakes in Hyderabad</title>
+    
+    <!-- CDNs and Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper (not strictly required by design, but good to have if a gallery was added later) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-background-warm: #F5F0E8;
+            --color-background-light: #D9C4A9;
+            --color-text-primary: #3B2A1E;
+            --color-text-secondary: #5A4433;
+            --color-accent: #B5651D;
+            --color-border: #C7B69C;
+        }
+
+        body {
+            background-color: var(--color-background-warm);
+            color: var(--color-text-primary);
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+            font-weight: 500;
+        }
+
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1589112836287-657ac3014a51?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .header-scrolled {
+            background-color: rgba(245, 240, 232, 0.9);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background-warm': 'var(--color-background-warm)',
+                        'background-light': 'var(--color-background-light)',
+                        'text-primary': 'var(--color-text-primary)',
+                        'text-secondary': 'var(--color-text-secondary)',
+                        'accent': 'var(--color-accent)',
+                        'border-color': 'var(--color-border)',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-serif font-bold text-text-primary">Mitti Bake House</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#bakes" class="text-text-secondary hover:text-accent transition-colors">Our Bakes</a>
+                <a href="#process" class="text-text-secondary hover:text-accent transition-colors">Our Process</a>
+                <a href="#order" class="text-text-secondary hover:text-accent transition-colors">How to Order</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-text-primary">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-background-warm z-40 hidden flex-col items-center justify-center space-y-8 text-2xl">
+        <button id="mobile-menu-close-button" class="absolute top-6 right-6 text-text-primary">
+            <i data-lucide="x"></i>
+        </button>
+        <a href="#bakes" class="mobile-nav-link text-text-secondary hover:text-accent transition-colors">Our Bakes</a>
+        <a href="#process" class="mobile-nav-link text-text-secondary hover:text-accent transition-colors">Our Process</a>
+        <a href="#order" class="mobile-nav-link text-text-secondary hover:text-accent transition-colors">How to Order</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center text-white hero-bg">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="relative z-10 px-6" data-aos="fade-up">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight">
+                    Sourdough, baked the slow way.
+                </h1>
+                <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
+                    Naturally leavened bread and eggless celebration cakes from our home kitchen in Kondapur, Hyderabad.
+                </p>
+                <a href="#bakes" class="mt-12 inline-block text-gray-200 animate-bounce">
+                    <p class="mb-2 tracking-widest text-sm">Explore Our Bakes</p>
+                    <i data-lucide="arrow-down" class="mx-auto"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Bakes Section -->
+        <section id="bakes" class="py-20 lg:py-32">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-serif text-center text-text-primary mb-16" data-aos="fade-up">
+                    Our Bakes
+                </h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                    <!-- Sourdough Column -->
+                    <div class="flex flex-col space-y-8" data-aos="fade-up" data-aos-delay="100">
+                        <div class="aspect-w-4 aspect-h-3">
+                            <img src="https://images.unsplash.com/photo-1533083431149-8136a7460e19?q=80&w=1200&auto=format&fit=crop" alt="A rustic sourdough loaf on a wooden board" class="object-cover w-full h-full rounded-lg shadow-lg">
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-serif text-text-primary">Sourdough Bread</h3>
+                            <p class="mt-2 text-text-secondary">
+                                Our naturally leavened sourdough is made with a 36-hour fermentation process for a deeper flavour and beautiful texture. It’s all about patience and simple, quality ingredients.
+                            </p>
+                            <div class="mt-6 border-t border-border-color pt-6">
+                                <h4 class="text-xl font-semibold text-text-primary">Classic Country Loaf</h4>
+                                <p class="mt-1 text-text-secondary">
+                                    Our signature loaf with a crisp, beautifully caramelized crust and a soft, open crumb. Perfect for toast, sandwiches, or simply enjoyed on its own with a touch of butter.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cakes Column -->
+                    <div class="flex flex-col space-y-8 lg:mt-24" data-aos="fade-up" data-aos-delay="200">
+                        <div class="aspect-w-4 aspect-h-3">
+                            <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?q=80&w=1200&auto=format&fit=crop" alt="A beautiful custom-decorated birthday cake" class="object-cover w-full h-full rounded-lg shadow-lg">
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-serif text-text-primary">Eggless Celebration Cakes</h3>
+                            <p class="mt-2 text-text-secondary">
+                                Baked to order for your special occasions. We believe every celebration deserves a unique cake, made with love and without eggs. We love working with you to create the perfect centerpiece.
+                            </p>
+                            <div class="mt-6 border-t border-border-color pt-6">
+                                <h4 class="text-xl font-semibold text-text-primary">Custom Birthday Cakes</h4>
+                                <p class="mt-1 text-text-secondary">
+                                    Tell us about the celebration, your favourite flavours, and any design ideas you have. We'll collaborate with you to design a unique, delicious, and beautiful eggless cake for your event.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-20 lg:py-32 bg-background-light/50">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1594248880424-3ae6a02c525f?q=80&w=1200&auto=format&fit=crop" alt="Hands dusting flour over fresh dough" class="rounded-lg shadow-lg aspect-[4/3] object-cover w-full">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h2 class="text-4xl md:text-5xl font-serif text-text-primary">From Our Kitchen to Yours</h2>
+                        <p class="mt-4 text-lg text-text-secondary leading-relaxed">
+                            Mitti Bake House is a small home bakery born from a simple love for traditional baking. "Mitti" means earth or soil, reflecting our commitment to natural processes and wholesome ingredients. Every loaf and cake is crafted by hand in small batches. We believe in patience, letting our sourdough develop its full character over 36 hours, and creating cakes that are as honest as they are beautiful.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Section -->
+        <section id="order" class="py-20 lg:py-32">
+            <div class="container mx-auto px-6 text-center max-w-3xl">
+                <h2 class="text-4xl md:text-5xl font-serif text-text-primary" data-aos="fade-up">
+                    How to Order
+                </h2>
+                <div class="mt-12 text-left space-y-6" data-aos="fade-up" data-aos-delay="100">
+                    <ol class="list-none space-y-6">
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-accent/20 text-accent font-bold mr-4">1</span>
+                            <span class="text-text-secondary text-lg">We announce weekend pickup slots and available bakes on our Instagram page. Follow us to stay updated!</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-accent/20 text-accent font-bold mr-4">2</span>
+                            <span class="text-text-secondary text-lg">Browse our bakes and decide what you'd like to order. For custom cakes, please give us at least one week's notice.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-accent/20 text-accent font-bold mr-4">3</span>
+                            <span class="text-text-secondary text-lg">Click the button below to send us a direct message on Instagram to confirm your order and pickup time.</span>
+                        </li>
+                    </ol>
+                </div>
+                <p class="mt-8 text-sm text-text-secondary" data-aos="fade-up" data-aos-delay="150">
+                    Please note: All orders are for pickup from Kondapur, Hyderabad only.
+                </p>
+                <div class="mt-12" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://ig.me/m/pipeline_demo" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-white font-bold py-4 px-10 rounded-lg text-lg hover:bg-opacity-90 transform hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                        Order via Instagram DM
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-background-light/50 py-8">
+        <div class="container mx-auto px-6 text-center text-text-secondary">
+            <p>&copy; 2024 Mitti Bake House</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="https://www.instagram.com/pipeline_demo" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-accent transition-colors">
+                    <i data-lucide="instagram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Header scroll effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('main-header');
+            const handleScroll = () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            };
+            window.addEventListener('scroll', handleScroll);
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            const openMenu = () => mobileMenu.classList.remove('hidden');
+            const closeMenu = () => mobileMenu.classList.add('hidden');
+
+            mobileMenuButton.addEventListener('click', openMenu);
+            mobileMenuCloseButton.addEventListener('click', closeMenu);
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        });
+    </script>
+</body>
+</html>
