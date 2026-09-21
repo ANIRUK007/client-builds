@@ -4,58 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manger by Ankit | Gourmet Catering for Hyderabad House Parties</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:wght@500;700&display=swap" rel="stylesheet">
-    
-    <!-- CDNs for Libraries -->
+
+    <!-- CDNs -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
+
+    <!-- Custom Styles & Tailwind Config -->
     <style>
         :root {
-            --text-primary: #212121;
-            --text-secondary: #424242;
-            --brand-primary: #BC7139;
-            --brand-secondary: #3D4D2C;
-            --background-primary: #FFFFFF;
-            --background-secondary: #F8F6F4;
+            --surface: #F9F9F9;
+            --surface-alt: #EEEEEE;
+            --text: #292929;
+            --text-muted: #6B6B6B;
+            --border: #8F8F8F;
+            --brand: #562E2E;
+            --brand-on: #F9F9F9;
+            --accent: #5D7C3C;
+            --accent-on: #F9F9F9;
         }
+
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            background-color: var(--background-primary);
+            background-color: var(--surface);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
+
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Lora', serif;
+            font-family: 'Playfair Display', serif;
         }
-        .nav-scrolled {
-            background-color: var(--background-primary);
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+        
+        .nav-link.active {
+            color: var(--brand);
+            font-weight: 600;
         }
     </style>
-    
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'text-primary': 'var(--text-primary)',
-                        'text-secondary': 'var(--text-secondary)',
-                        'brand-primary': 'var(--brand-primary)',
-                        'brand-secondary': 'var(--brand-secondary)',
-                        'background-primary': 'var(--background-primary)',
-                        'background-secondary': 'var(--background-secondary)',
+                        'surface': 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        'text': 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        'border': 'var(--border)',
+                        'brand': 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        'accent': 'var(--accent)',
+                        'accent-on': 'var(--accent-on)',
                     },
                     fontFamily: {
-                        heading: ['Lora', 'serif'],
+                        heading: ['Playfair Display', 'serif'],
                         body: ['Inter', 'sans-serif'],
                     }
                 }
@@ -63,201 +79,257 @@
         }
     </script>
 </head>
-<body class="antialiased">
+<body class="bg-surface text-text">
 
-    <!-- Navigation Bar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <!-- Header -->
+    <header id="header" class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 shadow-sm transition-shadow duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-heading font-bold text-text-primary">Manger by Ankit</a>
-            <a href="tel:919000599290" class="bg-brand-primary text-white font-body font-semibold px-6 py-2 rounded-full hover:opacity-90 transition-opacity">
-                Plan Your Party
+            <a href="#" data-target="page-home" class="nav-link text-xl font-bold font-heading text-brand">
+                Manger by Ankit
             </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" data-target="page-home" class="nav-link text-text hover:text-brand transition-colors">Home</a>
+                <a href="#" data-target="page-menu" class="nav-link text-text hover:text-brand transition-colors">Menu</a>
+                <a href="#" data-target="page-order" class="nav-link text-text hover:text-brand transition-colors">Order</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header id="hero" class="relative min-h-screen flex items-center justify-center bg-cover bg-center text-white">
-        <div class="absolute inset-0 bg-black/50"></div>
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1631452180539-96aca7d48617?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8QXNpYW4lMjAlMjYlMjBOb3J0aCUyMEluZGlhbiUyMGN1aXNpbmV8ZW58MXwwfHx8MTc4OTkzMTg4M3ww&ixlib=rb-4.1.0&q=80&w=1080');"></div>
-        <div class="relative z-10 text-center px-6 max-w-3xl">
-            <h1 data-aos="fade-up" class="text-4xl md:text-6xl font-heading font-bold leading-tight">Gourmet Catering for Your Hyderabad House Party</h1>
-            <p data-aos="fade-up" data-aos-delay="100" class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">Delicious, authentic North Indian & Asian cuisine delivered in bulk, ready for your celebration. With us it's always a CELEBRATION!</p>
-            <a href="tel:919000599290" data-aos="fade-up" data-aos-delay="200" class="mt-8 inline-block bg-brand-primary text-white font-body font-semibold px-8 py-3 rounded-full hover:opacity-90 transition-opacity text-lg">
-                Plan Your Party Menu
-            </a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-surface shadow-lg">
+            <nav class="flex flex-col items-center space-y-4 py-6">
+                <a href="#" data-target="page-home" class="nav-link text-lg">Home</a>
+                <a href="#" data-target="page-menu" class="nav-link text-lg">Menu</a>
+                <a href="#" data-target="page-order" class="nav-link text-lg">Order</a>
+            </nav>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <!-- How It Works Section -->
-        <section id="how_it_works" class="bg-background-secondary py-16 md:py-24">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-primary mb-12" data-aos="fade-up">Catering for Your Celebration is Simple</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
-                    <!-- Step 1 -->
-                    <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
-                        <div class="bg-brand-primary/10 text-brand-primary rounded-full p-4 mb-4">
-                            <i data-lucide="phone" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-xl font-heading font-bold mb-2">1. Call Ankit</h3>
-                        <p class="text-text-secondary">Get in touch to discuss your party size, cuisine preferences, and event date.</p>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
-                        <div class="bg-brand-primary/10 text-brand-primary rounded-full p-4 mb-4">
-                            <i data-lucide="book-marked" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-xl font-heading font-bold mb-2">2. Choose Your Menu</h3>
-                        <p class="text-text-secondary">We'll help you curate the perfect selection of dishes for your guests, from starters to main courses.</p>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
-                        <div class="bg-brand-primary/10 text-brand-primary rounded-full p-4 mb-4">
-                            <i data-lucide="truck" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-xl font-heading font-bold mb-2">3. We Deliver</h3>
-                        <p class="text-text-secondary">Your gourmet food order arrives fresh and ready to serve at your Hyderabad location.</p>
-                    </div>
+        <!-- Home Page Content -->
+        <div id="page-home" class="page-section active">
+            <!-- Hero Section -->
+            <section class="relative min-h-screen flex items-center justify-center text-center text-white">
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1761051970492-0d54d728e3e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8SG91c2UlMjBwYXJ0eSUyMGNhdGVyaW5nfGVufDF8MHx8fDE3ODk5MzE4ODF8MA&ixlib=rb-4.1.0&q=80&w=1080');"></div>
+                <div class="absolute inset-0 bg-black/50"></div>
+                <div class="relative z-10 p-6" data-aos="fade-up">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading mb-4 text-brand-on">Gourmet Catering for Your Hyderabad House Party</h1>
+                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-brand-on/90">Authentic North Indian and Asian cuisine, delivered in bulk for your celebration.</p>
+                    <a href="#" data-target="page-menu" class="nav-link inline-block bg-accent text-accent-on font-semibold py-3 px-8 rounded-md hover:bg-opacity-90 transition-colors">
+                        Explore the Menu
+                    </a>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Menu Highlights Section -->
-        <section id="menu_highlights" class="bg-background-primary py-16 md:py-24">
-            <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right">
-                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-primary mb-6">Authentic North Indian & Asian Flavors</h2>
-                    <p class="text-text-secondary mb-8 text-lg">Our menu is a celebration of authentic tastes, crafted with natural ingredients. We offer a curated selection of dishes perfect for sharing at parties and events for up to 100 guests.</p>
-                    <div class="space-y-6">
-                        <div class="bg-background-secondary p-4 rounded-lg">
-                            <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary">North Indian</span>
-                            <h4 class="font-heading font-bold text-lg mt-1">Classic Butter Chicken</h4>
-                            <p class="text-text-secondary text-sm">Tender chicken in a rich, creamy tomato gravy.</p>
-                        </div>
-                        <div class="bg-background-secondary p-4 rounded-lg">
-                            <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary">North Indian</span>
-                            <h4 class="font-heading font-bold text-lg mt-1">Paneer Tikka Masala</h4>
-                            <p class="text-text-secondary text-sm">Soft paneer cubes simmered in a spiced tomato and onion sauce.</p>
-                        </div>
-                        <div class="bg-background-secondary p-4 rounded-lg">
-                            <span class="text-xs font-semibold uppercase tracking-wider text-brand-secondary">Asian</span>
-                            <h4 class="font-heading font-bold text-lg mt-1">Chilli Garlic Noodles</h4>
-                            <p class="text-text-secondary text-sm">Stir-fried noodles with a savory and spicy garlic sauce.</p>
-                        </div>
-                        <div class="bg-background-secondary p-4 rounded-lg">
-                            <span class="text-xs font-semibold uppercase tracking-wider text-brand-secondary">Asian</span>
-                            <h4 class="font-heading font-bold text-lg mt-1">Vegetable Manchurian</h4>
-                            <p class="text-text-secondary text-sm">Crispy vegetable balls tossed in a tangy and sweet Manchurian sauce.</p>
-                        </div>
-                        <div class="border-l-4 border-brand-primary bg-brand-primary/5 p-4 rounded-lg">
-                            <h4 class="font-heading font-bold text-lg">Full Menu Available</h4>
-                            <p class="text-text-secondary text-sm">Call us to discuss our complete range of starters, mains, and accompaniments.</p>
-                        </div>
+            <!-- USP Section -->
+            <section class="py-16 md:py-24 bg-surface">
+                <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1682862279256-b2a9e4f3d22c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8QXNpYW4lMjAlMjYlMjBOb3J0aCUyMEluZGlhbiUyMGN1aXNpbmV8ZW58MXwwfHx8MTc4OTkzMTg4M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="A table filled with a delicious spread of various catered dishes." class="rounded-lg shadow-xl w-full h-auto object-cover">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h2 class="text-3xl md:text-4xl font-heading text-brand mb-4 uppercase">With us it's always a CELEBRATION!</h2>
+                        <p class="text-text-muted leading-relaxed">Manger by Ankit is a delivery kitchen focused on making your house party a delicious success. We prepare gourmet North Indian, Chinese, and other Asian dishes using natural, authentic flavours, specializing in bulk orders for gatherings of up to 100 people.</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
-                    <div class="col-span-1 pt-8">
-                        <img src="https://images.unsplash.com/photo-1761051970492-0d54d728e3e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8SG91c2UlMjBwYXJ0eSUyMGNhdGVyaW5nfGVufDF8MHx8fDE3ODk5MzE4ODF8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Samosas and other snacks served on plates on a catering counter" class="w-full h-auto object-cover rounded-lg shadow-lg">
-                    </div>
-                    <div class="col-span-1">
-                        <img src="https://images.unsplash.com/photo-1588644525273-f37b60d78512?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8QXNpYW4lMjAlMjYlMjBOb3J0aCUyMEluZGlhbiUyMGN1aXNpbmV8ZW58MXwwfHx8MTc4OTkzMTg4M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="A delicious plate of cooked rice with fresh vegetables" class="w-full h-auto object-cover rounded-lg shadow-lg">
-                    </div>
-                    <div class="col-span-2 -mt-8">
-                        <img src="https://images.unsplash.com/photo-1682862279256-b2a9e4f3d22c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8QXNpYW4lMjAlMjYlMjBOb3J0aCUyMEluZGlhbiUyMGN1aXNpbmV8ZW58MXwwfHx8MTc4OTkzMTg4M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="A beautifully arranged catering table filled with a variety of delicious dishes" class="w-full h-auto object-cover rounded-lg shadow-lg">
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Contact CTA Section -->
-        <section id="contact_cta" class="bg-brand-secondary text-white py-16 md:py-24">
-            <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
-                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">With us it's always a CELEBRATION!</h2>
-                <p class="max-w-2xl mx-auto mb-8 text-lg opacity-90">Contact Ankit directly to discuss your event and get a personalized menu recommendation. We cater for gatherings across Hyderabad.</p>
-                <div class="flex items-center justify-center gap-4 mb-8">
-                    <i data-lucide="phone-call" class="w-8 h-8 text-brand-primary"></i>
-                    <a href="tel:919000599290" class="text-3xl md:text-4xl font-heading font-bold tracking-wider hover:text-brand-primary transition-colors">919000599290</a>
+            <!-- Process Steps Section -->
+            <section class="py-16 md:py-24 bg-surface-alt">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-3xl md:text-4xl font-heading text-brand mb-12" data-aos="fade-up">Your House Party Catering in Three Steps</h2>
+                    <div class="grid md:grid-cols-3 gap-12">
+                        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+                            <div class="w-16 h-16 bg-brand text-brand-on rounded-full flex items-center justify-center text-2xl font-bold mb-4">1</div>
+                            <h3 class="text-xl font-heading mb-2">Browse Our Menu</h3>
+                            <p class="text-text-muted">Explore our range of dishes and choose your favourites for the event.</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+                            <div class="w-16 h-16 bg-brand text-brand-on rounded-full flex items-center justify-center text-2xl font-bold mb-4">2</div>
+                            <h3 class="text-xl font-heading mb-2">Call to Discuss</h3>
+                            <p class="text-text-muted">Contact us by phone to finalize your bulk order and discuss party requirements.</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
+                            <div class="w-16 h-16 bg-brand text-brand-on rounded-full flex items-center justify-center text-2xl font-bold mb-4">3</div>
+                            <h3 class="text-xl font-heading mb-2">Enjoy Your Celebration</h3>
+                            <p class="text-text-muted">We deliver the food across Hyderabad, so you can focus on your guests.</p>
+                        </div>
+                    </div>
                 </div>
-                <a href="tel:919000599290" class="bg-brand-primary text-white font-body font-semibold px-8 py-3 rounded-full hover:opacity-90 transition-opacity text-lg">
-                    Call Now to Order
-                </a>
-            </div>
-        </section>
+            </section>
+
+            <!-- CTA Band -->
+            <section class="py-16 bg-brand text-brand-on">
+                <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
+                    <h2 class="text-3xl md:text-4xl font-heading mb-6">Let's Plan Your Feast</h2>
+                    <a href="tel:919000599290" class="inline-block bg-accent text-accent-on font-semibold py-3 px-8 rounded-md hover:bg-opacity-90 transition-colors">
+                        Call to Order
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <!-- Menu Page Content -->
+        <div id="page-menu" class="page-section">
+            <section class="py-16 md:py-24">
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+                         <h1 class="text-4xl md:text-5xl font-heading text-brand mb-4">Menu for House Parties & Events</h1>
+                         <p class="text-text-muted">A selection of our most popular dishes for bulk orders. Please call us to discuss portions, customization, and pricing for your gathering.</p>
+                    </div>
+
+                    <!-- North Indian Menu -->
+                    <div class="mb-16" data-aos="fade-up">
+                        <h2 class="text-3xl font-heading text-brand border-b-2 border-brand/20 pb-4 mb-8">North Indian Cuisine</h2>
+                        <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+                            <div>
+                                <h3 class="font-semibold text-lg">Paneer Tikka Skewers</h3>
+                                <p class="text-text-muted">Cottage cheese marinated in yogurt and spices, grilled to perfection.</p>
+                            </div>
+                             <div>
+                                <h3 class="font-semibold text-lg">Dal Makhani</h3>
+                                <p class="text-text-muted">Creamy black lentils slow-cooked with butter and spices.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Chicken Biryani</h3>
+                                <p class="text-text-muted">Aromatic basmati rice cooked with tender chicken and fragrant spices.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Vegetable Korma</h3>
+                                <p class="text-text-muted">Mixed vegetables in a rich and creamy cashew-based gravy.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Asian Menu -->
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <h2 class="text-3xl font-heading text-brand border-b-2 border-brand/20 pb-4 mb-8">Chinese & Asian Cuisine</h2>
+                        <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+                             <div>
+                                <h3 class="font-semibold text-lg">Vegetable Hakka Noodles</h3>
+                                <p class="text-text-muted">Stir-fried noodles with crisp vegetables in a savory sauce.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Chilli Paneer Dry</h3>
+                                <p class="text-text-muted">Wok-tossed cottage cheese with bell peppers and onions in a spicy sauce.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Thai Green Curry</h3>
+                                <p class="text-text-muted">A classic coconut milk-based curry with authentic herbs and vegetables.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg">Gobi Manchurian</h3>
+                                <p class="text-text-muted">Crispy cauliflower florets tossed in a sweet and tangy Manchurian sauce.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Order Page Content -->
+        <div id="page-order" class="page-section">
+            <section class="py-16 md:py-24">
+                <div class="container mx-auto px-6 max-w-4xl">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div data-aos="fade-right">
+                            <h1 class="text-4xl md:text-5xl font-heading text-brand mb-4">Place Your Bulk Order</h1>
+                            <p class="text-text-muted mb-8 leading-relaxed">As a delivery-only kitchen, the best way to plan your menu is to call us directly. We'll help you choose the right dishes and quantities to make your event perfect. We cater for up to 100 guests anywhere in Hyderabad.</p>
+                            <a href="tel:919000599290" class="inline-flex items-center gap-3 bg-accent text-accent-on font-semibold py-4 px-10 rounded-md hover:bg-opacity-90 transition-colors text-lg">
+                                <i data-lucide="phone"></i>
+                                Call 919000599290
+                            </a>
+                        </div>
+                        <div data-aos="fade-left">
+                            <img src="https://images.unsplash.com/photo-1660482136157-9a2dc99208a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8SG91c2UlMjBwYXJ0eSUyMGNhdGVyaW5nfGVufDF8MHx8fDE3ODk5MzE4ODF8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A beautifully set table with plates of food ready for a party." class="rounded-lg shadow-xl w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-text-primary text-white">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
-                <div>
-                    <h3 class="text-xl font-heading font-bold">Manger by Ankit</h3>
-                    <p class="text-sm opacity-70 mt-1">Hyderabad-based cloud kitchen for house party catering.</p>
-                </div>
-                <div class="flex items-center space-x-6">
-                    <a href="https://www.instagram.com/mangerbyankit" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity">
-                        <i data-lucide="instagram" class="w-6 h-6"></i>
-                        <span class="sr-only">Instagram</span>
-                    </a>
-                    <a href="tel:919000599290" class="flex items-center gap-2 font-semibold hover:text-brand-primary transition-colors">
-                        <i data-lucide="phone" class="w-5 h-5"></i>
-                        <span>919000599290</span>
-                    </a>
-                </div>
+    <footer class="bg-surface-alt border-t border-border/50">
+        <div class="container mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+            <div class="mb-4 sm:mb-0">
+                <p class="font-semibold text-lg">Manger by Ankit</p>
+                <a href="tel:919000599290" class="text-text-muted hover:text-brand">919000599290</a>
             </div>
-            <div class="border-t border-white/10 mt-6 pt-6 text-center text-sm opacity-60">
-                <p>&copy; 2024 Manger by Ankit. All rights reserved.</p>
+            <div>
+                <a href="https://www.instagram.com/mangerbyankit" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-brand" aria-label="Instagram">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
             </div>
         </div>
     </footer>
-
+    
     <script>
         // Initialize AOS
         AOS.init({
             duration: 800,
             once: true,
-            offset: 50,
         });
 
-        // Initialize Lucide Icons
+        // Create Lucide Icons
         lucide.createIcons();
-        
-        // Navigation bar scroll effect
-        const nav = document.getElementById('navbar');
-        const hero = document.getElementById('hero');
-        const heroHeight = hero.offsetHeight;
 
-        function updateNavStyle() {
-            if (window.scrollY > 50) {
-                nav.classList.add('nav-scrolled');
-                nav.querySelector('a').classList.remove('text-white');
-                nav.querySelector('a').classList.add('text-text-primary');
-            } else {
-                nav.classList.remove('nav-scrolled');
-                nav.querySelector('a').classList.add('text-white');
-                nav.querySelector('a').classList.remove('text-text-primary');
-            }
-        }
-        
-        // Initial check for non-transparent nav on hero
-        function checkHeroIntersection() {
-            const heroRect = hero.getBoundingClientRect();
-            if (heroRect.bottom < 0) { // If hero is scrolled completely out of view
-                nav.querySelector('a').classList.remove('text-white');
-                nav.querySelector('a').classList.add('text-text-primary');
-            } else if (window.scrollY <= 50) {
-                 nav.querySelector('a').classList.add('text-white');
-                 nav.querySelector('a').classList.remove('text-text-primary');
-            }
-        }
-        
-        window.addEventListener('scroll', () => {
-           updateNavStyle();
-           checkHeroIntersection();
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-        
-        // Run on load
-        updateNavStyle();
-        checkHeroIntersection();
+
+        // Single Page App Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageSections = document.querySelectorAll('.page-section');
+
+        function showPage(targetId) {
+            pageSections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            const targetPage = document.getElementById(targetId);
+            if(targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+
+            navLinks.forEach(link => {
+                if (link.dataset.target === targetId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            
+            // Close mobile menu on navigation
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.dataset.target;
+                if(targetId) {
+                    showPage(targetId);
+                }
+            });
+        });
+
+        // Set initial active state on load
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('page-home');
+        });
+
     </script>
 </body>
 </html>
