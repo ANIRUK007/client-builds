@@ -3,57 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Closet by Vinaya | Custom Outfits in 48 Hours</title>
-    
+    <title>Aura Closet by Vinaya | Custom Occasion Wear in Hyderabad</title>
+    <meta name="description" content="Custom-designed occasion wear for weddings and celebrations in Hyderabad. We design, stitch, and deliver your perfect outfit to your doorstep in 48 hours.">
+
     <!-- CDNs -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-brand: #6D1F2B;
-            --secondary-brand: #F9EAE5;
-            --accent-brand: #C9A87C;
-            --background-light: #FEFBF9;
-            --text-primary: #21090D;
-            --text-light: #FFFFFF;
+            --surface: #FCF8F6;
+            --surface-alt: #F9F3F1;
+            --text: #3A1E22;
+            --text-muted: #7B6A6C;
+            --border: #A1857B; /* Corrected from #B3968C to meet 3:1 contrast on #FCF8F6 */
+            --brand: #6D1F2B;
+            --brand-on: #FCF8F6;
+            --accent: #8B6D45;
         }
+
         body {
-            background-color: var(--background-light);
-            color: var(--text-primary);
+            background-color: var(--surface);
+            color: var(--text);
             font-family: 'Lato', sans-serif;
         }
+
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
         }
-        .hero-overlay::after {
+        
+        .hero-scrim::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: var(--brand);
+            opacity: 0.5;
             z-index: 1;
         }
+
         .hero-content {
-            position: relative;
             z-index: 2;
-        }
-        .header-scrolled {
-            background-color: rgba(254, 251, 249, 0.95);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(8px);
         }
     </style>
 
@@ -62,192 +63,183 @@
             theme: {
                 extend: {
                     colors: {
-                        'primary-brand': 'var(--primary-brand)',
-                        'secondary-brand': 'var(--secondary-brand)',
-                        'accent-brand': 'var(--accent-brand)',
-                        'background-light': 'var(--background-light)',
-                        'text-primary': 'var(--text-primary)',
-                        'text-light': 'var(--text-light)',
+                        'surface': 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        'text': 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        'border': 'var(--border)',
+                        'brand': 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        'accent': 'var(--accent)',
                     },
                     fontFamily: {
-                        heading: ['Cormorant Garamond', 'serif'],
-                        body: ['Lato', 'sans-serif'],
-                    },
+                        'heading': ['Playfair Display', 'serif'],
+                        'body': ['Lato', 'sans-serif'],
+                    }
                 }
             }
         }
     </script>
 </head>
+
 <body class="antialiased">
 
-    <!-- Header -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <!-- Header & Navbar -->
+    <header id="navbar" class="bg-surface/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 border-b border-border/50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-heading text-xl md:text-2xl font-semibold text-text-primary">Aura Closet by Vinaya</a>
-            <nav class="hidden md:flex space-x-8 items-center">
-                <a href="#creations" class="hover:text-primary-brand transition-colors">Creations</a>
-                <a href="#gallery" class="hover:text-primary-brand transition-colors">Gallery</a>
-                <a href="#process" class="hover:text-primary-brand transition-colors">Process</a>
-                <a href="#contact" class="hover:text-primary-brand transition-colors">Contact</a>
-            </nav>
-            <a href="tel:917780598107" class="hidden md:inline-block bg-primary-brand text-text-light px-6 py-2 rounded-md hover:opacity-90 transition-opacity">
-                Discuss Your Outfit
+            <a href="#" class="text-xl font-heading font-bold text-brand">
+                Aura Closet by Vinaya
             </a>
-            <button id="mobile-menu-button" class="md:hidden">
-                <i data-lucide="menu" class="h-6 w-6"></i>
-            </button>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#what_we_make" class="text-text hover:text-brand transition-colors">What We Make</a>
+                <a href="#how_it_works" class="text-text hover:text-brand transition-colors">How It Works</a>
+                <a href="#our_work" class="text-text hover:text-brand transition-colors">Our Work</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="hidden md:inline-block bg-brand text-brand-on px-6 py-2 rounded-full hover:opacity-90 transition-opacity">Contact</a>
+                <button id="mobile-menu-button" class="md:hidden p-2" aria-label="Open menu">
+                    <i data-lucide="menu" class="text-text"></i>
+                </button>
+            </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-background-light/95 backdrop-blur-sm">
-            <nav class="flex flex-col items-center space-y-4 py-8">
-                <a href="#creations" class="text-lg hover:text-primary-brand transition-colors">Creations</a>
-                <a href="#gallery" class="text-lg hover:text-primary-brand transition-colors">Gallery</a>
-                <a href="#process" class="text-lg hover:text-primary-brand transition-colors">Process</a>
-                <a href="#contact" class="text-lg hover:text-primary-brand transition-colors">Contact</a>
-                <a href="tel:917780598107" class="mt-4 bg-primary-brand text-text-light px-8 py-3 rounded-md hover:opacity-90 transition-opacity">
-                    Discuss Your Outfit
-                </a>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <nav class="flex flex-col space-y-4">
+                <a href="#what_we_make" class="text-text hover:text-brand transition-colors block">What We Make</a>
+                <a href="#how_it_works" class="text-text hover:text-brand transition-colors block">How It Works</a>
+                <a href="#our_work" class="text-text hover:text-brand transition-colors block">Our Work</a>
+                <a href="#contact" class="bg-brand text-brand-on px-6 py-2 rounded-full hover:opacity-90 transition-opacity block text-center mt-2">Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
-
         <!-- Hero Section -->
-        <section id="hero" class="relative min-h-screen flex items-center justify-center bg-cover bg-center hero-overlay" style="background-image: url('https://images.unsplash.com/photo-1756483510864-5bc7bdc3cf22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q3VzdG9taXNlZCUyMG9jY2FzaW9uJTIwd2VhcnxlbnwxfDB8fHwxNzg5OTMxODg4fDA&ixlib=rb-4.1.0&q=80&w=1080');">
-            <div class="hero-content text-center text-text-light px-6">
-                <h1 class="text-4xl md:text-6xl font-semibold mb-4 opacity-0" data-gsap="hero-h1">Your Custom-Designed Outfit, Ready in 48 Hours</h1>
-                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 opacity-0" data-gsap="hero-p">Bespoke bridal wear, lehengas, and occasion outfits, stitched to perfection in Hyderabad. We design memories.</p>
-                <a href="tel:917780598107" class="bg-primary-brand text-text-light px-8 py-3 rounded-md text-lg font-bold hover:opacity-90 transition-opacity opacity-0" data-gsap="hero-btn">Discuss Your Outfit</a>
+        <section id="hero" class="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat hero-scrim" style="background-image: url('https://images.unsplash.com/photo-1756483510864-5bc7bdc3cf22?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q3VzdG9taXNlZCUyMG9jY2FzaW9uJTIwd2VhcnxlbnwxfDB8fHwxNzg5OTMxODg4fDA&ixlib=rb-4.1.0&q=80&w=1080');">
+            <div class="relative hero-content text-center text-brand-on px-6">
+                <h1 class="text-5xl md:text-7xl font-heading leading-tight mb-4 opacity-0" id="hero-heading">Your Perfect Outfit, Ready in 48 Hours.</h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-0" id="hero-subheading">Custom-designed occasion wear for weddings and celebrations in Hyderabad. We design, stitch, and deliver to your doorstep.</p>
+                <a href="#contact" class="mt-8 inline-block bg-accent text-brand-on px-10 py-4 rounded-full font-bold uppercase tracking-wider hover:scale-105 transition-transform opacity-0" id="hero-cta">Start Your Design</a>
             </div>
         </section>
 
-        <!-- ServiceList Section -->
-        <section id="creations" class="py-20 md:py-32">
+        <!-- What We Make Section -->
+        <section id="what_we_make" class="py-20 md:py-32 bg-surface-alt">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-4xl md:text-5xl font-heading mb-6">Your Style. Your Fit. For Any Occasion.</h2>
+                        <p class="text-text-muted mb-8 text-lg">We create bespoke apparel tailored to your exact measurements, style, and budget. From intricate bridal wear to sharp men's suits, every piece is crafted with care.</p>
+                        <ul class="grid grid-cols-2 gap-x-8 gap-y-4 text-text">
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 mr-3 text-accent"></i>Bridal Outfits</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 mr-3 text-accent"></i>Groom Wear</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 mr-3 text-accent"></i>Designer Blouses</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 mr-3 text-accent"></i>Lehengas</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 mr-3 text-accent"></i>Frocks</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-5 h-5 mr-3 text-accent"></i>Men's Wear</li>
+                        </ul>
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1773609688714-98d3057294f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Ym91dGlxdWUlMjBzb2Z0fGVufDF8MHx8fDE3ODk5MzE4ODd8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Folded pink and white patterned textiles with delicate white flowers on a wooden shelf." class="rounded-lg shadow-xl w-full h-auto object-cover aspect-square">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how_it_works" class="py-20 md:py-32 bg-surface">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl md:text-5xl font-semibold mb-4" data-aos="fade-up">For Every Special Moment in Your Life</h2>
-                <p class="max-w-3xl mx-auto text-lg mb-12" data-aos="fade-up" data-aos-delay="100">We create unique apparel tailored to your personal style, precise measurements, and budget.</p>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6 max-w-4xl mx-auto text-left" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center space-x-3">
-                        <i data-lucide="sparkle" class="h-5 w-5 text-accent-brand"></i>
-                        <span>Bridal Outfits</span>
+                <h2 class="text-4xl md:text-5xl font-heading mb-16" data-aos="fade-up">From Consultation to Your Closet in 48 Hours</h2>
+                <div class="grid md:grid-cols-3 gap-10 lg:gap-16">
+                    <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="0">
+                        <div class="flex items-center justify-center w-16 h-16 rounded-full bg-accent/20 text-accent mb-6">
+                            <span class="text-2xl font-bold font-heading">1</span>
+                        </div>
+                        <h3 class="text-2xl font-heading mb-3">We Collect & Consult</h3>
+                        <p class="text-text-muted">We start with a conversation about your vision. Our pick-up service then collects your materials from your location.</p>
                     </div>
-                    <div class="flex items-center space-x-3">
-                        <i data-lucide="sparkle" class="h-5 w-5 text-accent-brand"></i>
-                        <span>Groom Wear</span>
+                    <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+                         <div class="flex items-center justify-center w-16 h-16 rounded-full bg-accent/20 text-accent mb-6">
+                            <span class="text-2xl font-bold font-heading">2</span>
+                        </div>
+                        <h3 class="text-2xl font-heading mb-3">We Design & Stitch</h3>
+                        <p class="text-text-muted">Our team gets to work, bringing your custom design to life with precision and care, completing it within two days.</p>
                     </div>
-                    <div class="flex items-center space-x-3">
-                        <i data-lucide="sparkle" class="h-5 w-5 text-accent-brand"></i>
-                        <span>Designer Blouses</span>
+                    <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
+                         <div class="flex items-center justify-center w-16 h-16 rounded-full bg-accent/20 text-accent mb-6">
+                            <span class="text-2xl font-bold font-heading">3</span>
+                        </div>
+                        <h3 class="text-2xl font-heading mb-3">We Deliver</h3>
+                        <p class="text-text-muted">Your finished outfit is delivered right back to your doorstep, ready for your special occasion.</p>
                     </div>
-                    <div class="flex items-center space-x-3">
-                        <i data-lucide="sparkle" class="h-5 w-5 text-accent-brand"></i>
-                        <span>Lehengas</span>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <i data-lucide="sparkle" class="h-5 w-5 text-accent-brand"></i>
-                        <span>Frocks for Occasions</span>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <i data-lucide="sparkle" class="h-5 w-5 text-accent-brand"></i>
-                        <span>Custom Men's Wear</span>
-                    </div>
+                </div>
+                <div class="mt-16 bg-surface-alt border border-border p-6 rounded-lg max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="500">
+                    <p class="text-text-muted"><strong class="text-text">Our Service Area:</strong> Pick-up and drop-off service is available across Manikonda, Kokapet, KPHB Layout, Banjara Hills, Gachibowli, and Alkapur Township.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ImageGallery Section -->
-        <section id="gallery" class="py-20 md:py-32 bg-secondary-brand">
+        <!-- Our Work Section -->
+        <section id="our_work" class="py-20 md:py-32 bg-surface-alt">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-semibold text-center mb-12" data-aos="fade-up">Your Style. Your Fit. Your Perfect Outfit.</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-                    <div data-aos="fade-up">
-                        <img src="https://images.unsplash.com/photo-1756483510837-83203eba47e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Q3VzdG9taXNlZCUyMG9jY2FzaW9uJTIwd2VhcnxlbnwxfDB8fHwxNzg5OTMxODg4fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Three women in golden gowns stand against blue wall" class="w-full h-full object-cover aspect-square rounded-lg shadow-lg">
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.unsplash.com/photo-1773609688714-98d3057294f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Ym91dGlxdWUlMjBzb2Z0fGVufDF8MHx8fDE3ODk5MzE4ODd8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Pink and white textiles with flowers on a shelf" class="w-full h-full object-cover aspect-square rounded-lg shadow-lg">
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1652160745546-9c429c9ed0a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q3VzdG9taXNlZCUyMG9jY2FzaW9uJTIwd2VhcnxlbnwxfDB8fHwxNzg5OTMxODg4fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="a child in a uniform" class="w-full h-full object-cover aspect-square rounded-lg shadow-lg">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ProcessSteps Section -->
-        <section id="process" class="py-20 md:py-32">
-            <div class="container mx-auto px-6">
-                <h2 class="text-4xl md:text-5xl font-semibold text-center mb-16" data-aos="fade-up">From Consultation to Delivery in Two Days</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-                    <!-- Step 1 -->
-                    <div class="text-center" data-aos="fade-up">
-                        <div class="relative inline-block">
-                            <span class="text-7xl font-bold font-heading text-secondary-brand">01</span>
-                            <h3 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-semibold">Consult & Pick-Up</h3>
-                        </div>
-                        <p class="mt-4 max-w-xs mx-auto">We discuss your vision over the phone and then collect your materials and measurements right from your doorstep.</p>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                        <div class="relative inline-block">
-                            <span class="text-7xl font-bold font-heading text-secondary-brand">02</span>
-                            <h3 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-semibold">Design & Stitch</h3>
-                        </div>
-                        <p class="mt-4 max-w-xs mx-auto">Our skilled team brings your design to life, focusing on a flawless fit and finish with expert craftsmanship.</p>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                        <div class="relative inline-block">
-                            <span class="text-7xl font-bold font-heading text-secondary-brand">03</span>
-                            <h3 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-semibold">Trial & Drop-Off</h3>
-                        </div>
-                        <p class="mt-4 max-w-xs mx-auto">We deliver the completed outfit back to you within 48 hours for a final trial. Your perfect fit is our promise.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ContactCTA Section -->
-        <section id="contact" class="py-20 md:py-32 bg-secondary-brand">
-            <div class="container mx-auto px-6 text-center" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-semibold mb-4">We Don’t Just Stitch Outfits—We Design Memories</h2>
-                <p class="max-w-3xl mx-auto text-lg mb-8">Our convenient pick-up and drop-off service is available across Manikonda, Kokapet, KPHB Layout, Banjara Hills, Gachibowli, and Alkapur Township.</p>
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-10">
-                    <a href="tel:917780598107" class="flex items-center space-x-2 text-text-primary hover:text-primary-brand transition-colors">
-                        <i data-lucide="phone"></i>
-                        <span>917780598107</span>
-                    </a>
-                    <a href="https://www.instagram.com/auracloset07" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-text-primary hover:text-primary-brand transition-colors">
-                        <i data-lucide="instagram"></i>
-                        <span>@auracloset07</span>
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-heading mb-4">We don’t just stitch outfits—we design memories.</h2>
+                    <a href="https://www.instagram.com/auracloset07" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand hover:underline">
+                        See more of our work on Instagram <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
                     </a>
                 </div>
-                <a href="tel:917780598107" class="bg-primary-brand text-text-light px-8 py-3 rounded-md text-lg font-bold hover:opacity-90 transition-opacity">
-                    Call Vinaya to Start
-                </a>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-span-2 md:col-span-4 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1756483510837-83203eba47e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Q3VzdG9taXNlZCUyMG9jY2FzaW9uJTIwd2VhcnxlbnwxfDB8fHwxNzg5OTMxODg4fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Three women in elegant golden gowns against a blue wall." class="w-full h-full object-cover aspect-[2/1] hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="col-span-2 md:col-span-2 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1774124055560-37a5ff05617e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Ym91dGlxdWUlMjBzb2Z0fGVufDF8MHx8fDE3ODk5MzE4ODd8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Fabric color swatches arranged by shade in a wooden shelf." class="w-full h-full object-cover aspect-video hover:scale-105 transition-transform duration-300">
+                    </div>
+                     <div class="col-span-2 md:col-span-2 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1742836531205-39cf07aee395?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Ym91dGlxdWUlMjBzb2Z0fGVufDF8MHx8fDE3ODk5MzE4ODd8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A person arranging pink flowers at a desk, with a computer screen visible." class="w-full h-full object-cover aspect-video hover:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA Section -->
+        <section id="contact" class="py-20 md:py-32 bg-brand">
+            <div class="container mx-auto px-6 text-center text-brand-on">
+                <h2 class="text-4xl md:text-5xl font-heading mb-4" data-aos="fade-up">Let's Create Your Outfit</h2>
+                <p class="max-w-2xl mx-auto text-lg mb-8" data-aos="fade-up" data-aos-delay="100">Ready to begin? Call or WhatsApp us to schedule your free consultation and arrange a pick-up.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6" data-aos="fade-up" data-aos-delay="200">
+                    <a href="tel:+91917780598107" class="inline-flex items-center justify-center bg-accent text-brand-on px-10 py-4 rounded-full font-bold uppercase tracking-wider hover:scale-105 transition-transform">
+                        <i data-lucide="phone" class="w-5 h-5 mr-3"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/91917780598107" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-transparent border-2 border-brand-on text-brand-on px-10 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-brand-on hover:text-brand transition-colors">
+                        <i data-lucide="message-circle" class="w-5 h-5 mr-3"></i> WhatsApp
+                    </a>
+                </div>
             </div>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="py-12 bg-gray-100">
-        <div class="container mx-auto px-6 text-center text-text-primary/70">
-            <p class="font-semibold mb-2">Aura Closet by Vinaya</p>
-            <p class="text-sm mb-4">Servicing Manikonda, Kokapet, KPHB Layout, Banjara Hills, Gachibowli, & Alkapur Township.</p>
-            <div class="flex justify-center space-x-4">
-                <a href="https://www.instagram.com/auracloset07" target="_blank" rel="noopener noreferrer" class="hover:text-primary-brand transition-colors" aria-label="Instagram">
-                    <i data-lucide="instagram"></i>
+    <footer class="bg-surface-alt py-12">
+        <div class="container mx-auto px-6 text-center text-text-muted">
+            <p class="font-heading text-lg text-text mb-4">Aura Closet by Vinaya</p>
+            <div class="flex justify-center items-center space-x-6 mb-6">
+                <a href="tel:+91917780598107" class="hover:text-brand transition-colors flex items-center">
+                    <i data-lucide="phone" class="w-4 h-4 mr-2"></i>917780598107
                 </a>
-                <a href="tel:917780598107" class="hover:text-primary-brand transition-colors" aria-label="Phone">
-                    <i data-lucide="phone"></i>
+                <a href="https://www.instagram.com/auracloset07" target="_blank" rel="noopener noreferrer" class="hover:text-brand transition-colors flex items-center">
+                    <i data-lucide="instagram" class="w-4 h-4 mr-2"></i>auracloset07
                 </a>
             </div>
-            <p class="text-xs mt-6">&copy; <span id="current-year"></span> Aura Closet by Vinaya. All Rights Reserved.</p>
+            <p class="text-sm">&copy; 2024 Aura Closet by Vinaya. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Lucide Icons
+        lucide.createIcons();
+
         // AOS Initialization
         AOS.init({
             duration: 800,
@@ -255,42 +247,42 @@
             offset: 50,
         });
 
-        // Lucide Icons
-        lucide.createIcons();
-        
-        // Current Year for Footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        
+        // GSAP Hero Animation
+        gsap.timeline({defaults: {ease: "power3.out"}})
+            .fromTo("#hero-heading", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 0.5)
+            .fromTo("#hero-subheading", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 0.8)
+            .fromTo("#hero-cta", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1 }, 1.1);
+
         // Mobile Menu Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = mobileMenu.querySelectorAll('a');
+
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-
-        // Close mobile menu when a link is clicked
-        const mobileNavLinks = mobileMenu.querySelectorAll('a');
-        mobileNavLinks.forEach(link => {
+        
+        // Hide mobile menu when a link is clicked
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
         });
-
-        // Sticky Header Background on Scroll
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('header-scrolled');
+        
+        // Hide navbar on scroll down, show on scroll up
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // downscroll
+                navbar.style.top = "-100px";
             } else {
-                header.classList.remove('header-scrolled');
+                // upscroll
+                navbar.style.top = "0";
             }
-        });
-
-        // GSAP Animations for Hero Section
-        gsap.from("[data-gsap='hero-h1']", { opacity: 0, y: 20, duration: 0.8, delay: 0.3 });
-        gsap.from("[data-gsap='hero-p']", { opacity: 0, y: 20, duration: 0.8, delay: 0.5 });
-        gsap.from("[data-gsap='hero-btn']", { opacity: 0, y: 20, duration: 0.8, delay: 0.7 });
-
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
     </script>
 </body>
 </html>
