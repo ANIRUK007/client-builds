@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felice by Mahathi | Custom Cakes in Hyderabad</title>
+    <meta name="description" content="Visually delicate and highly customized themed cakes by Felice by Mahathi, made with love in Hyderabad for birthdays, baby showers, and every special moment.">
+
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Raleway:wght@400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --surface: #F9F8F8;
+            --surface-alt: #F0EDEE;
+            --text: #351D25;
+            --text-muted: #815664;
+            --border: #A4848F;
+            --brand: #671E37;
+            --brand-on: #F9F8F8;
+            --accent: #836B21;
+            --accent-on: #F9F8F8;
+        }
+
+        body {
+            background-color: var(--surface);
+            color: var(--text);
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        .font-heading {
+            font-family: 'Caveat', cursive;
+        }
+
+        .font-body {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .masonry-grid {
+            column-gap: 1.5rem;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': '#F9F8F8',
+                        'surface-alt': '#F0EDEE',
+                        'text': '#351D25',
+                        'text-muted': '#815664',
+                        'border': '#A4848F',
+                        'brand': '#671E37',
+                        'brand-on': '#F9F8F8',
+                        'accent': '#836B21',
+                        'accent-on': '#F9F8F8'
+                    },
+                    fontFamily: {
+                        heading: ['Caveat', 'cursive'],
+                        body: ['Raleway', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-surface/80 backdrop-blur-lg border-b border-border/50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-heading text-2xl text-brand tracking-wide">Felice by Mahathi</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#gallery" class="text-text hover:text-brand transition-colors duration-300">Gallery</a>
+                <a href="#order" class="text-text hover:text-brand transition-colors duration-300">Order</a>
+            </nav>
+            <div class="md:hidden">
+                <a href="#order" class="text-text hover:text-brand transition-colors duration-300">Order</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="relative h-[90vh] min-h-[500px] flex items-center justify-center text-center text-brand-on">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1604702433171-33756f3f3825?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8RGV0YWlsZWQlMjBjYWtlJTIwYXJ0aXN0cnl8ZW58MXwwfHx8MTc5MDA5MjgwM3ww&ixlib=rb-4.1.0&q=80&w=1080');">
+                <div class="absolute inset-0 bg-brand/40"></div>
+            </div>
+            <div class="relative z-10 p-6 max-w-2xl">
+                <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl hero-text opacity-0">Handcrafted Cakes for Your Hyderabad Celebration</h1>
+                <p class="mt-4 text-lg md:text-xl font-light hero-text opacity-0">Visually delicate and highly customized themed cakes, made with love for birthdays, baby showers, and every special moment.</p>
+                <a href="#gallery" class="inline-block bg-accent text-accent-on px-8 py-3 mt-8 rounded-sm text-lg font-body tracking-wider hover:bg-opacity-90 transition-all duration-300 hero-text opacity-0">
+                    Explore the Gallery
+                </a>
+            </div>
+        </section>
+
+        <!-- Cake Gallery Section -->
+        <section id="gallery" class="py-16 md:py-24 bg-surface-alt">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                    <h2 class="font-heading text-5xl md:text-6xl text-brand">From Princess Themes to Buttercream Dreams</h2>
+                    <p class="mt-4 text-lg text-text-muted">A showcase of custom designs created for past celebrations. Each cake is a unique piece of art, tailored to the occasion.</p>
+                </div>
+
+                <div class="masonry-grid mt-12 sm:columns-2 lg:columns-3">
+                    <div class="masonry-item" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q3VzdG9tJTIwY2VsZWJyYXRpb24lMjBjYWtlc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A chocolate cake with frosting roses and Happy Birthday written in icing" class="w-full h-auto rounded-sm object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1765947382841-24c48f1c987e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8VGhlbWVkJTIwZGVzaWducyUyMCUyOGJhYnklMjBzaG93ZXIlMkMlMjBwcmluY2VzcyUyOXxlbnwxfDB8fHwxNzkwMDkyODAyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Mickey and minnie mouse figures at a castle-themed birthday party" class="w-full h-auto rounded-sm object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1629576690723-bb3a22ae7126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8RGV0YWlsZWQlMjBjYWtlJTIwYXJ0aXN0cnl8ZW58MXwwfHx8MTc5MDA5MjgwM3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="white and green floral table cloth" class="w-full h-auto rounded-sm object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Q3VzdG9tJTIwY2VsZWJyYXRpb24lMjBjYWtlc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="pink and white floral cake" class="w-full h-auto rounded-sm object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1786218423065-7c36df2b9bd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8VGhlbWVkJTIwZGVzaWducyUyMCUyOGJhYnklMjBzaG93ZXIlMkMlMjBwcmluY2VzcyUyOXxlbnwxfDB8fHwxNzkwMDkyODAyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman in a purple floral dress sitting inside a white metal carriage" class="w-full h-auto rounded-sm object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1660383534593-6b5221ab80d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q3VzdG9tJTIwY2VsZWJyYXRpb24lMjBjYWtlc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="a cake with fruit on top" class="w-full h-auto rounded-sm object-cover transition-transform duration-300 hover:scale-105">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Order Section -->
+        <section id="order" class="bg-brand text-brand-on py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center max-w-3xl">
+                <div data-aos="fade-up">
+                    <h2 class="font-heading text-5xl md:text-6xl">Bringing Your Custom Cake to Life</h2>
+                    <p class="mt-4 text-lg max-w-2xl mx-auto">All cakes are custom-made to order. To start a conversation about your design, please get in touch via Instagram. I look forward to baking for your special day!</p>
+                </div>
+
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-brand-on/10 font-heading text-2xl">1</div>
+                        <div>
+                            <h3 class="font-body font-semibold text-xl">DM on Instagram</h3>
+                            <p class="mt-1 text-brand-on/80">Send a message to @felicebakes_ with your event date, theme ideas, and number of guests.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-brand-on/10 font-heading text-2xl">2</div>
+                        <div>
+                            <h3 class="font-body font-semibold text-xl">Collaborate on Design</h3>
+                            <p class="mt-1 text-brand-on/80">We'll discuss your vision, colours, and flavours to finalize the perfect cake details.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-brand-on/10 font-heading text-2xl">3</div>
+                        <div>
+                            <h3 class="font-body font-semibold text-xl">Confirm Your Order</h3>
+                            <p class="mt-1 text-brand-on/80">Once the design is set, your spot in the baking schedule is confirmed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://www.instagram.com/felicebakes_" target="_blank" rel="noopener noreferrer" class="inline-block bg-accent text-accent-on px-10 py-4 rounded-sm text-lg font-body tracking-wider hover:bg-opacity-90 transition-all duration-300">
+                        Message on Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt py-8">
+        <div class="container mx-auto px-6 text-center text-text-muted">
+            <p class="font-heading text-xl text-brand">Felice by Mahathi</p>
+            <p class="mt-2 text-sm">Custom Cake Artistry in Hyderabad</p>
+            <div class="mt-4 flex justify-center">
+                <a href="https://www.instagram.com/felicebakes_" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-brand transition-colors duration-300">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            once: true,
+            duration: 800,
+            offset: 100,
+        });
+
+        // Create Lucide Icons
+        lucide.createIcons();
+        
+        // GSAP Animations
+        // Animate hero text on page load
+        gsap.from(".hero-text", {
+            duration: 1,
+            y: 30,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power2.out",
+            delay: 0.5
+        });
+    </script>
+</body>
+</html>
