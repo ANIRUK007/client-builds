@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Oven | Custom Themed Cakes in Kompally, Hyderabad</title>
+    <meta name="description" content="Magic Oven in Kompally, Hyderabad, brings your personal themes to life with intricately designed, custom-made cakes for any celebration.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Swiper (not used per components, but included as per requirements) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <style>
+        :root {
+            --surface: #F9F9F9;
+            --surface-alt: #EEEEEE;
+            --text: #292929;
+            --text-muted: #6B6B6B;
+            --border: #8F8F8F;
+            --brand: #562E2E;
+            --brand-on: #F9F9F9;
+            --accent: #836B21;
+        }
+        /* For masonry-like gallery */
+        .gallery-item {
+            break-inside: avoid;
+        }
+        .header-scrolled {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            background-color: rgba(249, 249, 249, 0.95);
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        text: 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        border: 'var(--border)',
+                        brand: 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        accent: 'var(--accent)',
+                    },
+                    fontFamily: {
+                        lora: ['Lora', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-surface text-text font-montserrat antialiased">
+
+    <!-- Header -->
+    <header id="page-header" class="sticky top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-lora font-bold text-brand">
+                    Magic Oven
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#gallery" class="text-text hover:text-accent transition-colors">Gallery</a>
+                    <a href="#how-to-order" class="text-text hover:text-accent transition-colors">How to Order</a>
+                    <a href="#contact" class="text-text hover:text-accent transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" type="button" class="z-40">
+                        <i data-lucide="menu" class="w-6 h-6 text-brand"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full bg-surface-alt shadow-lg">
+            <div class="flex flex-col items-center space-y-6 py-8 mt-16">
+                 <a href="#gallery" class="text-text hover:text-accent transition-colors mobile-nav-link">Gallery</a>
+                <a href="#how-to-order" class="text-text hover:text-accent transition-colors mobile-nav-link">How to Order</a>
+                <a href="#contact" class="text-text hover:text-accent transition-colors mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1557979619-445218f326b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q3VzdG9tJTIwdGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4MjM5OHww&ixlib=rb-4.1.0&q=80&w=1080');">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative z-10 text-center text-brand-on px-6">
+                <h1 class="text-4xl md:text-6xl font-lora font-bold" data-aos="fade-up">
+                    Your Story, Crafted in Cake
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl font-montserrat" data-aos="fade-up" data-aos-delay="200">
+                    Magic Oven in Kompally, Hyderabad, brings your personal themes to life with intricately designed, custom-made cakes for any celebration.
+                </p>
+                <a href="#gallery" class="inline-block mt-8 px-8 py-3 bg-brand-on text-brand font-semibold rounded-md hover:bg-surface-alt transition-colors" data-aos="fade-up" data-aos-delay="400">
+                    See The Cakes
+                </a>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section id="gallery" class="py-20 md:py-28 scroll-mt-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-lora font-bold text-brand" data-aos="fade-up">From Hobbies to Heroes: Cakes for Every Celebration</h2>
+                </div>
+                <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6">
+                    <div class="mb-4 sm:mb-6 gallery-item group relative overflow-hidden rounded-lg" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q3VzdG9tJTIwdGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4MjM5OHww&ixlib=rb-4.1.0&q=80&w=1080" alt="pink and white floral cake" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-brand-on text-center px-4">Elegant floral designs</p>
+                        </div>
+                    </div>
+                     <div class="mb-4 sm:mb-6 gallery-item group relative overflow-hidden rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1578922864601-79dcc7cbcea9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8S2lkcyUyNyUyMGJpcnRoZGF5JTIwY2VsZWJyYXRpb25zfGVufDF8MHx8fDE3OTAwOTI1NzB8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="pink cupcakes on tray" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+                         <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-brand-on text-center px-4">Perfect for kids' parties</p>
+                        </div>
+                    </div>
+                     <div class="mb-4 sm:mb-6 gallery-item group relative overflow-hidden rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1627013817723-3bbb5166cc50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Q3VzdG9tJTIwdGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4MjM5OHww&ixlib=rb-4.1.0&q=80&w=1080" alt="white and blue cake with strawberry on top" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+                         <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-brand-on text-center px-4">Fresh and fruity themes</p>
+                        </div>
+                    </div>
+                     <div class="mb-4 sm:mb-6 gallery-item group relative overflow-hidden rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1531956531700-dc0ee0f1f9a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8S2lkcyUyNyUyMGJpcnRoZGF5JTIwY2VsZWJyYXRpb25zfGVufDF8MHx8fDE3OTAwOTI1NzB8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="birthday decor lot with animal figures and party hats" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110">
+                         <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-brand-on text-center px-4">Cakes that match your party decor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Steps Section -->
+        <section id="how-to-order" class="bg-surface-alt py-20 md:py-28 scroll-mt-20">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-lora font-bold text-brand">Bring Your Idea to Life in Three Steps</h2>
+                </div>
+                <div class="space-y-12 md:space-y-16">
+                    <div class="text-center" data-aos="fade-up">
+                        <div class="font-lora text-7xl font-bold text-brand/20">1</div>
+                        <h3 class="text-2xl font-lora font-semibold text-brand mt-2">Share Your Vision</h3>
+                        <p class="mt-2 max-w-xl mx-auto text-text-muted">Send a message with your theme, idea, or reference photos. Whether it's a profession, a hobby, or a favorite character, we'll start creating from your inspiration.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="150">
+                        <div class="font-lora text-7xl font-bold text-brand/20">2</div>
+                        <h3 class="text-2xl font-lora font-semibold text-brand mt-2">Finalize The Design</h3>
+                        <p class="mt-2 max-w-xl mx-auto text-text-muted">We'll collaborate with you to confirm the final design, size, and flavors to make sure the cake is perfect for your special occasion.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="font-lora text-7xl font-bold text-brand/20">3</div>
+                        <h3 class="text-2xl font-lora font-semibold text-brand mt-2">Magic in the Oven</h3>
+                        <p class="mt-2 max-w-xl mx-auto text-text-muted">Your unique, edible art will be freshly baked and intricately decorated, ready for your celebration here in Kompally.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call To Action Section -->
+        <section id="contact" class="bg-brand py-20 md:py-28 scroll-mt-20">
+            <div class="container mx-auto px-6 text-center text-brand-on">
+                <h2 class="text-3xl md:text-4xl font-lora font-bold" data-aos="fade-up">
+                    Let's Create a Customised Cake
+                </h2>
+                <p class="mt-4 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="150">
+                    Ready to get started? Send a direct message on Instagram to discuss your ideas and place an order.
+                </p>
+                <a href="https://instagram.com/magic.oven01" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-8 px-8 py-3 bg-accent text-brand-on font-semibold rounded-md hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="300">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                    Message on Instagram
+                </a>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-surface py-10">
+        <div class="container mx-auto px-6 text-center text-text-muted">
+            <p class="font-lora font-bold text-lg text-brand">Magic Oven</p>
+            <p class="mt-2">Kompally, Hyderabad</p>
+            <div class="mt-4 flex items-center justify-center space-x-2">
+                <i data-lucide="instagram" class="w-4 h-4 text-text-muted"></i>
+                <a href="https://instagram.com/magic.oven01" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">
+                    @magic.oven01
+                </a>
+            </div>
+            <p class="mt-2 text-sm">#homebakerhyderabad</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Create Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('svg');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        };
+        
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Sticky Header Style Change
+        const header = document.getElementById('page-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+    </script>
+</body>
+</html>
