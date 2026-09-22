@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamboree Confetteria | Custom Themed Cakes in Hyderabad</title>
+    <meta name="description" content="Jamboree Confetteria creates one-of-a-kind themed cakes in Hyderabad, turning your special occasions and unique ideas into delicious, edible art.">
+
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --surface: #F9F9F8;
+            --surface-alt: #F0EFED;
+            --text: #352B1D;
+            --text-muted: #7A6A52;
+            --border: #9B8D78;
+            --brand: #5F4826;
+            --brand-on: #F9F9F8;
+            --accent: #A35C29;
+            --accent-on: #F9F9F8;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+        
+        .gallery-item .caption {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover .caption,
+        .gallery-item:focus-within .caption {
+            opacity: 1;
+        }
+
+        #how-to-order ol {
+            counter-reset: item;
+            list-style-type: none;
+        }
+
+        #how-to-order li::before {
+            content: "0" counter(item);
+            counter-increment: item;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--brand-on);
+            opacity: 0.5;
+            font-size: 1.875rem; /* text-3xl */
+            line-height: 1;
+            margin-right: 1rem;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        'text': 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        'border': 'var(--border)',
+                        'brand': 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        'accent': 'var(--accent)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Nunito Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-surface text-text">
+
+    <header id="main-header" class="sticky top-0 z-50 bg-surface/80 backdrop-blur-lg transition-shadow duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-heading font-bold text-brand">Jamboree Confetteria</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#gallery" class="text-text-muted hover:text-text transition-colors">Gallery</a>
+                <a href="#flavours" class="text-text-muted hover:text-text transition-colors">Flavours</a>
+                <a href="#about" class="text-text-muted hover:text-text transition-colors">About</a>
+                <a href="#final-cta" class="text-text-muted hover:text-text transition-colors">Order</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-text">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-border">
+            <a href="#gallery" class="block py-3 px-6 text-text-muted hover:text-text transition-colors">Gallery</a>
+            <a href="#flavours" class="block py-3 px-6 text-text-muted hover:text-text transition-colors">Flavours</a>
+            <a href="#about" class="block py-3 px-6 text-text-muted hover:text-text transition-colors">About</a>
+            <a href="#final-cta" class="block py-3 px-6 text-text-muted hover:text-text transition-colors">Order</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="container mx-auto px-6 py-16 md:py-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-6xl font-heading font-bold text-brand leading-tight mb-4 hero-h1">Your Inside Jokes, Baked Into a Cake.</h1>
+                    <p class="text-lg text-text-muted mb-8 max-w-lg mx-auto md:mx-0 hero-p">Jamboree Confetteria creates one-of-a-kind themed cakes in Hyderabad, turning your special occasions and unique ideas into delicious, edible art.</p>
+                    <a href="https://www.instagram.com/jamboree_confetteria" target="_blank" rel="noopener noreferrer"
+                       class="inline-block bg-accent text-accent-on font-semibold py-3 px-8 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105 hero-cta">
+                        Order on Instagram
+                    </a>
+                </div>
+                <div data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1557979619-445218f326b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8VGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTQxMnww&ixlib=rb-4.1.0&q=80&w=1080" 
+                         alt="M&M pack pouring candies on M&M cake's mouth on marble surface" 
+                         class="rounded-lg shadow-xl w-full h-auto object-cover aspect-square">
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="bg-surface-alt py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand mb-4">From Hobbies to Heartfelt Messages</h2>
+                    <p class="text-lg text-text-muted">A gallery of our recent creations, from intricate floral designs to cakes that celebrate personal passions.</p>
+                </div>
+                <div class="columns-1 sm:columns-2 lg:columns-3 gap-4" data-aos="fade-up" data-aos-delay="200">
+                    
+                    <div class="gallery-item relative overflow-hidden rounded-lg group shadow-md mb-4">
+                        <img src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q3VzdG9taXplZCUyMGJpcnRoZGF5JTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTQxMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="pink and white floral cake" class="w-full h-auto">
+                        <div class="caption absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+                            <p class="text-white text-center font-semibold">Intricate Floral Designs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item relative overflow-hidden rounded-lg group shadow-md mb-4">
+                        <img src="https://images.unsplash.com/photo-1583041270514-f2daa9ffc6d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8VGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTQxMnww&ixlib=rb-4.1.0&q=80&w=1080" alt="white and brown house miniature cake" class="w-full h-auto">
+                        <div class="caption absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+                            <p class="text-white text-center font-semibold">Personalized Themes</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item relative overflow-hidden rounded-lg group shadow-md mb-4">
+                        <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q3VzdG9taXplZCUyMGJpcnRoZGF5JTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTQxMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="A chocolate cake with frosting roses and Happy Birthday written in icing" class="w-full h-auto">
+                        <div class="caption absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+                            <p class="text-white text-center font-semibold">Classic Birthday Cakes</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item relative overflow-hidden rounded-lg group shadow-md mb-4">
+                        <img src="https://images.unsplash.com/photo-1671686400734-d9d0a4934f5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8VGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTQxMnww&ixlib=rb-4.1.0&q=80&w=1080" alt="a frozen princess cake with frosting and decorations" class="w-full h-auto">
+                        <div class="caption absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+                            <p class="text-white text-center font-semibold">Character Cakes</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item relative overflow-hidden rounded-lg group shadow-md mb-4">
+                        <img src="https://images.unsplash.com/photo-1625649611137-df49dc542f6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Q3VzdG9taXplZCUyMGJpcnRoZGF5JTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTQxMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="happy birthday cake with candles" class="w-full h-auto">
+                        <div class="caption absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+                            <p class="text-white text-center font-semibold">Celebration Cakes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item relative overflow-hidden rounded-lg group shadow-md mb-4">
+                        <img src="https://images.unsplash.com/photo-1586985289906-406988974504?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8aG9tZSUyMGJha2VyJTIwdmlicmFudHxlbnwxfDB8fHwxNzkwMDg5NDExfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="brown cake on clear glass cake stand" class="w-full h-auto">
+                        <div class="caption absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+                            <p class="text-white text-center font-semibold">Elegant Object Cakes</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Flavours Section -->
+        <section id="flavours" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand mb-4">A Taste to Match the Theme</h2>
+                    <p class="text-lg text-text-muted leading-relaxed">
+                        We believe a great cake tastes as incredible as it looks. Since every design is custom, we'll work with you to choose the perfect combination of cake flavours and fillings for your celebration. From timeless classics to unique creations, every element is baked from scratch with care in our home kitchen.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Order Section -->
+        <section id="how-to-order" class="bg-brand text-brand-on py-20 md:py-28">
+            <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-8">Bringing Your Dream Cake to Life</h2>
+                <ol class="max-w-2xl mx-auto space-y-8 text-left">
+                    <li class="flex items-start">
+                        <span class="text-lg leading-relaxed">DM your idea on Instagram: Send us your theme, any inspiration photos, and the occasion.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-lg leading-relaxed">We'll design it together: We will chat about the design, size, and flavour options for your cake.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-lg leading-relaxed">Confirm and celebrate: Once you confirm your order, we'll get baking for your special day.</span>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1622834909117-df0ed88666ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8aG9tZSUyMGJha2VyJTIwdmlicmFudHxlbnwxfDB8fHwxNzkwMDg5NDExfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                             alt="person in blue and white plaid long sleeve shirt holding bread, representing the home baker"
+                             class="rounded-lg shadow-xl w-full h-auto object-cover aspect-square">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand mb-4">Baked at Home in Hyderabad</h2>
+                        <p class="text-lg text-text-muted leading-relaxed">Jamboree Confetteria is a small, home-based bakery born from a passion for making special moments even more memorable. Every cake is a personal project, crafted with care to be the centrepiece of your celebration.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section id="final-cta" class="bg-surface-alt py-20 md:py-28">
+            <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-brand mb-4">Have an Idea for a Cake?</h2>
+                <p class="text-lg text-text-muted mb-8 max-w-2xl mx-auto">Let's create something unforgettable together. Send a message on Instagram to start the conversation.</p>
+                <a href="https://www.instagram.com/jamboree_confetteria" target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-accent text-accent-on font-semibold py-3 px-8 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105">
+                    Start Your Order on Instagram
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-surface py-8">
+        <div class="container mx-auto px-6 text-center text-text-muted">
+            <p>&copy; <span id="current-year"></span> Jamboree Confetteria. All Rights Reserved.</p>
+            <div class="flex justify-center mt-4">
+                <a href="https://www.instagram.com/jamboree_confetteria" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-text-muted hover:text-accent transition-colors">
+                    <i data-lucide="instagram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lucide Icons
+        lucide.createIcons();
+
+        // AOS Initialization
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Sticky Header Shadow on Scroll
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+        
+        // Dynamic Year in Footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // GSAP Hero Animation
+        gsap.from(".hero-h1", { duration: 1, y: 30, opacity: 0, ease: "power3.out", delay: 0.2 });
+        gsap.from(".hero-p", { duration: 1, y: 30, opacity: 0, ease: "power3.out", delay: 0.4 });
+        gsap.from(".hero-cta", { duration: 1, y: 30, opacity: 0, ease: "power3.out", delay: 0.6 });
+
+    </script>
+</body>
+</html>
