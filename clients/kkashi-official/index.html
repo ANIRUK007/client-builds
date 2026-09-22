@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKashi Official - Designer Fashion in Hyderabad</title>
+    
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config & Custom Styles -->
+    <style>
+        :root {
+            --surface: #F9F8F8;
+            --surface-alt: #F0EDED;
+            --text: #351D1F;
+            --text-muted: #81565A;
+            --border: #A48487;
+            --brand: #671E25;
+            --accent: #BE375A;
+            --brand-on: #F9F8F8;
+            --accent-on: #F9F8F8;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, .font-heading {
+            font-family: 'Marck Script', cursive;
+        }
+        .scrim-bg {
+            position: relative;
+        }
+        .scrim-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .scrim-bg > * {
+            position: relative;
+            z-index: 2;
+        }
+        /* Custom underline for nav links */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            display: block;
+            margin-top: 4px;
+            right: 0;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+            left: 0;
+            background: var(--accent);
+        }
+        .header-scrolled {
+            background-color: rgba(249, 248, 248, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        'text': 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        'border': 'var(--border)',
+                        'brand': 'var(--brand)',
+                        'accent': 'var(--accent)',
+                        'brand-on': 'var(--brand-on)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Marck Script', 'cursive'],
+                        body: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-text">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-heading text-brand">KKashi Official</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#collections" class="nav-link text-sm uppercase tracking-wider font-medium text-text-muted hover:text-text">Collections</a>
+                <a href="#celebrity-closet" class="nav-link text-sm uppercase tracking-wider font-medium text-text-muted hover:text-text">As Seen On</a>
+                <a href="#boutique" class="nav-link text-sm uppercase tracking-wider font-medium text-text-muted hover:text-text">The Boutique</a>
+                <a href="https://www.instagram.com/kkashi.official" target="_blank" rel="noopener noreferrer" aria-label="KKashi Official on Instagram">
+                    <i data-lucide="instagram" class="w-5 h-5 text-text-muted hover:text-accent transition-colors"></i>
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface-alt shadow-lg">
+            <nav class="flex flex-col items-center space-y-6 py-8">
+                <a href="#collections" class="mobile-nav-link text-lg uppercase tracking-wider text-text-muted hover:text-text">Collections</a>
+                <a href="#celebrity-closet" class="mobile-nav-link text-lg uppercase tracking-wider text-text-muted hover:text-text">As Seen On</a>
+                <a href="#boutique" class="mobile-nav-link text-lg uppercase tracking-wider text-text-muted hover:text-text">The Boutique</a>
+                <a href="https://www.instagram.com/kkashi.official" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center space-x-2 text-accent">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                    <span>Instagram</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="h-screen min-h-[600px] w-full flex items-center justify-center scrim-bg bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1730075427603-311a7f95fbd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q2VsZWJyaXR5JTIwc3R5bGVzfGVufDF8MHx8fDE3OTAwODU1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080');">
+            <div class="text-center text-white px-6">
+                <h1 class="hero-title text-5xl md:text-7xl lg:text-8xl font-heading text-brand-on" data-aos="fade-down">The Celebrity Edit, Curated for Hyderabad</h1>
+                <p class="hero-subtitle max-w-xl mx-auto mt-4 text-lg md:text-xl font-light text-brand-on" data-aos="fade-up" data-aos-delay="200">
+                    Discover our collection of resort wear, draped dresses, and modern gowns from leading designers.
+                </p>
+                <a href="#collections" class="hero-button inline-block mt-8 bg-accent text-accent-on py-3 px-10 text-sm font-semibold uppercase tracking-widest hover:bg-opacity-90 transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    Explore The Collections
+                </a>
+            </div>
+        </section>
+
+        <!-- Featured Looks Section -->
+        <section id="featured-looks" class="py-20 md:py-32 bg-surface-alt">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-heading text-brand" data-aos="fade-up">Red Carpet Styles, Ready to Wear</h2>
+                    <p class="mt-4 text-text-muted" data-aos="fade-up" data-aos-delay="100">
+                        We bring the latest runway and red-carpet trends directly to Hyderabad. Explore pieces worn by leading figures in fashion and entertainment.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-16">
+                    <div data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1580404259794-64b434e6f4c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Q2VsZWJyaXR5JTIwc3R5bGVzfGVufDF8MHx8fDE3OTAwODU1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Woman in a sophisticated blue long-sleeve dress." class="w-full h-full object-cover">
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="150">
+                        <img src="https://images.unsplash.com/photo-1637768071681-63ecc1dee15e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q2VsZWJyaXR5JTIwc3R5bGVzfGVufDF8MHx8fDE3OTAwODU1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A high-fashion shot of a woman with white hair and sunglasses." class="w-full h-full object-cover">
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1612731486606-2614b4d74921?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8TGF0ZXN0JTIwZmFzaGlvbiUyMHRyZW5kc3xlbnwxfDB8fHwxNzkwMDg1NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman in a stylish black blazer and pearl necklace." class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collections Section -->
+        <section id="collections" class="py-20 md:py-32 bg-surface">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl md:text-5xl font-heading text-brand" data-aos="fade-up">Hand-Selected Designer Collections</h2>
+                    <p class="mt-4 text-text-muted" data-aos="fade-up" data-aos-delay="100">
+                        Our collections feature contemporary resort wear, elegant draped dresses, and gowns with modern silhouettes, each piece chosen for its unique character and craftsmanship.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4">
+                    <div class="grid gap-2 sm:gap-4">
+                        <div data-aos="fade-up">
+                            <img class="h-auto max-w-full" src="https://images.unsplash.com/photo-1573879500655-98f2012dd1db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8RGVzaWduZXIlMjBjbG90aGluZyUyMHNob3djYXNlc3xlbnwxfDB8fHwxNzkwMDg1NTE3fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A rack of assorted designer tops hanging in a boutique setting.">
+                        </div>
+                        <div data-aos="fade-up" data-aos-delay="100">
+                            <img class="h-auto max-w-full" src="https://images.unsplash.com/photo-1554882195-8cf792f9a571?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8RGVzaWduZXIlMjBjbG90aGluZyUyMHNob3djYXNlc3xlbnwxfDB8fHwxNzkwMDg1NTE3fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A fashion model wearing a flowing dress on a catwalk.">
+                        </div>
+                    </div>
+                     <div class="grid gap-2 sm:gap-4">
+                        <div data-aos="fade-up" data-aos-delay="150">
+                            <img class="h-auto max-w-full" src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8TGF0ZXN0JTIwZmFzaGlvbiUyMHRyZW5kc3xlbnwxfDB8fHwxNzkwMDg1NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Stylish clothing hanging on a modern, minimalist clothing rack.">
+                        </div>
+                    </div>
+                    <div class="grid gap-2 sm:gap-4">
+                         <div data-aos="fade-up" data-aos-delay="200">
+                            <img class="h-auto max-w-full" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8TGF0ZXN0JTIwZmFzaGlvbiUyMHRyZW5kc3xlbnwxfDB8fHwxNzkwMDg1NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman carrying several shopping bags, representing the latest trends.">
+                        </div>
+                         <div data-aos="fade-up" data-aos-delay="250">
+                            <img class="h-auto max-w-full" src="https://images.unsplash.com/photo-1784850227103-202099fedd7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8RGVzaWduZXIlMjBjbG90aGluZyUyMHNob3djYXNlc3xlbnwxfDB8fHwxNzkwMDg1NTE3fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Models showcasing designer clothing on a dimly lit runway.">
+                        </div>
+                    </div>
+                    <div class="grid gap-2 sm:gap-4">
+                        <div data-aos="fade-up" data-aos-delay="300">
+                           <img class="h-auto max-w-full" src="https://images.unsplash.com/photo-1612731486606-2614b4d74921?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8TGF0ZXN0JTIwZmFzaGlvbiUyMHRyZW5kc3xlbnwxfDB8fHwxNzkwMDg1NTE4fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman in a black blazer and pearl necklace posing against a tan wall.">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Celebrity Closet Section -->
+        <section id="celebrity-closet" class="py-20 md:py-32 bg-surface-alt">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl md:text-5xl font-heading text-brand" data-aos="fade-up">As Seen On: The Boutique Edit</h2>
+                    <p class="mt-4 text-text-muted" data-aos="fade-up" data-aos-delay="100">
+                        The styles you admire, now available at KKashi Official. We bring iconic looks from the red carpet to our Hyderabad boutique.
+                    </p>
+                </div>
+
+                <div class="space-y-16">
+                    <!-- Look 1 -->
+                    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center" data-aos="fade-up">
+                        <div class="order-2 md:order-1">
+                            <h3 class="text-3xl font-heading text-text">The Sunshine Blazer</h3>
+                            <p class="mt-2 text-text-muted">A bold, structured piece perfect for making a memorable entrance. Its vibrant hue and sharp tailoring command attention, capturing the essence of modern celebrity chic.</p>
+                        </div>
+                        <div class="order-1 md:order-2">
+                             <img src="https://images.unsplash.com/photo-1730075427603-311a7f95fbd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q2VsZWJyaXR5JTIwc3R5bGVzfGVufDF8MHx8fDE3OTAwODU1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Woman in statement yellow jacket, embodying celebrity chic." class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                    <!-- Look 2 -->
+                    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center" data-aos="fade-up">
+                        <div>
+                             <img src="https://images.unsplash.com/photo-1580404259794-64b434e6f4c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Q2VsZWJyaXR5JTIwc3R5bGVzfGVufDF8MHx8fDE3OTAwODU1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Woman in an elegant, royal blue v-neck dress." class="w-full h-auto object-cover">
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-heading text-text">The Sapphire Gown</h3>
+                            <p class="mt-2 text-text-muted">Timeless elegance with a modern silhouette, crafted for sophisticated evenings. This piece features a graceful drape and a rich, deep color that ensures a lasting impression.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Band Section -->
+        <section class="py-20 md:py-24 bg-brand text-brand-on">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-heading" data-aos="fade-up">Your Private Viewing in Hyderabad</h2>
+                <p class="mt-4 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Visit our boutique for a personalized styling session with our latest arrivals and curated collections.
+                </p>
+                <a href="#boutique" class="inline-block mt-8 bg-transparent border-2 border-brand-on text-brand-on py-3 px-10 text-sm font-semibold uppercase tracking-widest hover:bg-brand-on hover:text-brand transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    Arrange Your Visit
+                </a>
+            </div>
+        </section>
+        
+        <!-- Boutique / About Section -->
+        <section id="boutique" class="py-20 md:py-32 bg-surface">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1773609688714-98d3057294f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Ym91dGlxdWUlMjBzb2Z0fGVufDF8MHx8fDE3OTAwODU1MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A soft and inviting view of textiles and flowers inside a boutique." class="w-full h-full object-cover">
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="150">
+                        <h2 class="text-4xl md:text-5xl font-heading text-brand">A Personal Curation of Designer Fashion</h2>
+                        <p class="mt-6 text-text-muted leading-relaxed">
+                            KKashi Official is more than a store; it is a destination for luxury fashion in Hyderabad. We believe in the power of a perfectly chosen garment. Our boutique offers a private and personalized shopping experience, where you can explore our hand-picked collections in a serene and welcoming atmosphere.
+                        </p>
+                        <h3 class="mt-8 text-2xl font-body font-medium text-text">Arrange a Private Viewing</h3>
+                        <p class="mt-2 text-text-muted leading-relaxed">
+                            Our space is designed for discovery. To arrange a visit or for styling enquiries, please connect with us directly through Instagram. We look forward to welcoming you.
+                        </p>
+                        <a href="https://www.instagram.com/kkashi.official" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-8 bg-accent text-accent-on py-3 px-10 text-sm font-semibold uppercase tracking-widest hover:bg-opacity-90 transition-all duration-300">
+                            Message on Instagram
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-surface-alt py-12">
+        <div class="container mx-auto px-6 text-center text-text-muted">
+            <p class="text-2xl font-heading text-brand">KKashi Official</p>
+            <p class="mt-2 text-sm">Hyderabad</p>
+            <div class="flex justify-center mt-6">
+                 <a href="https://www.instagram.com/kkashi.official" target="_blank" rel="noopener noreferrer" aria-label="KKashi Official on Instagram">
+                    <i data-lucide="instagram" class="w-6 h-6 text-text-muted hover:text-accent transition-colors"></i>
+                </a>
+            </div>
+            <p class="mt-8 text-xs text-text-muted/70">&copy; 2024 KKashi Official. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            duration: 800,
+            offset: 50,
+        });
+
+        // GSAP Animations for Hero Section
+        gsap.from(".hero-title", { duration: 1, y: 30, opacity: 0, ease: "power3.out", delay: 0.2 });
+        gsap.from(".hero-subtitle", { duration: 1, y: 30, opacity: 0, ease: "power3.out", delay: 0.4 });
+        gsap.from(".hero-button", { duration: 1, y: 30, opacity: 0, ease: "power3.out", delay: 0.6 });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
