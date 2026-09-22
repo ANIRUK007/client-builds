@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyderabad Tutors Hub | Academic & Activity Tutors</title>
+
+    <!-- CDNs for Required Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --surface: #F8F8F9;
+            --surface-alt: #EDEEF0;
+            --text: #1D2535;
+            --text-muted: #566481;
+            --border: #848FA4;
+            --brand: #1E3666;
+            --brand-on: #F8F8F9;
+            --accent: #8B6C23; /* Corrected accent color */
+            --accent-on: #F8F8F9;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Archivo', sans-serif;
+        }
+        
+        .accent-button {
+            background-color: var(--accent);
+            color: var(--accent-on);
+        }
+        
+        .accent-button:hover {
+            opacity: 0.9;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        text: 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        border: 'var(--border)',
+                        brand: 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        accent: 'var(--accent)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Archivo', 'sans-serif'],
+                        body: ['Nunito Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-text">
+
+    <!-- Header -->
+    <header id="header" class="bg-surface/80 backdrop-blur-lg sticky top-0 z-50 border-b border-surface-alt">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold font-heading text-brand">Hyderabad Tutors Hub</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#services" class="font-semibold text-text-muted hover:text-brand transition-colors">Services</a>
+                <a href="#process" class="font-semibold text-text-muted hover:text-brand transition-colors">How It Works</a>
+                <a href="#contact" class="font-semibold text-text-muted hover:text-brand transition-colors">Contact</a>
+            </nav>
+            <div class="flex items-center">
+                <a href="#contact" class="hidden md:inline-block accent-button font-semibold px-5 py-2.5 rounded-lg text-sm transition-opacity">
+                    Request a Tutor
+                </a>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-text hover:bg-surface-alt">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-surface-alt">
+            <a href="#services" class="block py-3 px-6 text-text-muted hover:bg-surface-alt">Services</a>
+            <a href="#process" class="block py-3 px-6 text-text-muted hover:bg-surface-alt">How It Works</a>
+            <a href="#contact" class="block py-3 px-6 text-text-muted hover:bg-surface-alt">Contact</a>
+            <div class="p-4">
+                <a href="#contact" class="block text-center accent-button font-semibold px-5 py-2.5 rounded-lg w-full">
+                    Request a Tutor
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 py-16 md:py-24">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-brand leading-tight">
+                        Your One-Stop Hub for Academic & Activity Tutors
+                    </h1>
+                    <p class="mt-6 text-lg text-text-muted max-w-xl">
+                        We connect Hyderabad parents with professional trainers for school subjects (KG-10), classical dance, music, and art—available both online and in-person.
+                    </p>
+                    <a href="#contact" class="inline-block mt-8 accent-button font-semibold px-8 py-3 rounded-lg text-lg transition-opacity">
+                        Find Your Tutor
+                    </a>
+                </div>
+                <div data-aos="fade-left" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8UHJvbW90aW5nJTIwZGlmZmVyZW50JTIwdHV0b3JpbmclMjBzdWJqZWN0c3xlbnwxfDB8fHwxNzkwMDg1NTM1fDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                         alt="A professional tutor carrying textbooks, poised and ready to teach." 
+                         class="rounded-xl shadow-2xl object-cover w-full h-full max-h-[500px]">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid Section -->
+        <section id="services" class="bg-surface-alt py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading text-brand">From Schoolwork to Stage: Give Them The Best</h2>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                    <div class="bg-surface p-8 rounded-lg shadow-md" data-aos="fade-up">
+                        <i data-lucide="book-open" class="w-10 h-10 text-brand mb-4"></i>
+                        <h3 class="font-heading font-semibold text-xl text-brand">Academic Subjects (KG-10th)</h3>
+                        <p class="mt-2 text-text-muted">Expert support for all subjects across all school boards, tailored to your child's learning style.</p>
+                    </div>
+                    <div class="bg-surface p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                        <i data-lucide="person-standing" class="w-10 h-10 text-brand mb-4"></i>
+                        <h3 class="font-heading font-semibold text-xl text-brand">Classical Dance</h3>
+                        <p class="mt-2 text-text-muted">Professional training in traditional forms including Kuchipudi and Bharatanatyam.</p>
+                    </div>
+                    <div class="bg-surface p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                        <i data-lucide="music" class="w-10 h-10 text-brand mb-4"></i>
+                        <h3 class="font-heading font-semibold text-xl text-brand">Music Lessons</h3>
+                        <p class="mt-2 text-text-muted">Personalized instruction to help students discover and develop their musical talents.</p>
+                    </div>
+                    <div class="bg-surface p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                         <i data-lucide="paintbrush" class="w-10 h-10 text-brand mb-4"></i>
+                        <h3 class="font-heading font-semibold text-xl text-brand">Art Classes</h3>
+                        <p class="mt-2 text-text-muted">Creative guidance to nurture artistic skills and self-expression through various mediums.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Steps Section -->
+        <section id="process" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading text-brand">Connecting You With the Right Tutor</h2>
+                </div>
+                <div class="relative mt-16 max-w-4xl mx-auto">
+                    <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border/30 hidden md:block"></div>
+                    <div class="space-y-16">
+                        <!-- Step 1 -->
+                        <div class="md:grid md:grid-cols-2 md:items-center gap-12" data-aos="fade-right">
+                            <div class="md:text-right">
+                                <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand text-brand-on font-bold text-2xl mb-4">1</span>
+                                <h3 class="font-heading font-semibold text-2xl text-brand">Tell Us Your Needs</h3>
+                                <p class="mt-2 text-text-muted">Submit a request detailing the student's grade, required subjects or activities, and preference for online or offline sessions.</p>
+                            </div>
+                            <div class="hidden md:block"></div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="md:grid md:grid-cols-2 md:items-center gap-12" data-aos="fade-left">
+                            <div class="hidden md:block"></div>
+                            <div>
+                                <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand text-brand-on font-bold text-2xl mb-4">2</span>
+                                <h3 class="font-heading font-semibold text-2xl text-brand">We Find a Match</h3>
+                                <p class="mt-2 text-text-muted">Our team reviews your request and connects you with a professional, vetted trainer from our network.</p>
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="md:grid md:grid-cols-2 md:items-center gap-12" data-aos="fade-right">
+                            <div class="md:text-right">
+                                <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand text-brand-on font-bold text-2xl mb-4">3</span>
+                                <h3 class="font-heading font-semibold text-2xl text-brand">Start Learning</h3>
+                                <p class="mt-2 text-text-muted">Begin classes with an affordable, package-based fee structure. Our goal: a Happy Student, a Happy Parent, and a Happy Tutor.</p>
+                            </div>
+                             <div class="hidden md:block"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Form Section -->
+        <section id="contact" class="bg-brand text-brand-on py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-2xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading">Request a Professional Tutor Today</h2>
+                    <p class="mt-4 text-lg text-brand-on/80">
+                        Fill in the details below, and we will contact you to discuss the best tutoring package for your child. Or, call us directly.
+                    </p>
+                    <div class="mt-6 text-xl font-semibold bg-brand-on/10 inline-block px-6 py-3 rounded-lg">
+                        Phone: <a href="tel:919441189797" class="hover:underline">91 94411 89797</a>
+                    </div>
+                    
+                    <form class="mt-10 text-left space-y-6">
+                        <div>
+                            <label for="parentName" class="block text-sm font-semibold mb-2">Parent's Name</label>
+                            <input type="text" id="parentName" name="parentName" required class="w-full bg-surface/10 border border-brand-on/30 rounded-lg p-3 focus:ring-2 focus:ring-accent focus:border-accent outline-none transition">
+                        </div>
+                        <div>
+                            <label for="studentGrade" class="block text-sm font-semibold mb-2">Student's Grade</label>
+                            <input type="text" id="studentGrade" name="studentGrade" required class="w-full bg-surface/10 border border-brand-on/30 rounded-lg p-3 focus:ring-2 focus:ring-accent focus:border-accent outline-none transition">
+                        </div>
+                        <div>
+                            <label for="subjects" class="block text-sm font-semibold mb-2">Subjects / Activities Needed</label>
+                            <textarea id="subjects" name="subjects" rows="4" required class="w-full bg-surface/10 border border-brand-on/30 rounded-lg p-3 focus:ring-2 focus:ring-accent focus:border-accent outline-none transition"></textarea>
+                        </div>
+                        <div>
+                            <label for="contactNumber" class="block text-sm font-semibold mb-2">Contact Number</label>
+                            <input type="tel" id="contactNumber" name="contactNumber" required class="w-full bg-surface/10 border border-brand-on/30 rounded-lg p-3 focus:ring-2 focus:ring-accent focus:border-accent outline-none transition">
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full accent-button font-bold py-4 px-6 rounded-lg text-lg transition-opacity">
+                                Send Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt">
+        <div class="container mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+            <p class="text-text-muted">&copy; 2024 Hyderabad Tutors Hub. Team HTH.</p>
+            <div class="mt-4 sm:mt-0">
+                <a href="https://www.instagram.com/hyderabadtutorshub" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-brand transition-colors">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scroll for nav links (fallback for browsers not supporting scroll-smooth)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Do not prevent default for the button that just toggles menu
+                if (this.getAttribute('href') === '#') return;
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    // Adjust for sticky header height
+                    const headerOffset = document.getElementById('header').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
