@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAIF | Contemporary Modest Wear in Hyderabad</title>
+    <meta name="description" content="Discover KAIF, a Hyderabad-based boutique for contemporary modest wear. Explore our collection of elegant abayas, dresses, and shirts crafted from premium fabrics.">
+
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --surface: #F8F9F9;
+            --surface-alt: #EDF0F0;
+            --text: #1D3535;
+            --text-muted: #496E6E;
+            --border: #729797;
+            --brand: #195757;
+            --brand-on: #F8F9F9;
+            --accent: #976549;
+            --accent-on: #F8F9F9;
+        }
+        /* Simple Masonry Grid with CSS Columns */
+        .masonry-grid {
+            column-gap: 2rem;
+            column-count: 1;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid { column-count: 2; }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid { column-count: 3; }
+        }
+        .masonry-item {
+            display: inline-block;
+            width: 100%;
+            break-inside: avoid;
+            margin-bottom: 2rem;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        text: 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        border: 'var(--border)',
+                        brand: 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        accent: 'var(--accent)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Lora', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-text font-body antialiased">
+
+    <header id="navbar" class="sticky top-0 z-50 bg-surface/80 backdrop-blur-sm transition-shadow duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-heading font-medium text-brand">KAIF</a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#collection" class="text-text-muted hover:text-text transition-colors">Collection</a>
+                <a href="#fabrics" class="text-text-muted hover:text-text transition-colors">Our Fabrics</a>
+                <a href="#how_to_order" class="text-text-muted hover:text-text transition-colors">How to Order</a>
+            </div>
+
+            <div class="hidden md:block">
+                 <a href="https://www.instagram.com/kaiff.inn" target="_blank" class="bg-brand text-brand-on px-5 py-2.5 text-sm font-medium rounded-md hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand">
+                    Order on Instagram
+                </a>
+            </div>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-text" aria-label="Open menu">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-surface border-b border-border/20">
+            <div class="flex flex-col space-y-4 p-6">
+                <a href="#collection" class="mobile-nav-link text-text-muted hover:text-text transition-colors">Collection</a>
+                <a href="#fabrics" class="mobile-nav-link text-text-muted hover:text-text transition-colors">Our Fabrics</a>
+                <a href="#how_to_order" class="mobile-nav-link text-text-muted hover:text-text transition-colors">How to Order</a>
+                <a href="https://www.instagram.com/kaiff.inn" target="_blank" class="mt-4 bg-brand text-brand-on px-5 py-2.5 text-sm font-medium rounded-md text-center hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand">
+                    Order on Instagram
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="container mx-auto px-6 pt-12 pb-16 md:py-24">
+            <div class="grid md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-3" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1612731486606-2614b4d74921?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8TW9kZXN0JTIwZmFzaGlvbnxlbnwxfDB8fHwxNzkwMDkyNjU2fDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                         alt="A woman in a black blazer and pearl necklace posing against a tan wall, representing KAIF's elegant style." 
+                         class="w-full h-auto object-cover rounded-lg shadow-sm">
+                </div>
+                <div class="md:col-span-2" data-aos="fade-left" data-aos-delay="200">
+                    <h1 class="font-heading text-4xl md:text-5xl font-medium text-text leading-tight">Elegance in Every Thread</h1>
+                    <p class="mt-6 text-lg text-text-muted leading-relaxed">KAIF creates contemporary modest wear for the modern woman in Hyderabad. Discover our Pinterest-inspired designs, from elegant abayas to everyday dresses, all crafted from premium, soft fabrics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collection Section -->
+        <section id="collection" class="bg-surface-alt py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto" data-aos="fade-up">
+                    <h2 class="font-heading text-3xl md:text-4xl font-medium text-text">Our Collection: Contemporary Abayas, Dresses &amp; Shirts</h2>
+                </div>
+                <div class="mt-12 masonry-grid" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Product Card 1 -->
+                    <div class="masonry-item bg-surface rounded-lg overflow-hidden shadow-sm transition-shadow hover:shadow-lg group border border-border/10">
+                        <img src="https://images.unsplash.com/photo-1562347174-7370ad83dc47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8TW9kZXN0JTIwZmFzaGlvbnxlbnwxfDB8fHwxNzkwMDkyNjU2fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Women's red coat, showcasing a bold color choice in the collection." class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <h3 class="font-heading text-xl font-medium text-text">Puff-Sleeve Corduroy Shirt</h3>
+                            <p class="mt-2 text-text-muted">A versatile shirt in soft corduroy, featuring elegant puff sleeves and delicate beadwork.</p>
+                            <a href="https://www.instagram.com/kaiff.inn" target="_blank" class="inline-flex items-center mt-4 text-brand font-medium group-hover:underline">
+                                DM to enquire
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="masonry-item bg-surface rounded-lg overflow-hidden shadow-sm transition-shadow hover:shadow-lg group border border-border/10">
+                        <img src="https://images.unsplash.com/photo-1571924848943-25c2c95bbb4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8TW9kZXN0JTIwZmFzaGlvbnxlbnwxfDB8fHwxNzkwMDkyNjU2fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Women's white sleeveless dress, highlighting a light and airy option." class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <h3 class="font-heading text-xl font-medium text-text">Soft Cotton A-Line Dress</h3>
+                            <p class="mt-2 text-text-muted">An everyday essential. This dress is made from breathable soft cotton for ultimate comfort and a graceful silhouette.</p>
+                             <a href="https://www.instagram.com/kaiff.inn" target="_blank" class="inline-flex items-center mt-4 text-brand font-medium group-hover:underline">
+                                DM to enquire
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="masonry-item bg-surface rounded-lg overflow-hidden shadow-sm transition-shadow hover:shadow-lg group border border-border/10">
+                        <img src="https://images.unsplash.com/photo-1773609688714-98d3057294f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Ym91dGlxdWUlMjBzb2Z0fGVufDF8MHx8fDE3OTAwODU1MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Pink and white textiles with flowers on a shelf, evoking the boutique's soft aesthetic." class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <h3 class="font-heading text-xl font-medium text-text">Linen Abaya with Beadwork</h3>
+                            <p class="mt-2 text-text-muted">Our signature piece. A timeless abaya crafted from fine linen with hand-stitched bead details.</p>
+                             <a href="https://www.instagram.com/kaiff.inn" target="_blank" class="inline-flex items-center mt-4 text-brand font-medium group-hover:underline">
+                                DM to enquire
+                                <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fabrics Section -->
+        <section id="fabrics" class="container mx-auto px-6 py-16 md:py-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                     <img src="https://images.unsplash.com/photo-1673266880302-71435cdcf090?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8UHJlbWl1bSUyMGZhYnJpY3N8ZW58MXwwfHx8MTc5MDA5MjY1N3ww&ixlib=rb-4.1.0&q=80&w=1080" 
+                          alt="A close-up of a premium red fabric, showing the weave and texture." 
+                          class="w-full h-auto object-cover rounded-lg shadow-sm">
+                </div>
+                <div data-aos="fade-left">
+                    <h2 class="font-heading text-3xl md:text-4xl font-medium text-text">Soft Cottons, Corduroys, and Fine Linens</h2>
+                    <p class="mt-6 text-lg text-text-muted leading-relaxed">We believe luxury is in the details, starting with the fabric. Each material is chosen for its softness, durability, and beautiful drape, ensuring our clothes feel as good as they look. This is everyday luxury, KAIF style.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Order Section -->
+        <section id="how_to_order" class="bg-brand text-brand-on py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center max-w-3xl">
+                <div data-aos="fade-up">
+                    <h2 class="font-heading text-3xl md:text-4xl font-medium">Find Your Piece on Instagram</h2>
+                    <p class="mt-4 text-lg text-brand-on/80 max-w-2xl mx-auto">Our collections are available exclusively through Instagram. Follow these simple steps to make a purchase.</p>
+                    <ol class="mt-8 text-left inline-block space-y-4 text-lg list-decimal list-inside">
+                        <li>Browse the collection on our website or Instagram page.</li>
+                        <li>Take a screenshot of the item you love.</li>
+                        <li>Send it to us in a Direct Message to confirm availability and sizing.</li>
+                    </ol>
+                    <div class="mt-10">
+                        <a href="https://www.instagram.com/kaiff.inn" target="_blank" class="inline-block bg-accent text-accent-on px-8 py-4 text-lg font-medium rounded-md hover:bg-opacity-90 transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand focus:ring-accent">
+                            Message us on Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="bg-surface-alt py-8">
+        <div class="container mx-auto px-6 text-center text-text-muted">
+            <p>&copy; 2024 KAIF. All Rights Reserved.</p>
+            <p class="mt-2 text-sm">Modest Wear from Hyderabad</p>
+            <a href="https://www.instagram.com/kaiff.inn" target="_blank" class="inline-block mt-4" aria-label="KAIF on Instagram">
+                <i data-lucide="instagram" class="w-6 h-6 text-text-muted hover:text-text transition-colors"></i>
+            </a>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        lucide.createIcons();
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.querySelector('i').setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-sm', 'border-b', 'border-border/10');
+            } else {
+                navbar.classList.remove('shadow-sm', 'border-b', 'border-border/10');
+            }
+        });
+    </script>
+</body>
+</html>
