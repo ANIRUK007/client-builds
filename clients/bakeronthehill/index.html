@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baker on the Hill | Custom Cakes in Hyderabad</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --surface: #F9F8F8;
+            --surface-alt: #F0EDED;
+            --text: #351D20;
+            --text-muted: #81565D;
+            --border: #A48489;
+            --brand: #5E262F;
+            --brand-on: #F9F8F8;
+            --accent: #856A32;
+            --accent-on: #F9F8F8;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+        }
+
+        .font-heading { font-family: 'Lora', serif; }
+        .font-body { font-family: 'Poppins', sans-serif; }
+        
+        /* Navbar scroll effect */
+        header.scrolled {
+            background-color: var(--surface);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Masonry-like gallery */
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem; /* Equivalent to gap-6 */
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        text: 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        border: 'var(--border)',
+                        brand: 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        accent: 'var(--accent)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Lora', 'serif'],
+                        body: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-text">
+
+    <!-- Header & Navigation -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-heading text-xl font-bold text-brand">Baker on the Hill</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#gallery" class="text-text hover:text-brand transition-colors">Gallery</a>
+                <a href="#flavours" class="text-text hover:text-brand transition-colors">Flavours</a>
+                <a href="#process" class="text-text hover:text-brand transition-colors">Process</a>
+                <a href="#contact" class="bg-brand text-brand-on px-4 py-2 rounded-md hover:opacity-90 transition-opacity">Contact</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-brand">
+                <i data-lucide="menu" class="h-6 w-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface-alt">
+            <nav class="flex flex-col items-center space-y-4 py-6">
+                <a href="#gallery" class="text-text hover:text-brand transition-colors">Gallery</a>
+                <a href="#flavours" class="text-text hover:text-brand transition-colors">Flavours</a>
+                <a href="#process" class="text-text hover:text-brand transition-colors">Process</a>
+                <a href="#contact" class="bg-brand text-brand-on px-4 py-2 rounded-md hover:opacity-90 transition-opacity">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1692623438129-2949d20ca82e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8RWxlZ2FudCUyMGFuZCUyMHZpbnRhZ2UlMjBzdHlsZSUyMGNlbGVicmF0aW9uJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTM0NHww&ixlib=rb-4.1.0&q=80&w=1080');">
+            <div class="absolute inset-0 bg-brand/70"></div>
+            <div class="relative z-10 p-6 text-brand-on" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl font-heading mb-4">A Cake for Every Milestone, A Memory for Every Year</h1>
+                <p class="max-w-2xl mx-auto text-lg md:text-xl mb-8">Artisanal, custom cakes in Hyderabad, designed to be the centrepiece of your most cherished celebrations.</p>
+                <a href="#process" class="bg-accent text-accent-on font-semibold px-8 py-3 rounded-md hover:opacity-90 transition-opacity">
+                    Plan Your Cake
+                </a>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-heading" data-aos="fade-up">Custom Cake Artistry</h2>
+                </div>
+
+                <div class="mb-16">
+                    <h3 class="text-2xl md:text-3xl font-heading text-center mb-12" data-aos="fade-up">Elegant Cakes for Anniversaries & Engagements</h3>
+                    <div class="md:columns-2 gap-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="masonry-item">
+                            <img src="https://images.unsplash.com/photo-1623820480456-fbac3e0f8681?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8RWxlZ2FudCUyMGFuZCUyMHZpbnRhZ2UlMjBzdHlsZSUyMGNlbGVicmF0aW9uJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTM0NHww&ixlib=rb-4.1.0&q=80&w=1080" alt="A delicate white and brown cake with white icing on top." class="w-full h-auto rounded-lg shadow-md">
+                        </div>
+                        <div class="masonry-item">
+                             <img src="https://images.unsplash.com/photo-1525956570400-207225f50dd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8RWxlZ2FudCUyMGFuZCUyMHZpbnRhZ2UlMjBzdHlsZSUyMGNlbGVicmF0aW9uJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTM0NHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Three assorted elegant cakes displayed near a white framed mirror." class="w-full h-auto rounded-lg shadow-md">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-heading text-center mb-12" data-aos="fade-up">Playful Themes for Unforgettable Birthdays</h3>
+                    <div class="md:columns-3 gap-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="masonry-item">
+                            <img src="https://images.unsplash.com/photo-1553710120-23dd1551da41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Q3VzdG9tJTIwdGhlbWVkJTIwa2lkcyUyNyUyMGJpcnRoZGF5JTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTM0M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="A colorful unicorn and rainbow themed birthday cake." class="w-full h-auto rounded-lg shadow-md">
+                        </div>
+                        <div class="masonry-item">
+                            <img src="https://images.unsplash.com/photo-1629588082375-8ae53599721b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q3VzdG9tJTIwdGhlbWVkJTIwa2lkcyUyNyUyMGJpcnRoZGF5JTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTM0M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="A 'Happy Birthday' cake on a wooden table, ready for a party." class="w-full h-auto rounded-lg shadow-md">
+                        </div>
+                         <div class="masonry-item">
+                           <img src="https://images.unsplash.com/photo-1618839574718-b10d5ecd5e73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q3VzdG9tJTIwdGhlbWVkJTIwa2lkcyUyNyUyMGJpcnRoZGF5JTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4OTM0M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="A themed birthday cake featuring a red and white character on a brown cake." class="w-full h-auto rounded-lg shadow-md">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flavours Section -->
+        <section id="flavours" class="py-20 md:py-32 bg-surface-alt">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-heading mb-6">Crafted with Care, from Classic to Custom</h2>
+                    <p class="text-lg text-text-muted">Every cake is baked from scratch using high-quality ingredients. We can create your favourite classic flavours or work with you to design a completely new combination for your special event.</p>
+                </div>
+                <div class="space-y-4" data-aos="fade-left" data-aos-delay="200">
+                    <div class="flex items-start">
+                        <i data-lucide="cake-slice" class="w-6 h-6 text-brand mr-4 mt-1 flex-shrink-0"></i>
+                        <p class="text-lg">Rich Chocolate & Decadent Ganache</p>
+                    </div>
+                    <div class="flex items-start">
+                        <i data-lucide="cake-slice" class="w-6 h-6 text-brand mr-4 mt-1 flex-shrink-0"></i>
+                        <p class="text-lg">Classic Vanilla Bean with Fruit Compotes</p>
+                    </div>
+                    <div class="flex items-start">
+                        <i data-lucide="cake-slice" class="w-6 h-6 text-brand mr-4 mt-1 flex-shrink-0"></i>
+                        <p class="text-lg">Light & Airy Sponges with Fresh Cream</p>
+                    </div>
+                    <div class="flex items-start">
+                        <i data-lucide="sparkles" class="w-6 h-6 text-brand mr-4 mt-1 flex-shrink-0"></i>
+                        <p class="text-lg">Unique Flavour Pairings on Request</p>
+                    </div>
+                    <div class="flex items-start">
+                        <i data-lucide="chef-hat" class="w-6 h-6 text-brand mr-4 mt-1 flex-shrink-0"></i>
+                        <p class="text-lg">All Fillings and Frostings Made In-House</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading mb-16" data-aos="fade-up">Your Dream Cake in Three Simple Steps</h2>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <!-- Step 1 -->
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative inline-block mb-4">
+                            <div class="w-20 h-20 bg-surface-alt rounded-full flex items-center justify-center">
+                                <span class="font-heading text-3xl text-brand">1</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-heading mb-2">Get Inspired</h3>
+                        <p class="text-text-muted">Browse the gallery for ideas. Whether you love a vintage look or have a special theme in mind, we can create something just for you.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                         <div class="relative inline-block mb-4">
+                            <div class="w-20 h-20 bg-surface-alt rounded-full flex items-center justify-center">
+                                <span class="font-heading text-3xl text-brand">2</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-heading mb-2">Start the Conversation</h3>
+                        <p class="text-text-muted">Send a direct message on Instagram with your event date, number of guests, and your ideas. We'll get back to you to discuss the details.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                         <div class="relative inline-block mb-4">
+                            <div class="w-20 h-20 bg-surface-alt rounded-full flex items-center justify-center">
+                                <span class="font-heading text-3xl text-brand">3</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-heading mb-2">Finalise Your Design</h3>
+                        <p class="text-text-muted">We'll work together to finalise the design, flavour, and all the little details that will make your cake a unique work of art.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer CTA Section -->
+    <footer id="contact" class="bg-brand text-brand-on py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center flex flex-col items-center">
+            <h2 class="text-3xl md:text-4xl font-heading mb-4" data-aos="fade-up">Let's Create Your Next Centrepiece</h2>
+            <p class="max-w-prose text-lg mb-8" data-aos="fade-up" data-aos-delay="100">
+                I build long-term relationships with my clients, creating cakes for birthdays, anniversaries, and milestones for years to come. I'd be honoured to become your family's personal baker.
+            </p>
+            <a href="https://instagram.com/bakeronthehill" target="_blank" rel="noopener noreferrer" class="bg-brand-on text-brand font-semibold px-8 py-3 rounded-md flex items-center space-x-2 hover:bg-surface-alt transition-colors" data-aos="fade-up" data-aos-delay="200">
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+                <span>Message @bakeronthehill on Instagram</span>
+            </a>
+            <div class="mt-16 border-t border-border/30 w-full pt-6">
+                <p class="text-sm text-brand-on/70">&copy; 2024 Baker on the Hill. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Library JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                navbar.classList.add('text-text'); // Change text color on scroll
+                navbar.classList.remove('text-brand-on');
+            } else {
+                navbar.classList.remove('scrolled');
+                navbar.classList.remove('text-text');
+                navbar.classList.add('text-brand-on');
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileNavLinks = mobileMenu.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
