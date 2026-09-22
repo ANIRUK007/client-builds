@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devique Studio | Salon & Academy in Boduppal, Hyderabad</title>
+    
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --surface: #F9F9F8;
+            --surface-alt: #F0EFED;
+            --text: #352D1D;
+            --text-muted: #74684E;
+            --border: #978B72;
+            --brand: #67501E;
+            --brand-on: #F9F9F8;
+            --accent: #6B48AD;
+            --accent-on: #F9F9F8;
+        }
+
+        html {
+            font-size: 17px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .masonry-grid {
+            column-gap: 1.5rem;
+            columns: 1;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid { columns: 2; }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid { columns: 3; }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-scrolled {
+            background-color: var(--surface);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        /* Hide scrollbar for Tailwind */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;  
+            scrollbar-width: none;  
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        text: 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        border: 'var(--border)',
+                        brand: 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        accent: 'var(--accent)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-text">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-heading text-2xl font-bold text-brand-on lg:text-text" id="logo">Devique Studio</a>
+            
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="#services" class="text-brand-on/80 hover:text-brand-on lg:text-text-muted lg:hover:text-text transition-colors">Services</a>
+                <a href="#academy" class="text-brand-on/80 hover:text-brand-on lg:text-text-muted lg:hover:text-text transition-colors">Academy</a>
+                <a href="#gallery" class="text-brand-on/80 hover:text-brand-on lg:text-text-muted lg:hover:text-text transition-colors">Gallery</a>
+                <a href="#contact" class="text-brand-on/80 hover:text-brand-on lg:text-text-muted lg:hover:text-text transition-colors">Contact</a>
+            </nav>
+
+            <a href="#contact" class="hidden lg:inline-block bg-accent text-accent-on px-6 py-2 rounded-md font-medium hover:bg-opacity-90 transition-all">
+                Book Appointment
+            </a>
+
+            <button id="mobile-menu-button" class="lg:hidden text-brand-on" aria-label="Open menu">
+                <i data-lucide="menu" class="h-6 w-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-surface text-text px-6 py-4">
+            <nav class="flex flex-col gap-4 text-center">
+                <a href="#services" class="mobile-nav-link block py-2">Services</a>
+                <a href="#academy" class="mobile-nav-link block py-2">Academy</a>
+                <a href="#gallery" class="mobile-nav-link block py-2">Gallery</a>
+                <a href="#contact" class="mobile-nav-link block py-2">Contact</a>
+                <a href="#contact" class="mt-4 inline-block bg-accent text-accent-on px-6 py-2 rounded-md font-medium hover:bg-opacity-90 transition-all">
+                    Book Appointment
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center text-brand-on bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1667242196625-cba992a860a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8c2Fsb24lMjBib2xkfGVufDF8MHx8fDE3OTAwODkwODN8MA&ixlib=rb-4.1.0&q=80&w=1080');">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative z-10 px-6 hero-content">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-heading">Expert Salon Care & Professional Beauty Training</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-brand-on/90">Devique Studio is a unisex salon and training academy in Boduppal, Hyderabad, for men and women.</p>
+                <a href="#contact" class="mt-8 inline-block bg-accent text-accent-on px-10 py-4 rounded-md font-bold text-lg hover:bg-opacity-90 transition-all">
+                    Book Appointment
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 lg:py-32 bg-surface-alt">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">For Your Hair, Skin, and Special Occasions</h2>
+                    <p class="mt-4 text-lg text-text-muted">Our comprehensive services cater to both men and women, ensuring you look and feel your best.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-surface p-8 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex justify-center items-center mb-4 text-brand">
+                            <i data-lucide="scissors" class="w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold mb-2">Hair Styling & Care</h3>
+                        <p class="text-text-muted">Professional haircuts and treatments for all hair types.</p>
+                    </div>
+                    <div class="bg-surface p-8 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex justify-center items-center mb-4 text-brand">
+                           <i data-lucide="sparkles" class="w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold mb-2">Skin Rejuvenation</h3>
+                        <p class="text-text-muted">A range of facials designed to refresh and revitalize your skin.</p>
+                    </div>
+                    <div class="bg-surface p-8 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex justify-center items-center mb-4 text-brand">
+                            <i data-lucide="hand" class="w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold mb-2">Manicures & Pedicures</h3>
+                        <p class="text-text-muted">Complete care for hands and feet to perfect your look.</p>
+                    </div>
+                    <div class="bg-surface p-8 rounded-lg text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex justify-center items-center mb-4 text-brand">
+                            <i data-lucide="gem" class="w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold mb-2">Bridal Makeup</h3>
+                        <p class="text-text-muted">Expert makeup artistry to make your special day unforgettable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academy Section -->
+        <section id="academy" class="bg-brand text-brand-on">
+            <div class="container mx-auto grid lg:grid-cols-2 items-center">
+                <div class="relative h-80 lg:h-full min-h-[400px]" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1741769766414-188500c6d143?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8QmVhdXR5JTIwYWNhZGVteSUyMGNvdXJzZXN8ZW58MXwwfHx8MTc5MDA4OTA5M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="Doctor performs procedure on patient with observers" class="w-full h-full object-cover">
+                </div>
+                <div class="p-8 md:p-16 lg:p-24" data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">Become a Beauty Professional</h2>
+                    <p class="mt-4 text-xl text-brand-on/90">Join the Devique Studio Academy.</p>
+                    <p class="mt-6 text-brand-on/80">Our Advance Beauty Course provides the hands-on training you need to launch your career in the beauty industry. Learn professional techniques in a real salon environment.</p>
+                    <a href="#contact" class="mt-8 inline-block border-2 border-brand-on text-brand-on px-8 py-3 rounded-md font-medium hover:bg-brand-on hover:text-brand transition-colors">
+                        Inquire About Courses
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 lg:py-32 bg-surface">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">The Devique Studio Experience</h2>
+                </div>
+                <div class="masonry-grid">
+                    <div class="masonry-item" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8U2Fsb24lMjBzZXJ2aWNlJTIwcHJvbW90aW9uc3xlbnwxfDB8fHwxNzkwMDg5MDkyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman getting her hair cut by a hair stylist" class="rounded-lg w-full">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1747832802200-7aaceb517e0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8c2Fsb24lMjBib2xkfGVufDF8MHx8fDE3OTAwODkwODN8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Barber giving a haircut to his customer" class="rounded-lg w-full">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8U2Fsb24lMjBzZXJ2aWNlJTIwcHJvbW90aW9uc3xlbnwxfDB8fHwxNzkwMDg5MDkyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Hands holding hairbrushes, scissors, and a tinting brush against a white background" class="rounded-lg w-full">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8U2Fsb24lMjBzZXJ2aWNlJTIwcHJvbW90aW9uc3xlbnwxfDB8fHwxNzkwMDg5MDkyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A hairstylist using a blow dryer and round brush on a client's hair" class="rounded-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 lg:py-32 bg-surface-alt">
+            <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">Book Your Appointment in Boduppal</h2>
+                <p class="mt-4 text-lg max-w-2xl mx-auto text-text-muted">We operate by appointment to give you our full attention. Call us to schedule your visit.</p>
+
+                <div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-8 text-lg">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="map-pin" class="w-6 h-6 text-brand"></i>
+                        <span>Boduppal, Hyderabad</span>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                     <a href="tel:+917396204711" class="inline-flex items-center gap-3 bg-brand text-brand-on px-8 py-4 rounded-md font-bold text-xl hover:bg-opacity-90 transition-colors">
+                        <i data-lucide="phone" class="w-6 h-6"></i>
+                        Call 917396204711
+                    </a>
+                </div>
+                
+                <p class="mt-4 text-sm text-text-muted">You can also find us on YouTube & Google Maps.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-text text-brand-on/70">
+        <div class="container mx-auto px-6 py-12 text-center">
+            <p class="font-heading text-xl font-bold text-brand-on">Devique Studio</p>
+            <div class="flex justify-center gap-6 mt-4">
+                 <a href="#services" class="hover:text-brand-on transition-colors">Services</a>
+                 <a href="#academy" class="hover:text-brand-on transition-colors">Academy</a>
+                 <a href="#gallery" class="hover:text-brand-on transition-colors">Gallery</a>
+                 <a href="#contact" class="hover:text-brand-on transition-colors">Contact</a>
+            </div>
+            <p class="mt-8 text-sm text-brand-on/50">&copy; 2024 Devique Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+
+            // Initialize Lucide Icons
+            lucide.createIcons();
+
+            // Header scroll effect
+            const header = document.getElementById('main-header');
+            const logo = document.getElementById('logo');
+            const navLinks = header.querySelectorAll('nav a');
+            const mobileMenuIcon = document.getElementById('mobile-menu-button').querySelector('i');
+            
+            const handleScroll = () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                    logo.classList.remove('text-brand-on');
+                    logo.classList.add('text-text');
+                    mobileMenuIcon.parentElement.classList.remove('text-brand-on');
+                    mobileMenuIcon.parentElement.classList.add('text-text');
+                    navLinks.forEach(link => {
+                        link.classList.add('lg:text-text-muted');
+                        link.classList.add('lg:hover:text-text');
+                        link.classList.remove('text-brand-on/80');
+                        link.classList.remove('hover:text-brand-on');
+                    });
+                } else {
+                    header.classList.remove('header-scrolled');
+                    logo.classList.add('text-brand-on');
+                    logo.classList.remove('text-text');
+                    mobileMenuIcon.parentElement.classList.add('text-brand-on');
+                    mobileMenuIcon.parentElement.classList.remove('text-text');
+                     navLinks.forEach(link => {
+                        link.classList.remove('lg:text-text-muted');
+                        link.classList.remove('lg:hover:text-text');
+                        link.classList.add('text-brand-on/80');
+                        link.classList.add('hover:text-brand-on');
+                    });
+                }
+            };
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // GSAP Animations on load
+            gsap.from('.hero-content > *', {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                stagger: 0.2,
+                ease: 'power3.out',
+                delay: 0.2
+            });
+        });
+    </script>
+</body>
+</html>
