@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Cells - Science-Based Fat Loss Coaching in Hyderabad</title>
+    
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --surface: #F9F9F9;
+            --surface-alt: #EEEEEE;
+            --text: #292929;
+            --text-muted: #6B6B6B;
+            --border: #8F8F8F;
+            --brand: #562E2E;
+            --brand-on: #F9F9F9;
+            --accent: #A55050;
+            --accent-on: #F9F9F9;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Archivo Black', sans-serif;
+            color: var(--text);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--brand);
+            --swiper-navigation-size: 2rem;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--brand) !important;
+        }
+
+        .myth-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        text: 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        border: 'var(--border)',
+                        brand: 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        accent: 'var(--accent)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Archivo Black', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-xl font-heading font-bold text-text">Fit Cells</a>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#method" class="text-text hover:text-accent transition-colors">Method</a>
+                    <a href="#transformations" class="text-text hover:text-accent transition-colors">Results</a>
+                    <a href="#consultation" class="bg-accent text-accent-on px-4 py-2 rounded-md font-semibold hover:opacity-90 transition-opacity">Book a Consultation</a>
+                </nav>
+
+                <button id="mobile-menu-button" class="md:hidden">
+                    <i data-lucide="menu" class="h-6 w-6 text-text"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface shadow-lg">
+            <nav class="flex flex-col items-center space-y-4 p-4">
+                <a href="#method" class="block text-text hover:text-accent transition-colors w-full text-center py-2">Method</a>
+                <a href="#transformations" class="block text-text hover:text-accent transition-colors w-full text-center py-2">Results</a>
+                <a href="#consultation" class="block bg-accent text-accent-on px-4 py-2 rounded-md font-semibold hover:opacity-90 transition-opacity w-full text-center mt-2">Book a Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1758875568932-0eefd3e60090?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8dHJhaW5lciUyMGJvbGR8ZW58MXwwfHx8MTc5MDA4NTUyNnww&ixlib=rb-4.1.0&q=80&w=1080');">
+            <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div class="relative z-10 px-6 max-w-3xl text-white" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading uppercase text-white">Fat Loss Is Science — Not Punishment.</h1>
+                <p class="mt-6 text-lg md:text-xl text-brand-on max-w-2xl mx-auto">Hyper-personalized coaching for busy professionals in Hyderabad. We build sustainable strength training and nutrition systems that deliver real results.</p>
+                <a href="#consultation" class="mt-10 inline-block bg-accent text-accent-on px-8 py-4 rounded-md text-lg font-semibold hover:opacity-90 transition-opacity transform hover:scale-105">Book a Consultation</a>
+            </div>
+        </section>
+
+        <!-- Feature Pillars Section -->
+        <section id="method" class="py-20 md:py-32 bg-surface-alt">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading" data-aos="fade-up">Your Sustainable Fat Loss System</h2>
+                <div class="mt-16 grid md:grid-cols-3 gap-12 md:gap-8">
+                    
+                    <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-surface p-4 rounded-full shadow-md">
+                           <i data-lucide="dumbbell" class="h-10 w-10 text-brand"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-heading">Strength Training</h3>
+                        <p class="mt-2 text-text-muted max-w-xs">Build muscle and increase metabolism with a training program designed for your body, experience level, and schedule.</p>
+                    </div>
+
+                    <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-surface p-4 rounded-full shadow-md">
+                           <i data-lucide="utensils-crossed" class="h-10 w-10 text-brand"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-heading">Nutrition Guidance</h3>
+                        <p class="mt-2 text-text-muted max-w-xs">Learn what to eat, not just what to avoid. We provide science-backed nutritional coaching that fits your lifestyle.</p>
+                    </div>
+
+                    <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-surface p-4 rounded-full shadow-md">
+                           <i data-lucide="repeat" class="h-10 w-10 text-brand"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-heading">Habit Building</h3>
+                        <p class="mt-2 text-text-muted max-w-xs">Lasting results come from consistent habits. We help you build the small, daily routines that lead to major transformations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Myth Buster Section -->
+        <section id="myths" class="py-20 md:py-32 bg-surface">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl md:text-4xl font-heading">Stop Guessing. Start Knowing.</h2>
+                        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8RGVidW5raW5nJTIwZml0bmVzcyUyMG15dGhzfGVufDF8MHx8fDE3OTAwODU5NTh8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A person in a gray shirt holding a black dumbbell, ready to lift." class="mt-8 rounded-lg shadow-xl w-full h-auto object-cover">
+                    </div>
+                    <div class="space-y-4" data-aos="fade-left">
+                        
+                        <div class="myth-item border-b border-border">
+                            <button class="myth-question w-full text-left py-4 flex justify-between items-center">
+                                <span class="font-semibold text-lg">Myth: You need to do hours of cardio to lose fat.</span>
+                                <i data-lucide="chevron-down" class="h-6 w-6 transition-transform duration-300"></i>
+                            </button>
+                            <div class="myth-answer">
+                                <p class="pt-2 pb-4 text-text-muted">Truth: While cardio has benefits, strength training is more effective for building muscle, which boosts your metabolism and burns more fat at rest.</p>
+                            </div>
+                        </div>
+
+                        <div class="myth-item border-b border-border">
+                            <button class="myth-question w-full text-left py-4 flex justify-between items-center">
+                                <span class="font-semibold text-lg">Myth: Carbs make you gain weight.</span>
+                                <i data-lucide="chevron-down" class="h-6 w-6 transition-transform duration-300"></i>
+                            </button>
+                            <div class="myth-answer">
+                                <p class="pt-2 pb-4 text-text-muted">Truth: Excess calories, not carbohydrates, cause weight gain. The right carbs are essential for energy and performance. We teach you how to use them correctly.</p>
+                            </div>
+                        </div>
+
+                        <div class="myth-item border-b border-border">
+                            <button class="myth-question w-full text-left py-4 flex justify-between items-center">
+                                <span class="font-semibold text-lg">Myth: You can 'target' fat loss in specific areas.</span>
+                                <i data-lucide="chevron-down" class="h-6 w-6 transition-transform duration-300"></i>
+                            </button>
+                            <div class="myth-answer">
+                                <p class="pt-2 pb-4 text-text-muted">Truth: Spot reduction is not possible. We focus on a holistic, full-body approach that reduces overall body fat, revealing a stronger physique.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transformations Gallery Section -->
+        <section id="transformations" class="py-20 md:py-32 bg-surface-alt">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading" data-aos="fade-up">Results Built on Science</h2>
+                <p class="mt-4 text-text-muted max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Transformation is a process of sustainable change, not a quick fix. These images represent the power of a consistent, scientific approach.</p>
+                
+                <div class="mt-16 swiper-container" data-aos="fade-up" data-aos-delay="200">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://images.unsplash.com/photo-1776536025707-9a0a915f85a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8QmVmb3JlJTIwYW5kJTIwYWZ0ZXIlMjB0cmFuc2Zvcm1hdGlvbnN8ZW58MXwwfHx8MTc5MDA4NTk1N3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="Aerial view of a campus split between autumn and winter seasons, representing change." class="w-full h-auto object-cover rounded-lg aspect-[3/4]">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://images.unsplash.com/photo-1516307318288-46d4194fe79e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8QmVmb3JlJTIwYW5kJTIwYWZ0ZXIlMjB0cmFuc2Zvcm1hdGlvbnN8ZW58MXwwfHx8MTc5MDA4NTk1N3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman's face reflecting in a mirror, symbolizing self-reflection and change." class="w-full h-auto object-cover rounded-lg aspect-[3/4]">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://images.unsplash.com/photo-1711194992405-6b5aad30b8fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8QmVmb3JlJTIwYW5kJTIwYWZ0ZXIlMjB0cmFuc2Zvcm1hdGlvbnN8ZW58MXwwfHx8MTc5MDA4NTk1N3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="A black and white photo of two women, showing a generational concept or passage of time." class="w-full h-auto object-cover rounded-lg aspect-[3/4]">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination mt-8"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultation CTA Section -->
+        <section id="consultation" class="py-20 md:py-32 bg-brand text-brand-on">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading text-brand-on" data-aos="fade-up">Start Your Transformation in Hyderabad</h2>
+                <p class="mt-6 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Personalized coaching available online or with in-home sessions in Banjara Hills, Gachibowli, and Madhapur. Contact us to schedule your initial consultation and see if we're the right fit for your goals.</p>
+                <a href="tel:917715977035" class="mt-10 inline-block bg-accent text-accent-on px-8 py-4 rounded-md text-lg font-semibold hover:opacity-90 transition-opacity transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">Call to Book: 917715977035</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-lg font-heading font-bold text-text">Fit Cells</p>
+                </div>
+                <div class="flex items-center space-x-6 md:space-x-8 text-sm">
+                    <a href="#method" class="text-text-muted hover:text-accent transition-colors">Method</a>
+                    <a href="#transformations" class="text-text-muted hover:text-accent transition-colors">Results</a>
+                    <a href="#consultation" class="text-text-muted hover:text-accent transition-colors">Contact</a>
+                    <a href="tel:917715977035" class="text-text-muted hover:text-accent transition-colors">917715977035</a>
+                    <a href="https://www.instagram.com/femalepersonaltrainerhyderabad" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-accent transition-colors">
+                        <i data-lucide="instagram" class="h-5 w-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Create Lucide Icons
+        lucide.createIcons();
+
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+            centeredSlides: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2.5,
+                    spaceBetween: 24,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 32,
+                }
+            }
+        });
+
+        // MythBuster Accordion
+        const mythItems = document.querySelectorAll('.myth-item');
+        mythItems.forEach(item => {
+            const question = item.querySelector('.myth-question');
+            const answer = item.querySelector('.myth-answer');
+            const icon = question.querySelector('i');
+
+            question.addEventListener('click', () => {
+                const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+                // Close all other items
+                mythItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.querySelector('.myth-answer').style.maxHeight = '0px';
+                        otherItem.querySelector('.myth-question i').style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // Toggle current item
+                if (isOpen) {
+                    answer.style.maxHeight = '0px';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Sticky Navbar
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-surface', 'shadow-md');
+            } else {
+                navbar.classList.remove('bg-surface', 'shadow-md');
+            }
+        });
+        
+        // Mobile Menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+    </script>
+</body>
+</html>
