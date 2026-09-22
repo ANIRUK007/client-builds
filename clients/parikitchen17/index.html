@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pari's Kitchen - Custom Themed Cakes in Puppalaguda</title>
+    <meta name="description" content="Pari's Kitchen specializes in highly detailed, personalized themed cakes, including unique split-designs that combine two themes into one amazing cake for your celebration.">
+
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --surface: #F9F8F8;
+            --surface-alt: #F0EDEE;
+            --text: #351D26;
+            --text-muted: #815665;
+            --border: #A48490;
+            --brand: #671E39;
+            --accent: #2973A3;
+            --brand-on: #F9F8F8;
+            --accent-on: #F9F8F8;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--brand);
+        }
+        .header-shadow {
+            box-shadow: 0 4px 6px -1px rgba(53, 29, 38, 0.05), 0 2px 4px -2px rgba(53, 29, 38, 0.05);
+        }
+        /* Simple Masonry using CSS Columns */
+        .masonry-grid {
+            column-gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-grid {
+                columns: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                columns: 3;
+            }
+        }
+        .masonry-grid .grid-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+        .lightbox-backdrop {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        text: 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        border: 'var(--border)',
+                        brand: 'var(--brand)',
+                        accent: 'var(--accent)',
+                        'brand-on': 'var(--brand-on)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Fredoka One', 'cursive'],
+                        body: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="bg-surface/80 backdrop-blur-lg sticky top-0 z-50 transition-shadow duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-heading text-brand">Pari's Kitchen</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#gallery" class="text-text hover:text-brand transition-colors">Gallery</a>
+                <a href="#flavours" class="text-text hover:text-brand transition-colors">Flavours</a>
+                <a href="#order" class="text-text hover:text-brand transition-colors">How to Order</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="https://www.instagram.com/parikitchen17" target="_blank" class="hidden md:inline-block bg-accent text-accent-on px-5 py-2 rounded-full text-sm font-bold hover:bg-opacity-90 transition-colors">
+                    Order on Instagram
+                </a>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-text hover:bg-surface-alt focus:outline-none">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <nav class="flex flex-col space-y-4">
+                <a href="#gallery" class="text-text hover:text-brand transition-colors">Gallery</a>
+                <a href="#flavours" class="text-text hover:text-brand transition-colors">Flavours</a>
+                <a href="#order" class="text-text hover:text-brand transition-colors">How to Order</a>
+                <a href="https://www.instagram.com/parikitchen17" target="_blank" class="bg-accent text-accent-on px-5 py-2 rounded-full text-sm font-bold text-center hover:bg-opacity-90 transition-colors">
+                    Order on Instagram
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="bg-surface py-16 md:py-24">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left order-2 md:order-1">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading leading-tight mb-4 gsap-hero-text">Two Themes, One Cake: Your Unique Celebration Starts Here.</h1>
+                    <p class="text-lg text-text-muted mb-8 max-w-lg mx-auto md:mx-0 gsap-hero-text">From children's character cakes to elegant floral designs, I create highly detailed, personalized cakes that tell your story. Specializing in unique split-designs that bring two of your favourite themes together.</p>
+                    <a href="#gallery" class="inline-block border-2 border-brand text-brand px-8 py-3 rounded-full font-bold hover:bg-brand hover:text-brand-on transition-all duration-300 transform hover:scale-105 gsap-hero-text">
+                        See the Cakes
+                    </a>
+                </div>
+                <div class="order-1 md:order-2" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Y2VsZWJyYXRvcnklMjBjYWtlc3xlbnwxfDB8fHwxNzkwMDg5MDY1fDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                         alt="An elegant two-tiered cake decorated with delicate pink and white flowers." 
+                         class="rounded-2xl shadow-xl w-full h-auto object-cover aspect-square">
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="bg-surface-alt py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-heading" data-aos="fade-up">A Gallery of Handcrafted Celebrations</h2>
+                </div>
+                <div class="masonry-grid">
+                    <div class="grid-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1516668557604-c8e814fdb184?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Y2hpbGRyZW4lMjdzJTIwYmlydGhkYXklMjBjYWtlc3xlbnwxfDB8fHwxNzkwMDg5MDYzfDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                             alt="A young toddler with curly hair blowing out candles on a colorful birthday cake." 
+                             class="rounded-lg shadow-md w-full h-auto cursor-pointer gallery-img hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="grid-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Y2VsZWJyYXRvcnklMjBjYWtlc3xlbnwxfDB8fHwxNzkwMDg5MDY1fDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                             alt="A rich chocolate birthday cake adorned with piped frosting roses and 'Happy Birthday' written in icing." 
+                             class="rounded-lg shadow-md w-full h-auto cursor-pointer gallery-img hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="grid-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1688632107202-7902806ff3d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Y2hpbGRyZW4lMjdzJTIwYmlydGhkYXklMjBjYWtlc3xlbnwxfDB8fHwxNzkwMDg5MDYzfDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                             alt="A group of people gathered around a table with a lit birthday cake, celebrating." 
+                             class="rounded-lg shadow-md w-full h-auto cursor-pointer gallery-img hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="grid-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1566577134648-41d15b958d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Y3VzdG9tJTIwY2hhcmFjdGVyJTIwdGhlbWVzfGVufDF8MHx8fDE3OTAwODkwNjR8MA&ixlib=rb-4.1.0&q=80&w=1080" 
+                             alt="A meticulously crafted figurine of a video game character, showcasing detailed custom work." 
+                             class="rounded-lg shadow-md w-full h-auto cursor-pointer gallery-img hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="grid-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1660383534593-6b5221ab80d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Y2VsZWJyYXRvcnklMjBjYWtlc3xlbnwxfDB8fHwxNzkwMDg5MDY1fDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                             alt="A white frosted cake topped with an arrangement of fresh strawberries, blueberries, and figs." 
+                             class="rounded-lg shadow-md w-full h-auto cursor-pointer gallery-img hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="grid-item" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1775440978000-5beaa239a495?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Y3VzdG9tJTIwY2hhcmFjdGVyJTIwdGhlbWVzfGVufDF8MHx8fDE3OTAwODkwNjR8MA&ixlib=rb-4.1.0&q=80&w=1080" 
+                             alt="A wall with graffiti including a cartoon character sticker, showing inspiration for a character-themed cake." 
+                             class="rounded-lg shadow-md w-full h-auto cursor-pointer gallery-img hover:opacity-90 transition-opacity">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flavours Section -->
+        <section id="flavours" class="bg-surface py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-heading" data-aos="fade-up">Crafted With Love: Flavours and Finishes</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-surface-alt p-8 rounded-lg" data-aos="fade-right">
+                        <h3 class="text-2xl font-heading mb-3">Signature Sponges</h3>
+                        <p class="text-text-muted">Choose from a selection of classic and contemporary cake flavours, all baked from scratch using quality ingredients. We can recommend the perfect sponge to complement your design.</p>
+                    </div>
+                    <div class="bg-surface-alt p-8 rounded-lg" data-aos="fade-left">
+                        <h3 class="text-2xl font-heading mb-3">Delicious Fillings</h3>
+                        <p class="text-text-muted">From silky Swiss meringue buttercream to rich chocolate ganache, every cake is finished with a delicious coating that tastes as good as it looks.</p>
+                    </div>
+                </div>
+                <p class="text-center text-text-muted mt-12 max-w-2xl mx-auto" data-aos="fade-up">Pricing is based on the final design's size, detail, and complexity. Please get in touch for a custom quote.</p>
+            </div>
+        </section>
+
+        <!-- Order Section -->
+        <section id="order" class="bg-brand text-brand-on py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading text-brand-on mb-12" data-aos="fade-up">DM Us To Customise Your Dream Celebration Cake</h2>
+                <div class="flex flex-col md:flex-row justify-center items-start gap-8 md:gap-12 mb-12 max-w-6xl mx-auto">
+                    <div class="flex-1 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-surface/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-brand-on">
+                           <span class="text-2xl font-heading text-brand-on">1</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-body mb-2">Send a DM</h3>
+                        <p class="opacity-80">Reach out on Instagram with your event date, theme, and number of servings. Share any inspiration photos you have!</p>
+                    </div>
+                    <div class="flex-1 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-surface/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-brand-on">
+                           <span class="text-2xl font-heading text-brand-on">2</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-body mb-2">Design & Details</h3>
+                        <p class="opacity-80">We'll chat about your vision, finalise the design, and choose the perfect flavours for your celebration.</p>
+                    </div>
+                    <div class="flex-1 text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-surface/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-brand-on">
+                           <span class="text-2xl font-heading text-brand-on">3</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-body mb-2">Confirmation</h3>
+                        <p class="opacity-80">Once confirmed, your custom cake will be lovingly crafted and ready for your special day.</p>
+                    </div>
+                </div>
+                <a href="https://www.instagram.com/parikitchen17" target="_blank" class="inline-block bg-accent text-accent-on px-10 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105" data-aos="zoom-in" data-aos-delay="400">
+                    Start Your Order on Instagram
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="bg-surface py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center max-w-2xl">
+                <img src="https://images.unsplash.com/photo-1709837167684-47d7ccf0ed89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8aG9tZSUyMGJha2VyJTIwcGxheWZ1bHxlbnwxfDB8fHwxNzkwMDgyMzkzfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                     alt="Pari, the home baker behind Pari's Kitchen, smiling warmly in her kitchen."
+                     class="w-40 h-40 rounded-full object-cover mx-auto mb-8 shadow-xl border-4 border-surface-alt" data-aos="zoom-in">
+                <h2 class="text-3xl md:text-4xl font-heading mb-4" data-aos="fade-up">From My Kitchen in Puppalaguda</h2>
+                <p class="text-lg text-text-muted" data-aos="fade-up" data-aos-delay="100">Hi, I'm Pari! I started Pari's Kitchen to bring a little bit of joy and a lot of creativity to celebrations. Every cake is a unique piece of art, crafted with love right here in my home kitchen. I can't wait to hear about your ideas.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt py-8">
+        <div class="container mx-auto px-6 text-center text-text-muted">
+            <a href="https://www.instagram.com/parikitchen17" target="_blank" class="inline-block mb-4 text-text-muted hover:text-brand transition-colors">
+                <i data-lucide="instagram" class="h-6 w-6"></i>
+            </a>
+            <p>&copy; 2024 Pari's Kitchen. BAKED WITH LOVE.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 hidden lightbox-backdrop opacity-0">
+        <div class="relative max-w-4xl max-h-full">
+            <img id="lightbox-img" src="" alt="Enlarged view of a custom cake from the gallery." class="max-w-full max-h-[90vh] rounded-lg">
+            <button id="lightbox-close" class="absolute -top-4 -right-4 bg-surface text-text rounded-full p-2">
+                <i data-lucide="x" class="h-6 w-6"></i>
+            </button>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+
+            // Initialize Lucide Icons
+            lucide.createIcons();
+
+            // Sticky Header Shadow
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('header-shadow');
+                } else {
+                    header.classList.remove('header-shadow');
+                }
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = mobileMenuButton.querySelector('i');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenuIcon.setAttribute('data-lucide', 'menu');
+                } else {
+                    mobileMenuIcon.setAttribute('data-lucide', 'x');
+                }
+                lucide.createIcons();
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            });
+
+            // GSAP Animations for Hero Text
+            gsap.from(".gsap-hero-text", {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.5
+            });
+
+            // Lightbox functionality
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const galleryImages = document.querySelectorAll('.gallery-img');
+
+            galleryImages.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightbox.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                    setTimeout(() => {
+                        lightbox.classList.remove('opacity-0');
+                    }, 10);
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                });
+            });
+
+            const closeLightbox = () => {
+                lightbox.classList.add('opacity-0');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    lightbox.classList.add('hidden');
+                }, 300);
+            };
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
