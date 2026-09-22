@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Label Neha | Custom Fairytale Dresses in Hyderabad</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --surface: #F9F8F8;
+            --surface-alt: #F0EDEE;
+            --text: #351D22;
+            --text-muted: #815660;
+            --border: #A4848B;
+            --brand: #671E2F;
+            --accent: #8631C4;
+            --brand-on: #F9F8F8;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Masonry Grid with CSS Columns */
+        .masonry-grid {
+            column-gap: 1.5rem; /* Corresponds to Tailwind's gap-6 */
+        }
+        @media (min-width: 640px) { .masonry-grid { columns: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { columns: 3; } }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem; /* Corresponds to Tailwind's gap-6 */
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        'text': 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        'border': 'var(--border)',
+                        'brand': 'var(--brand)',
+                        'accent': 'var(--accent)',
+                        'brand-on': 'var(--brand-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Caveat', 'cursive'],
+                        body: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-text font-body">
+
+    <!-- Site Header -->
+    <header id="site-header" class="sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-heading text-3xl text-brand font-bold">Label Neha</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#creations" class="text-text-muted hover:text-brand transition-colors">Creations</a>
+                <a href="#process" class="text-text-muted hover:text-brand transition-colors">Your Dream Dress</a>
+                <a href="#order" class="bg-brand text-brand-on px-4 py-2 rounded-md hover:opacity-90 transition-opacity text-sm font-semibold">Order</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-brand" aria-label="Open menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface-alt shadow-lg">
+            <nav class="flex flex-col items-center space-y-4 py-4">
+                <a href="#creations" class="text-text-muted hover:text-brand transition-colors py-2">Creations</a>
+                <a href="#process" class="text-text-muted hover:text-brand transition-colors py-2">Your Dream Dress</a>
+                <a href="#order" class="bg-brand text-brand-on px-4 py-2 rounded-md hover:opacity-90 transition-opacity mt-2">Order</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center text-white">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1776142750668-d83f680afd71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8RmFpcnl0YWxlJTJGUHJpbmNlc3MlMjBkcmVzc2VzfGVufDF8MHx8fDE3OTAwODYwOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080');" aria-hidden="true"></div>
+            <div class="absolute inset-0 bg-black/50" aria-hidden="true"></div>
+            <div class="relative z-10 p-6 max-w-3xl mx-auto" data-aos="fade-up">
+                <h1 class="font-heading text-6xl md:text-8xl font-bold mb-4">Your Fairytale Dress, Made For You</h1>
+                <p class="text-lg md:text-xl text-brand-on/90 mb-8 max-w-2xl mx-auto">Custom-fit gowns and Indo-Western wear with handcrafted details, designed in Hyderabad to bring your Cinderella moment to life.</p>
+                <a href="#creations" class="inline-block bg-brand-on text-brand font-semibold px-8 py-3 rounded-md hover:bg-surface-alt transition-colors">View Our Creations</a>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section id="creations" class="py-20 md:py-32 bg-surface-alt">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                    <h2 class="font-heading text-5xl md:text-6xl text-brand mb-4" data-aos="fade-up">Creations for Your Cinderella Moment</h2>
+                </div>
+                <div class="masonry-grid">
+                    <div class="masonry-item" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1610050820728-ecd4a2635b25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8RmFpcnl0YWxlJTJGUHJpbmNlc3MlMjBkcmVzc2VzfGVufDF8MHx8fDE3OTAwODYwOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman in an elegant white dress lying on a bed of autumn leaves, evoking a fairytale scene." class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1568251188392-ae32f898cb3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8T2NjYXNpb24lMjB3ZWFyfGVufDF8MHx8fDE3OTAwODYwOTN8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman models a sleek black dress suitable for a special occasion." class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1635081232174-5f5294a3d511?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8RmFpcnl0YWxlJTJGUHJpbmNlc3MlMjBkcmVzc2VzfGVufDF8MHx8fDE3OTAwODYwOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman in a dramatic black fairytale gown standing in a lush garden." class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1499939667766-4afceb292d05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8T2NjYXNpb24lMjB3ZWFyfGVufDF8MHx8fDE3OTAwODYwOTN8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman wearing a vibrant floral halter-top dress for an event." class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="masonry-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1573879500655-98f2012dd1db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8T2NjYXNpb24lMjB3ZWFyfGVufDF8MHx8fDE3OTAwODYwOTN8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A collection of assorted stylish tops hanging on a clothing rack in a boutique." class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Process Section -->
+        <section id="process" class="py-20 md:py-32 bg-surface">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="font-heading text-5xl md:text-6xl text-brand mb-4">A Dress as Unique as You Are</h2>
+                        <p class="text-text-muted mb-12">We specialize in personalized, fairytale-inspired dresses for any shape and size. Here’s how we bring your vision to life.</p>
+                        
+                        <div class="space-y-10">
+                            <div class="flex items-start">
+                                <div class="font-heading text-6xl text-brand/30 mr-6 flex-shrink-0">01</div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2 text-brand">Share Your Vision</h3>
+                                    <p class="text-text-muted">It all begins with your idea. Send us a message with your inspiration, theme, and occasion, and we'll schedule a consultation to discuss the details.</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start">
+                                <div class="font-heading text-6xl text-brand/30 mr-6 flex-shrink-0">02</div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2 text-brand">Custom Design & Fitting</h3>
+                                    <p class="text-text-muted">We create a unique design tailored to your measurements. We'll perfect the fit and incorporate the handcrafted details, like embroidery or beadwork, that make it yours.</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start">
+                                <div class="font-heading text-6xl text-brand/30 mr-6 flex-shrink-0">03</div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2 text-brand">Creation & Delivery</h3>
+                                    <p class="text-text-muted">Our artisans craft your outfit with care. Once complete, your one-of-a-kind dress is ready for your special day in Hyderabad.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1753162657497-82d7964273bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q3VzdG9taXNhdGlvbnxlbnwxfDB8fHwxNzkwMDg2MDkzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A designer sketches a new clothing design on paper, representing the customization process." class="rounded-lg shadow-lg w-full h-full max-h-[600px] object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="order" class="bg-brand text-brand-on py-20 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="font-heading text-5xl md:text-6xl mb-4" data-aos="fade-up">Feel like a princess? Let's create your dress.</h2>
+                    <p class="text-lg text-brand-on/90 mb-8" data-aos="fade-up" data-aos-delay="100">All our outfits are made to order. Send us a message on Instagram to start the conversation about your custom design.</p>
+                    <a href="https://www.instagram.com/labelneha" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-accent text-white font-semibold px-8 py-4 rounded-md hover:scale-105 transition-transform" data-aos="fade-up" data-aos-delay="200">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        Message Us on Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-surface-alt py-8">
+        <div class="container mx-auto px-6 text-center text-text-muted">
+            <div class="flex justify-center mb-4">
+                <a href="https://www.instagram.com/labelneha" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-brand transition-colors" aria-label="Label Neha on Instagram">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+            </div>
+            <p class="text-sm">&copy; <span id="current-year">2024</span> Label Neha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // AOS Initialization
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('bg-surface/95', 'backdrop-blur-sm', 'shadow-md');
+            } else {
+                header.classList.remove('bg-surface/95', 'backdrop-blur-sm', 'shadow-md');
+            }
+        });
+
+        // Dynamic Copyright Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
