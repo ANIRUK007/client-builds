@@ -5,18 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Allēn Facials & Unisex Salon | Kukatpally, Hyderabad</title>
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper (Not used in this design, but included per requirements) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- CDNs for Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    
     <style>
-        /* CSS Custom Properties for Color Palette */
         :root {
             --surface: #F8F9F9;
             --surface-alt: #EDF0F0;
@@ -29,265 +40,284 @@
             --accent-on: #F8F9F9;
         }
 
-        /* Base styles */
         body {
-            font-family: 'Lato', sans-serif;
             background-color: var(--surface);
             color: var(--text);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Inter', sans-serif;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-        }
-        
-        /* Tab component styles */
-        .tab-button.active {
-            border-color: var(--brand);
-            color: var(--brand);
-            background-color: transparent;
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        .tab-panel {
-            display: none;
+        .font-body {
+            font-family: 'Inter', sans-serif;
         }
 
-        .tab-panel.active {
-            display: block;
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
     </style>
 
-    <!-- Tailwind CSS Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'surface': 'var(--surface)',
+                        surface: 'var(--surface)',
                         'surface-alt': 'var(--surface-alt)',
-                        'text': 'var(--text)',
+                        text: 'var(--text)',
                         'text-muted': 'var(--text-muted)',
-                        'border': 'var(--border)',
-                        'brand': 'var(--brand)',
+                        border: 'var(--border)',
+                        brand: 'var(--brand)',
                         'brand-on': 'var(--brand-on)',
-                        'accent': 'var(--accent)',
+                        accent: 'var(--accent)',
                         'accent-on': 'var(--accent-on)',
                     },
                     fontFamily: {
-                        sans: ['Lato', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        display: ['Cormorant Garamond', 'serif'],
+                        body: ['Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-surface text-text">
+<body class="antialiased">
 
-    <!-- Header & Navbar -->
-    <header class="bg-surface/90 backdrop-blur-sm sticky top-0 z-50 border-b border-border/20">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-serif font-bold text-brand">Allēn</a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#services" class="text-text-muted hover:text-brand transition-colors duration-300">Services</a>
-                <a href="#offers" class="text-text-muted hover:text-brand transition-colors duration-300">Offers</a>
-                <a href="#gallery" class="text-text-muted hover:text-brand transition-colors duration-300">Gallery</a>
-            </div>
-            <a href="#book" class="bg-accent text-accent-on px-6 py-2 rounded-full font-bold text-sm hover:opacity-90 transition-opacity duration-300">
-                Book Now
-            </a>
-        </nav>
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-display text-2xl font-bold tracking-tight text-brand">Allēn Salon</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#services" class="text-text-muted hover:text-text transition-colors">Services</a>
+                <a href="#offers" class="text-text-muted hover:text-text transition-colors">Offers</a>
+                <a href="#gallery" class="text-text-muted hover:text-text transition-colors">Gallery</a>
+                <a href="#contact" class="bg-brand text-brand-on px-5 py-2 rounded-full hover:opacity-90 transition-opacity font-medium">Book Now</a>
+            </nav>
+            <button id="menu-button" class="md:hidden text-brand">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
     </header>
 
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-surface z-50 md:hidden">
+        <div class="flex justify-end p-6">
+             <button id="close-menu-button" class="text-brand">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center justify-center h-full -mt-16 space-y-8">
+            <a href="#services" class="mobile-nav-link text-3xl font-display text-text">Services</a>
+            <a href="#offers" class="mobile-nav-link text-3xl font-display text-text">Offers</a>
+            <a href="#gallery" class="mobile-nav-link text-3xl font-display text-text">Gallery</a>
+            <a href="#contact" class="mobile-nav-link bg-brand text-brand-on px-8 py-3 rounded-full text-xl mt-4">Book Now</a>
+        </nav>
+    </div>
+
     <main>
-
         <!-- Hero Section -->
-        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center text-brand-on bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8S2VyYXRpbiUyMGhhaXIlMjB0cmVhdG1lbnRzfGVufDF8MHx8fDE3ODk5MzE4ODR8MA&ixlib=rb-4.1.0&q=80&w=1080');">
-            <div class="absolute inset-0 bg-brand opacity-60"></div>
-            <div class="relative z-10 p-6 max-w-3xl" data-aos="fade-up">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-serif leading-tight">Glowing Skin, Flawless Hair. Starts Here.</h1>
-                <p class="mt-4 text-lg md:text-xl max-w-xl mx-auto">Premium Hydra Facials and Keratin Treatments at our unisex salon in Kukatpally, Hyderabad.</p>
-                <a href="#book" class="mt-8 inline-block bg-accent text-accent-on px-10 py-4 rounded-full font-bold hover:opacity-90 transition-opacity duration-300">Book Your Appointment</a>
+        <section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-0">
+            <div class="container mx-auto px-6 z-10">
+                <div class="max-w-xl">
+                    <h1 class="hero-text font-display text-5xl md:text-7xl font-semibold text-brand leading-tight">
+                        Premium Skin and Hair Treatments in Kukatpally.
+                    </h1>
+                    <p class="hero-text mt-6 text-lg md:text-xl text-text-muted max-w-lg">
+                        We specialize in transformative services like Hydra Facials for glowing skin and Keratin treatments for smooth, frizz-free hair.
+                    </p>
+                    <div class="hero-text mt-10">
+                        <a href="#contact" class="bg-brand text-brand-on px-8 py-4 rounded-full hover:opacity-90 transition-opacity font-medium text-lg">
+                            Book Your Appointment
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image absolute top-0 right-0 h-full w-full md:w-1/2 lg:w-3/5 opacity-40 md:opacity-100">
+                <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8S2VyYXRpbiUyMGhhaXIlMjB0cmVhdG1lbnRzfGVufDF8MHx8fDE3ODk5MzE4ODR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                     alt="A woman with beautiful, smooth hair standing against a soft pink background."
+                     class="w-full h-full object-cover object-left md:object-center">
+                <div class="absolute inset-0 bg-gradient-to-r from-surface to-transparent md:hidden"></div>
             </div>
         </section>
 
-        <!-- Feature Section -->
-        <section id="services" class="py-20 lg:py-32 bg-surface-alt">
+        <!-- Services Section -->
+        <section id="services" class="py-20 md:py-32 bg-surface-alt">
             <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-serif text-brand">Our Signature Hydra Facial & Keratin Treatments</h2>
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="font-display text-4xl md:text-5xl font-semibold text-text" data-aos="fade-up">
+                        Glow with Hydra Facials. Smooth with Keratin.
+                    </h2>
+                    <p class="mt-6 text-lg text-text-muted" data-aos="fade-up" data-aos-delay="100">
+                        Our specialized services are designed for visible, lasting results. We also offer a full range of nail and bridal packages.
+                    </p>
                 </div>
-                <div class="mt-16 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    <div data-aos="fade-right">
-                        <h3 class="text-2xl font-serif text-text">The Hydra Facial For Glowing Skin</h3>
-                        <p class="mt-4 text-text-muted">Experience a comprehensive treatment that cleanses, exfoliates, and infuses your skin with intensive serums for an immediate, noticeable glow. It's the foundation of radiant, healthy-looking skin, tailored to your specific needs.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-8">
+                    <div class="lg:col-span-4 p-8 bg-surface rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="font-display text-2xl font-semibold text-brand">Skin Treatments</h3>
+                        <p class="mt-2 text-text-muted">Featuring our popular Hydra Facial service for radiant, deeply hydrated skin.</p>
                     </div>
-                    <div data-aos="fade-left">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                           <div>
-                                <h3 class="text-2xl font-serif text-text">Keratin Treatment For Silky Hair</h3>
-                                <p class="mt-4 text-text-muted">Our specialty keratin service transforms frizzy, unmanageable hair into smooth, shiny, and effortlessly styled locks. Silky Hair. Zero Frizz.</p>
-                           </div>
-                            <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8S2VyYXRpbiUyMGhhaXIlMjB0cmVhdG1lbnRzfGVufDF8MHx8fDE3ODk5MzE4ODR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A stylist carefully treating a client's hair in a salon." class="rounded-lg shadow-md aspect-[4/5] object-cover">
+                    <div class="lg:col-span-8 bg-surface rounded-lg shadow-sm overflow-hidden flex flex-col md:flex-row" data-aos="fade-up" data-aos-delay="300">
+                        <div class="md:w-1/2 p-8 flex flex-col justify-center">
+                            <h3 class="font-display text-2xl font-semibold text-brand">Hair Treatments</h3>
+                            <p class="mt-2 text-text-muted">Achieve silky, frizz-free hair with our expert Keratin treatments.</p>
+                        </div>
+                        <div class="md:w-1/2">
+                           <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8S2VyYXRpbiUyMGhhaXIlMjB0cmVhdG1lbnRzfGVufDF8MHx8fDE3ODk5MzE4ODR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A stylist carefully cutting a client's long, dark hair." class="w-full h-64 md:h-full object-cover">
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Promo Banner -->
-        <section id="offers" class="py-20 bg-brand text-brand-on">
-            <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
-                <h2 class="text-3xl md:text-4xl font-serif">Limited-Time Offers on Premium Treatments</h2>
-                <p class="mt-4 max-w-2xl mx-auto">We feature significant discounts on our most popular services. Contact us to find out about our current special offers on Hydra Facials and Keratin treatments.</p>
-                <a href="#book" class="mt-8 inline-block border-2 border-brand-on text-brand-on px-10 py-3 rounded-full font-bold hover:bg-brand-on hover:text-brand transition-colors duration-300">Ask About Offers</a>
-            </div>
-        </section>
-
-        <!-- Service Menu -->
-        <section id="full-menu" class="py-20 lg:py-32 bg-surface">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-serif text-brand">Complete Treatments for Skin, Hair, Nails & Bridal</h2>
-                </div>
-                <div class="mt-12 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                    <div id="tabs-container" class="flex flex-wrap justify-center border-b border-border/50 gap-2 md:gap-4">
-                        <button class="tab-button active text-lg font-semibold px-6 py-3 border-b-2 border-transparent text-text-muted transition-colors duration-300" data-target="panel-skin">Skin</button>
-                        <button class="tab-button text-lg font-semibold px-6 py-3 border-b-2 border-transparent text-text-muted transition-colors duration-300" data-target="panel-hair">Hair</button>
-                        <button class="tab-button text-lg font-semibold px-6 py-3 border-b-2 border-transparent text-text-muted transition-colors duration-300" data-target="panel-nail">Nail</button>
-                        <button class="tab-button text-lg font-semibold px-6 py-3 border-b-2 border-transparent text-text-muted transition-colors duration-300" data-target="panel-bridal">Bridal</button>
+                    <div class="lg:col-span-4 p-8 bg-surface rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="font-display text-2xl font-semibold text-brand">Nail Services</h3>
+                        <p class="mt-2 text-text-muted">Complete your look with our professional nail services.</p>
                     </div>
-                    <div id="panels-container" class="mt-8 text-center text-text-muted">
-                        <div id="panel-skin" class="tab-panel active">Hydra Facials, Classic Facials, Skin Polishing, De-Tan Treatments</div>
-                        <div id="panel-hair" class="tab-panel">Keratin Treatments, Haircuts, Coloring, Styling, Hair Spa</div>
-                        <div id="panel-nail" class="tab-panel">Manicures, Pedicures, Nail Art, Gel Extensions</div>
-                        <div id="panel-bridal" class="tab-panel">Complete Bridal Makeup, Hair Styling, and Pre-Bridal Packages</div>
+                    <div class="lg:col-span-4 p-8 bg-surface rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="font-display text-2xl font-semibold text-brand">Bridal Services</h3>
+                        <p class="mt-2 text-text-muted">Customized packages to ensure you look your absolute best on your special day.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Image Gallery -->
-        <section id="gallery" class="py-20 lg:py-32 bg-surface-alt">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
-                    <h2 class="text-3xl md:text-4xl font-serif text-brand">Transformations by Allēn</h2>
-                </div>
-                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                    <div class="overflow-hidden rounded-lg shadow-lg" data-aos="fade-up">
-                        <img src="https://images.unsplash.com/photo-1602549179763-ce6c9df961b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8S2VyYXRpbiUyMGhhaXIlMjB0cmVhdG1lbnRzfGVufDF8MHx8fDE3ODk5MzE4ODR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Close-up of smooth, healthy brown hair reflecting light after a keratin treatment." class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-300">
+        <!-- Offers Section -->
+        <section id="offers" class="bg-brand text-brand-on">
+            <div class="container mx-auto">
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="w-full lg:w-1/2 h-80 lg:h-auto lg:min-h-[500px]" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8TGltaXRlZC10aW1lJTIwb2ZmZXJzfGVufDF8MHx8fDE3ODk5MzE4ODV8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A red 'Special Offer' tag against a blurred shopping background." class="w-full h-full object-cover">
                     </div>
-                    <div class="overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.unsplash.com/photo-1552561062-532218dd53ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8c2Fsb24lMjBsdXh1cnl8ZW58MXwwfHx8MTc4OTkzMTg4M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="Detail shot of a luxurious and clean salon interior." class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8S2VyYXRpbiUyMGhhaXIlMjB0cmVhdG1lbnRzfGVufDF8MHx8fDE3ODk5MzE4ODR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A client receiving a professional hair treatment from a stylist." class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-300">
-                    </div>
-                     <div class="overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8S2VyYXRpbiUyMGhhaXIlMjB0cmVhdG1lbnRzfGVufDF8MHx8fDE3ODk5MzE4ODR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman showing off her beautiful, styled hair after a salon visit." class="w-full h-full object-cover aspect-square hover:scale-105 transition-transform duration-300">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Booking CTA -->
-        <section id="book" class="py-20 lg:py-32 bg-surface">
-            <div class="container mx-auto px-6">
-                <div class="bg-surface-alt p-8 md:p-12 lg:p-16 rounded-lg shadow-sm grid md:grid-cols-2 gap-12 items-center" data-aos="fade-up">
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-serif text-brand">Book Your Appointment at Allēn Kukatpally</h2>
-                        <p class="mt-4 text-text-muted">We operate on an appointment basis to ensure every client receives our full attention. Call us to schedule your visit and experience the best in skin and hair care.</p>
-                        <div class="mt-8 space-y-4">
-                            <div class="flex items-center">
-                                <i data-lucide="map-pin" class="w-5 h-5 text-brand mr-3"></i>
-                                <span class="text-text-muted">Kukatpally, Hyderabad</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i data-lucide="phone" class="w-5 h-5 text-brand mr-3"></i>
-                                <a href="tel:919493636668" class="text-text-muted hover:text-brand">919493636668</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center md:text-right">
-                        <a href="tel:919493636668" class="inline-block w-full md:w-auto bg-accent text-accent-on px-8 py-5 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity duration-300 transform hover:scale-105">
-                            Call 919493636668 to Book Now
+                    <div class="w-full lg:w-1/2 py-16 px-6 lg:px-16" data-aos="fade-left">
+                        <h2 class="font-display text-4xl md:text-5xl font-semibold leading-tight">Limited-Time Offers on Premium Treatments</h2>
+                        <p class="mt-6 text-lg text-brand-on/80">
+                            We regularly feature significant, limited-time discounts on our most popular services. Follow our Instagram to see the latest offers available at our Kukatpally salon.
+                        </p>
+                        <a href="https://instagram.com/allenfacials" target="_blank" rel="noopener noreferrer" class="inline-block mt-8 bg-brand-on text-brand px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-colors">
+                            View on Instagram: @allenfacials
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="font-display text-4xl md:text-5xl font-semibold text-text" data-aos="fade-up">
+                        The Allēn Salon Experience
+                    </h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="col-span-2 row-span-2" data-aos="zoom-in">
+                        <img src="https://images.unsplash.com/photo-1552561018-5fea54c08479?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8c2Fsb24lMjBsdXh1cnl8ZW58MXwwfHx8MTc4OTkzMTg4M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="A well-dressed man stands beside a luxury car, representing a high-end lifestyle." class="w-full h-full object-cover rounded-lg shadow-md">
+                    </div>
+                    <div class="col-span-2" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1602549179763-ce6c9df961b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8S2VyYXRpbiUyMGhhaXIlMjB0cmVhdG1lbnRzfGVufDF8MHx8fDE3ODk5MzE4ODR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Close-up of smooth, healthy brown hair on a white surface." class="w-full h-full object-cover rounded-lg shadow-md">
+                    </div>
+                    <div class="col-span-2" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1681965823525-b684fb97e9fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8c2Fsb24lMjBsdXh1cnl8ZW58MXwwfHx8MTc4OTkzMTg4M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="The word 'Dyson' embossed on a leather surface, evoking premium tools." class="w-full h-full object-cover rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 bg-surface-alt">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="font-display text-4xl md:text-5xl font-semibold text-text" data-aos="fade-up">
+                    Book Your Appointment at Allēn Kukatpally
+                </h2>
+                <p class="mt-6 text-lg text-text-muted max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    All services are by appointment. Please call to schedule your visit.
+                </p>
+                <div class="mt-10" data-aos="fade-up" data-aos-delay="200">
+                    <a href="tel:+919493636668" class="font-display text-4xl md:text-6xl text-brand hover:text-opacity-80 transition-opacity tracking-wider">+91 94936 36668</a>
+                </div>
+                <div class="mt-12" data-aos="fade-up" data-aos-delay="300">
+                    <a href="tel:+919493636668" class="bg-accent text-accent-on px-10 py-4 rounded-full hover:opacity-90 transition-opacity font-medium text-lg shadow-lg">
+                        Book Your Appointment Now!
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand text-brand-on py-12">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-sm">Allēn Facials & Unisex Salon | Kukatpally, Hyderabad</p>
-            <div class="mt-4 flex justify-center">
-                <a href="https://www.instagram.com/allenfacials" target="_blank" rel="noopener noreferrer" class="text-brand-on hover:text-accent-on transition-colors duration-300">
+    <footer class="bg-surface-alt border-t border-border/50">
+        <div class="container mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
+            <p class="text-text-muted">
+                Allēn Facials & Unisex Salon | Kukatpally, Hyderabad
+            </p>
+            <div class="mt-4 sm:mt-0">
+                <a href="https://instagram.com/allenfacials" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-brand transition-colors">
                     <i data-lucide="instagram" class="w-6 h-6"></i>
-                    <span class="sr-only">Instagram</span>
                 </a>
             </div>
         </div>
     </footer>
 
-    <!-- JS Libraries from CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
-    <!-- Inline JavaScript -->
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 50,
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // AOS Init
+            AOS.init({
+                once: true,
+                duration: 800,
+                offset: 50,
+            });
 
-        // Initialize Lucide Icons
-        lucide.createIcons();
+            // Lucide Icons
+            lucide.createIcons();
 
-        // Service Menu Tabs Logic
-        const tabsContainer = document.getElementById('tabs-container');
-        const panelsContainer = document.getElementById('panels-container');
-        const tabButtons = tabsContainer.querySelectorAll('.tab-button');
-        const tabPanels = panelsContainer.querySelectorAll('.tab-panel');
+            // Mobile Menu Toggle
+            const menuButton = document.getElementById('menu-button');
+            const closeMenuButton = document.getElementById('close-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-        tabsContainer.addEventListener('click', (e) => {
-            const clickedButton = e.target.closest('.tab-button');
-            if (!clickedButton) return;
+            const toggleMenu = () => {
+                 mobileMenu.classList.toggle('hidden');
+            };
             
-            // Deactivate all buttons and panels
-            tabButtons.forEach(button => button.classList.remove('active'));
-            tabPanels.forEach(panel => panel.classList.remove('active'));
+            menuButton.addEventListener('click', toggleMenu);
+            closeMenuButton.addEventListener('click', toggleMenu);
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
 
-            // Activate clicked button and corresponding panel
-            clickedButton.classList.add('active');
-            const targetPanelId = clickedButton.dataset.target;
-            const targetPanel = document.getElementById(targetPanelId);
-            if(targetPanel) {
-                targetPanel.classList.add('active');
-            }
+
+            // GSAP Hero Animation
+            gsap.from('.hero-text', {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                stagger: 0.2,
+                ease: 'power3.out',
+                delay: 0.2
+            });
+
+            gsap.from('.hero-image', {
+                duration: 1.5,
+                x: 50,
+                opacity: 0,
+                ease: 'power3.out',
+                delay: 0.5
+            });
+
+            // Header on scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('bg-surface/90', 'shadow-sm', 'backdrop-blur-sm');
+                } else {
+                    header.classList.remove('bg-surface/90', 'shadow-sm', 'backdrop-blur-sm');
+                }
+            });
         });
-        
-        // Navbar scroll behavior (optional, but a nice touch for luxury feel)
-        let lastScrollTop = 0;
-        const navbar = document.querySelector('header');
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // downscroll
-                navbar.style.top = '-100px';
-            } else {
-                // upscroll
-                navbar.style.top = '0';
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        }, false);
     </script>
 </body>
 </html>
