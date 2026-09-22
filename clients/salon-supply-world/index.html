@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Supply World | Disposables for Hyderabad Salons</title>
+    <meta name="description" content="Your dedicated B2B supplier for essential salon disposables like waxing strips and bed sheets in Hyderabad. Free delivery for all orders.">
+
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --surface: #F8F9F9;
+            --surface-alt: #EDEFF0;
+            --text: #1D2D35;
+            --text-muted: #526D7A;
+            --border: #78909B;
+            --brand: #1E4F67;
+            --accent: #966536;
+            --brand-on: #F8F9F9;
+            --accent-on: #F8F9F9;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-surface text-text">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-sm border-b border-border/50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-lg font-semibold text-brand">Salon Supply World</a>
+                </div>
+                <nav class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="#products" class="text-sm font-medium text-text-muted hover:text-text transition-colors">Products</a>
+                    <a href="#delivery" class="text-sm font-medium text-text-muted hover:text-text transition-colors">Delivery</a>
+                    <a href="#order" class="text-sm font-medium text-text-muted hover:text-text transition-colors">Order</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center pt-24 pb-12">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <h1 class="text-4xl lg:text-5xl font-bold leading-tight text-text">Essential Salon Disposables, Delivered Free in Hyderabad</h1>
+                        <p class="mt-4 text-lg text-text-muted">We are a dedicated B2B supplier providing quality waxing strips, disposable bed sheets, client gowns, and more to beauty professionals and salon owners across the city.</p>
+                        <div class="mt-8">
+                            <a href="#products" class="inline-block px-8 py-3 text-base font-semibold text-brand border-2 border-brand rounded-md hover:bg-brand hover:text-brand-on transition-colors duration-300">
+                                View Our Products
+                            </a>
+                        </div>
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1747987766141-9d1f2707dd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8RGlzcG9zYWJsZSUyMHNhbG9uJTIwc3VwcGxpZXN8ZW58MXwwfHx8MTc5MDA4OTI5NXww&ixlib=rb-4.1.0&q=80&w=1080" 
+                             alt="Waxing supplies are ready for use" 
+                             class="rounded-lg object-cover w-full h-auto aspect-square shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Catalogue -->
+        <section id="products" class="py-20 bg-surface-alt">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-text">Our Core B2B Essentials</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Product Card 1 -->
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1747987766141-9d1f2707dd6c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8RGlzcG9zYWJsZSUyMHNhbG9uJTIwc3VwcGxpZXN8ZW58MXwwfHx8MTc5MDA4OTI5NXww&ixlib=rb-4.1.0&q=80&w=1080" 
+                             alt="Waxing supplies are ready for use"
+                             class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-text">Waxing Strips</h3>
+                            <p class="mt-2 text-text-muted">High-quality, durable strips for professional salon use.</p>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1712842955521-55c8c01ef148?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8RGlzcG9zYWJsZSUyMHNhbG9uJTIwc3VwcGxpZXN8ZW58MXwwfHx8MTc5MDA4OTI5NXww&ixlib=rb-4.1.0&q=80&w=1080" 
+                             alt="a pile of white tissue sitting on top of a blue table"
+                             class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-text">Disposable Bed Sheets</h3>
+                            <p class="mt-2 text-text-muted">Hygienic and convenient single-use sheets for spa and salon beds.</p>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1674471361334-86328b8ded3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8QjJCJTIwZXNzZW50aWFsc3xlbnwxfDB8fHwxNzkwMDg5Mjk3fDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                             alt="a clothes rack with clothes hanging on it"
+                             class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-text">Disposable Client Gowns</h3>
+                            <p class="mt-2 text-text-muted">Comfortable and professional gowns for ensuring client hygiene and comfort.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Delivery Information -->
+        <section id="delivery" class="py-20 bg-surface">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-text">Free, Reliable Delivery Across Hyderabad</h2>
+                    <p class="mt-4 text-lg text-text-muted">We deliver directly to your salon or spa, anywhere in Hyderabad. All orders include free delivery, ensuring you get the supplies you need without extra costs. Our focus is on providing a simple and efficient service for our fellow professionals.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Order CTA -->
+        <section id="order" class="py-20 bg-brand">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-brand-on">Order on Instagram for Free Hyderabad Delivery</h2>
+                    <p class="mt-4 text-lg text-brand-on/80">To order or inquire about bulk pricing, please send us a direct message on Instagram. We will respond promptly to assist you.</p>
+                    <div class="mt-8">
+                        <a href="https://www.instagram.com/salon_supply_world" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-4 text-base font-semibold text-accent-on bg-accent rounded-md hover:opacity-90 transition-opacity duration-300">
+                            Order on Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col sm:flex-row items-center justify-between">
+                <p class="text-sm text-text-muted">&copy; 2024 Salon Supply World | Hyderabad, India</p>
+                <div class="mt-4 sm:mt-0">
+                    <a href="https://www.instagram.com/salon_supply_world" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-text transition-colors flex items-center gap-2">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        <span>@salon_supply_world</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind Config
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        'text': 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        'border': 'var(--border)',
+                        'brand': 'var(--brand)',
+                        'accent': 'var(--accent)',
+                        'brand-on': 'var(--brand-on)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+
+        // Initialize libraries
+        lucide.createIcons();
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+    </script>
+</body>
+</html>
