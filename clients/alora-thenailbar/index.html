@@ -68,22 +68,26 @@
             break-inside: avoid;
             margin-bottom: 1.5rem;
         }
-    </style>
+    
+    #header a, #hero, #hero h1, #hero p { color: var(--brand-on) !important; }
+    #hero h1 { text-shadow: 0 2px 24px rgba(0,0,0,.45); }
+    #hero p  { text-shadow: 0 1px 12px rgba(0,0,0,.5); }
+</style>
 
     <script type="text/tailwindcss">
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        surface: 'var(--surface)',
-                        'surface-alt': 'var(--surface-alt)',
-                        text: 'var(--text)',
-                        'text-muted': 'var(--text-muted)',
-                        border: 'var(--border)',
-                        brand: 'var(--brand)',
-                        'brand-on': 'var(--brand-on)',
-                        accent: 'var(--accent)',
-                        'accent-on': 'var(--accent-on)',
+                        surface: '#F9F9F8',
+                        'surface-alt': '#F0EFED',
+                        text: '#352B1D',
+                        'text-muted': '#7A6952',
+                        border: '#9B8C78',
+                        brand: '#56452E',
+                        'brand-on': '#F9F9F8',
+                        accent: '#8A6842',
+                        'accent-on': '#F9F9F8',
                     },
                     fontFamily: {
                         display: ['Cormorant Garamond', 'serif'],
@@ -100,10 +104,10 @@
     <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-display text-2xl tracking-wide text-brand">Alora</a>
+            <a href="#" class="font-display text-2xl tracking-wide text-brand-on">Alora</a>
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#services" class="text-text hover:text-accent transition-colors duration-300">Services</a>
-                <a href="#gallery" class="text-text hover:text-accent transition-colors duration-300">Gallery</a>
+                <a href="#services" class="text-brand-on hover:text-accent transition-colors duration-300">Services</a>
+                <a href="#gallery" class="text-brand-on hover:text-accent transition-colors duration-300">Gallery</a>
                 <a href="#book" class="bg-accent text-accent-on px-6 py-2 rounded-full hover:opacity-90 transition-opacity">Book</a>
             </nav>
             <div class="md:hidden">
@@ -116,7 +120,7 @@
 
         <!-- Hero Section -->
         <section id="hero" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-            <div class="absolute inset-0 bg-black/30 z-10"></div>
+            <div class="absolute inset-0 bg-black/60 z-10"></div>
             <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8bmFpbCUyMGFydCUyMGFuZCUyMGV4dGVuc2lvbnN8ZW58MXwwfHx8MTc5MDA5NzQ5MXww&ixlib=rb-4.1.0&q=80&w=1080" 
                  alt="A close-up of a woman's hands showcasing a delicate, professional pink manicure" 
                  class="absolute inset-0 w-full h-full object-cover">
