@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nancy's Baking Studio | Custom Eggless Cakes & Event Planning in Hyderabad</title>
+    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23671E34' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8'/%3e%3cpath d='M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2'/%3e%3cpath d='M12 16v-4'/%3e%3cpath d='M12 6.5c-1 0-2-1-2-2.5 0-1.5 1-2.5 2-2.5s2 1 2 2.5c0 1.5-1 2.5-2 2.5Z'/%3e%3c/svg%3e">
+
+    <!-- Libraries & CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config & Custom CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        'text': 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        'border': 'var(--border)',
+                        'brand': 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        'accent': 'var(--accent)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Fredoka One', 'cursive'],
+                        body: ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        :root {
+            --surface: #F9F8F8;
+            --surface-alt: #F0EDEE;
+            --text: #351D24;
+            --text-muted: #815663;
+            --border: #A4848D;
+            --brand: #671E34;
+            --brand-on: #F9F8F8;
+            --accent: #2B78AB;
+            --accent-on: #F9F8F8;
+        }
+
+        body {
+            @apply bg-surface text-text font-body;
+        }
+
+        h1, h2, h3 {
+            @apply font-heading text-text;
+        }
+
+        .btn {
+            @apply inline-block px-6 py-3 rounded-md font-body font-bold text-center transition-all duration-300 ease-in-out transform hover:scale-105 hover:brightness-110;
+        }
+        
+        .btn-primary-accent {
+            @apply bg-accent text-accent-on;
+        }
+        
+        .btn-secondary-light {
+            @apply bg-brand-on text-brand;
+        }
+
+        /* Prevent AOS animations on page load before JS is ready */
+        [data-aos] {
+            opacity: 0;
+            transition-property: transform, opacity;
+        }
+        html.os-android [data-aos] {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="bg-surface/80 backdrop-blur-sm sticky top-0 z-50 border-b border-border/50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-heading text-xl text-brand">Nancy's Baking Studio</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#cakes" class="text-text hover:text-brand transition-colors duration-300">Cakes</a>
+                <a href="#hampers" class="text-text hover:text-brand transition-colors duration-300">Hampers</a>
+                <a href="#events" class="text-text hover:text-brand transition-colors duration-300">Events</a>
+                <a href="#order" class="text-text hover:text-brand transition-colors duration-300">Order</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-brand">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface">
+            <nav class="flex flex-col items-center space-y-4 py-4 border-t border-border/50">
+                <a href="#cakes" class="text-text hover:text-brand transition-colors duration-300">Cakes</a>
+                <a href="#hampers" class="text-text hover:text-brand transition-colors duration-300">Hampers</a>
+                <a href="#events" class="text-text hover:text-brand transition-colors duration-300">Events</a>
+                <a href="#order" class="text-text hover:text-brand transition-colors duration-300">Order</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section id="hero" class="bg-surface py-16 md:py-24">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl !leading-tight mb-6">Your Dream Cake, 100% Eggless. And We'll Plan the Party, Too.</h1>
+                    <p class="text-lg text-text-muted mb-8 max-w-lg mx-auto md:mx-0">
+                        From custom themed cakes to beautiful gift hampers and complete event planning, Nancy's Baking Studio brings your celebrations in Hyderabad to life.
+                    </p>
+                    <a href="#order" class="btn btn-primary-accent">Plan Your Celebration</a>
+                </div>
+                <div data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1709837167684-47d7ccf0ed89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8aG9tZSUyMGJha2VyJTIwcGxheWZ1bHxlbnwxfDB8fHwxNzkwMDgyMzkzfDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                         alt="A joyful baker in a chef's jacket proudly presenting a plate of colorful, decorated desserts." 
+                         class="rounded-lg shadow-xl w-full h-auto object-cover aspect-square">
+                </div>
+            </div>
+        </section>
+
+        <!-- Cakes Gallery Section -->
+        <section id="cakes" class="py-16 md:py-24 bg-surface">
+            <div class="container mx-auto px-6 text-center">
+                <div data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl mb-4">Custom-Themed Cakes, Made Just for You</h2>
+                    <p class="text-lg text-text-muted max-w-3xl mx-auto mb-12">
+                        Every cake is a unique creation, baked with care and completely eggless. Tell me your theme, and I'll bake it into reality.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="overflow-hidden rounded-lg shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q3VzdG9tJTIwdGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4MjM5OHww&ixlib=rb-4.1.0&q=80&w=1080" 
+                                 alt="An elegant two-tiered cake decorated with pink and white sugar flowers." 
+                                 class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <h3 class="text-xl mt-4">Floral Themes</h3>
+                    </div>
+                    <div class="group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="overflow-hidden rounded-lg shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1557979619-445218f326b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q3VzdG9tJTIwdGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4MjM5OHww&ixlib=rb-4.1.0&q=80&w=1080" 
+                                 alt="A fun, gravity-defying M&M's themed cake with colorful candies spilling from a floating bag." 
+                                 class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <h3 class="text-xl mt-4">Kids' Birthdays</h3>
+                    </div>
+                    <div class="group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="overflow-hidden rounded-lg shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1627013817723-3bbb5166cc50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Q3VzdG9tJTIwdGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4MjM5OHww&ixlib=rb-4.1.0&q=80&w=1080" 
+                                 alt="A minimalist white cake with delicate blue frosting details, topped with a single fresh strawberry." 
+                                 class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <h3 class="text-xl mt-4">Special Occasions</h3>
+                    </div>
+                    <div class="group" data-aos="fade-up" data-aos-delay="400">
+                        <div class="overflow-hidden rounded-lg shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1499889808931-317a0255c0e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8RWdnbGVzcyUyMGJha2luZ3xlbnwxfDB8fHwxNzkwMDgyMzk4fDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                                 alt="A wooden tray holding several golden-brown, freshly baked muffins, highlighting the 100% eggless promise." 
+                                 class="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <h3 class="text-xl mt-4">100% Eggless</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hampers Feature Section -->
+        <section id="hampers" class="py-16 md:py-24 bg-surface-alt">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 text-center md:text-left" data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl mb-4">Bento Boxes, Bouquets & Custom Hampers</h2>
+                    <p class="text-lg text-text-muted mb-8 max-w-lg mx-auto md:mx-0">
+                        Surprise someone special with a custom bento box, a delicious chocolate bouquet, or a curated gift hamper. Perfect for birthdays, anniversaries, or just because.
+                    </p>
+                </div>
+                <div class="order-1 md:order-2" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1720798198170-1a7fe82cba27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8R2lmdGluZyUyMGhhbXBlcnN8ZW58MXwwfHx8MTc5MDA4MjM5OXww&ixlib=rb-4.1.0&q=80&w=1080" 
+                         alt="A rustic woven gift basket overflowing with beautifully packaged treats, jams, and baked goods."
+                         class="rounded-lg shadow-xl w-full h-auto object-cover aspect-square">
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Feature Section -->
+        <section id="events" class="py-16 md:py-24 bg-surface">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                     <img src="https://images.unsplash.com/photo-1605433246995-23f532d1e001?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8aG9tZSUyMGJha2VyJTIwcGxheWZ1bHxlbnwxfDB8fHwxNzkwMDgyMzkzfDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                         alt="Two women sharing a joyful, celebratory moment, capturing the spirit of a perfectly planned event."
+                         class="rounded-lg shadow-xl w-full h-auto object-cover aspect-square">
+                </div>
+                <div class="text-center md:text-left" data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl mb-4">More Than Just Desserts: Full Event Service</h2>
+                    <p class="text-lg text-text-muted mb-8 max-w-lg mx-auto md:mx-0">
+                        Let me handle the details. I offer event planning services for your special occasions in Hyderabad, including decorations and a complete dessert table to match your theme. Your one-stop-shop for a perfect party!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="order" class="py-16 md:py-24 bg-brand text-brand-on">
+            <div class="container mx-auto px-6 text-center">
+                <div data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl mb-4">Ready to Plan Your Custom Creation?</h2>
+                    <p class="text-lg opacity-90 max-w-3xl mx-auto mb-12">
+                        Ready to discuss your custom cake, gift, or event? The best way to start is by sending me a message on Instagram or WhatsApp. We can talk about your ideas and I'll guide you through the process.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="https://www.instagram.com/nancys_baking_studio" target="_blank" class="btn btn-secondary-light flex items-center justify-center gap-2">
+                            <i data-lucide="instagram"></i>
+                            DM on Instagram
+                        </a>
+                        <a href="https://wa.me/918600141521" target="_blank" class="btn btn-secondary-light flex items-center justify-center gap-2">
+                           <i data-lucide="message-circle"></i>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt py-8">
+        <div class="container mx-auto px-6 text-center text-text-muted">
+            <div class="flex justify-center mb-4">
+                <a href="https://www.instagram.com/nancys_baking_studio" target="_blank" class="text-text-muted hover:text-brand transition-colors duration-300">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+            </div>
+            <p>&copy; <span id="current-year"></span> Nancy's Baking Studio | Hyderabad</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // AOS Initialization
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Dynamic Copyright Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
