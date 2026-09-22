@@ -107,6 +107,52 @@
       #header a.bg-accent { transition: none; }
       #header a.bg-accent:hover { transform: none; }
     }
+
+    /* --- phone --- */
+    html, body { overflow-x: hidden; }
+    .nav-toggle {
+      width: 44px; height: 44px;              /* 44px: minimum comfortable tap target */
+      display: flex; flex-direction: column; justify-content: center;
+      align-items: center; gap: 5px; background: none; border: 0; cursor: pointer;
+    }
+    .nav-toggle span {
+      display: block; width: 22px; height: 1.5px; background: currentColor;
+      transition: transform .3s ease, opacity .2s ease;
+    }
+    #header a:not(.bg-accent), .nav-toggle { color: var(--brand-on); }
+    #header.header-scrolled a:not(.bg-accent),
+    #header.header-scrolled .nav-toggle { color: var(--text); }
+    .nav-toggle[aria-expanded="true"] { color: var(--text); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    #mobileMenu {
+      background: var(--surface);
+      border-top: 1px solid var(--surface-alt);
+      padding: .5rem 1.5rem 1.25rem;
+    }
+    #mobileMenu a {
+      display: block; padding: .9rem 0; color: var(--text);
+      border-bottom: 1px solid var(--surface-alt);
+      opacity: 0; transform: translateY(-6px);
+      animation: menuIn .32s cubic-bezier(.65,0,.35,1) forwards;
+    }
+    #mobileMenu a:last-child { border-bottom: 0; }
+    #mobileMenu a:nth-child(1) { animation-delay: .04s; }
+    #mobileMenu a:nth-child(2) { animation-delay: .10s; }
+    #mobileMenu a:nth-child(3) { animation-delay: .16s; }
+    @keyframes menuIn { to { opacity: 1; transform: none; } }
+
+    @media (max-width: 480px) {
+      #hero h1 { font-size: clamp(2.6rem, 13vw, 4rem); line-height: 1.04; }
+      #hero p  { font-size: 1rem; }
+      #hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .nav-toggle span, #mobileMenu a { transition: none; animation: none;
+        opacity: 1; transform: none; }
+    }
 </style>
 
     <script type="text/tailwindcss">
@@ -145,9 +191,17 @@
                 <a href="#gallery" class="text-brand-on hover:text-accent transition-colors duration-300">Gallery</a>
                 <a href="#book" class="bg-accent text-accent-on px-6 py-2 rounded-full hover:opacity-90 transition-opacity">Book</a>
             </nav>
-            <div class="md:hidden">
-                <a href="#book" class="bg-accent text-accent-on px-6 py-2 rounded-full text-sm hover:opacity-90 transition-opacity">Book Now</a>
-            </div>
+            <div class="md:hidden flex items-center gap-2">
+                    <a href="#book" class="bg-accent text-accent-on px-5 py-2.5 rounded-full text-sm">Book</a>
+                    <button id="navToggle" type="button" aria-label="Open menu"
+                            aria-expanded="false" aria-controls="mobileMenu"
+                            class="nav-toggle"><span></span><span></span><span></span></button>
+                </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden" hidden>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#book">Book an appointment</a>
         </div>
     </header>
 
@@ -302,6 +356,29 @@
             }
         });
         
-    </script>
+    
+    (function () {
+      var btn = document.getElementById('navToggle');
+      var menu = document.getElementById('mobileMenu');
+      if (!btn || !menu) return;
+      function setOpen(open) {
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.hidden = !open;
+      }
+      btn.addEventListener('click', function () {
+        setOpen(btn.getAttribute('aria-expanded') !== 'true');
+      });
+      menu.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) setOpen(false);
+      });
+    })();
+</script>
 </body>
 </html>
