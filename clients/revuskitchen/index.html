@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revu's Kitchen - Home-Cooked Meals in Hyderabad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --surface: #F8F8F9;
+            --surface-alt: #EDEEF0;
+            --text: #1D2435;
+            --text-muted: #566381;
+            --border: #848EA4;
+            --brand: #1E3567;
+            --accent: #218321;
+            --brand-on: #F8F8F9;
+            --accent-on: #F8F8F9;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 700;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--accent-on);
+        }
+        .btn-secondary {
+            background-color: var(--brand);
+            color: var(--brand-on);
+        }
+        [data-aos] {
+            will-change: transform, opacity;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        text: 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        border: 'var(--border)',
+                        brand: 'var(--brand)',
+                        accent: 'var(--accent)',
+                        'brand-on': 'var(--brand-on)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Lora', 'serif'],
+                        body: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-text">
+
+    <header class="bg-surface/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-heading font-bold text-brand">Revu's Kitchen</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#menu" class="text-text-muted hover:text-brand transition-colors duration-300">Menu</a>
+                <a href="#bulk-orders" class="text-text-muted hover:text-brand transition-colors duration-300">Bulk Orders</a>
+                <a href="#contact" class="text-text-muted hover:text-brand transition-colors duration-300">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-text">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-surface">
+            <a href="#menu" class="block py-3 px-6 text-text-muted hover:bg-surface-alt">Menu</a>
+            <a href="#bulk-orders" class="block py-3 px-6 text-text-muted hover:bg-surface-alt">Bulk Orders</a>
+            <a href="#contact" class="block py-3 px-6 text-text-muted hover:bg-surface-alt">Contact</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-[70vh] md:min-h-screen flex items-center justify-center text-center overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1577106263724-2c8e03bfe9cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8U2hvd2Nhc2luZyUyMHNwZWNpZmljJTIwZGlzaGVzfGVufDF8MHx8fDE3OTAwODk3MTd8MA&ixlib=rb-4.1.0&q=80&w=1080" 
+                 alt="person putting food on plate" 
+                 class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-text/60"></div>
+            <div class="relative z-10 container mx-auto px-6 text-brand-on" data-aos="fade-up">
+                <h1 class="text-4xl md:text-6xl font-heading font-semibold mb-4">Authentic Home-Cooked Meals, Delivered in Hyderabad</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-surface">Enjoy traditional Indian cuisine prepared with care in our kitchen. We offer single meals and family-sized portions for delivery.</p>
+                <a href="#contact" class="btn btn-primary">Order by Phone</a>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="py-16 md:py-24 bg-surface-alt">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-heading text-brand mb-4">From Godavari Fish Fry to Paneer Pulav</h2>
+                    <p class="text-text-muted max-w-2xl mx-auto">A selection of our specialties, prepared fresh with traditional recipes.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Non-Vegetarian Column -->
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1499715217757-2aa48ed7e593?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8U2hvd2Nhc2luZyUyMHNwZWNpZmljJTIwZGlzaGVzfGVufDF8MHx8fDE3OTAwODk3MTd8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="brown and white food on black ceramic plate" class="w-full h-64 object-cover rounded-lg mb-6 shadow-lg">
+                        <h3 class="text-2xl font-heading text-brand mb-4">Non-Vegetarian</h3>
+                        <div class="space-y-4">
+                            <div class="bg-surface p-4 rounded-md border border-border">
+                                <p class="text-lg font-bold text-text">Godavari Fish Tawa Fry</p>
+                            </div>
+                            <div class="bg-surface p-4 rounded-md border border-border">
+                                <p class="text-lg font-bold text-text">Chicken Pulavo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Vegetarian Column -->
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8VmVnZXRhcmlhbiUyMGFuZCUyME5vbi12ZWdldGFyaWFuJTIwb3B0aW9uc3xlbnwxfDB8fHwxNzkwMDg5NzE5fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="bowl of vegetable salads" class="w-full h-64 object-cover rounded-lg mb-6 shadow-lg">
+                        <h3 class="text-2xl font-heading text-brand mb-4">Vegetarian</h3>
+                        <div class="space-y-4">
+                            <div class="bg-surface p-4 rounded-md border border-border">
+                                <p class="text-lg font-bold text-text">Veg Pulav with Paneer Kaju Masala</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bulk Orders Section -->
+        <section id="bulk-orders" class="py-16 md:py-24 bg-surface">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1669359751204-2f6aa4bb4db7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q3VzdG9tZXIlMjBidWxrJTIwb3JkZXJzfGVufDF8MHx8fDE3OTAwODk3MTh8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="a shelf of glass jars" class="w-full h-auto object-cover rounded-lg shadow-xl">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h2 class="text-3xl md:text-4xl font-heading text-brand mb-4">Bucket-Sized Portions for Your Next Gathering</h2>
+                        <p class="text-text-muted text-lg mb-8">We offer generous, bucket-sized portions of our dishes for your gatherings. Perfect for parties, family meals, or corporate events. Call us to discuss your requirements.</p>
+                        <a href="#contact" class="btn btn-secondary">Enquire About Bulk Orders</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-brand text-brand-on py-16 md:py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-heading mb-6" data-aos="fade-up">Call to Place Your Order</h2>
+            <div class="flex items-center justify-center space-x-3 text-2xl md:text-3xl font-bold mb-8" data-aos="fade-up" data-aos-delay="100">
+                <i data-lucide="phone"></i>
+                <a href="tel:+919666563027" class="hover:text-surface transition-colors">+91 96665 63027</a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-8" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://instagram.com/revuskitchen_" target="_blank" rel="noopener noreferrer" class="text-brand-on hover:text-surface transition-colors">
+                    <i data-lucide="instagram" class="w-7 h-7"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+            </div>
+            <p class="text-brand-on/80" data-aos="fade-up" data-aos-delay="300">Delivering fresh, home-style Indian food across Hyderabad.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        for (let i = 0; i < mobileMenuLinks.length; i++) {
+            mobileMenuLinks[i].addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
