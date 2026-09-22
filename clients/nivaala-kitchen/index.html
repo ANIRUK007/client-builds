@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivaala Kitchen - Authentic Indian Street Food in Narsingi</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Libraries (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Tailwind CSS Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': '#F9F9F8',
+                        'surface-alt': '#F0EFED',
+                        'text': '#352F1D',
+                        'text-muted': '#746B4E',
+                        'border': '#978E72',
+                        'brand': '#5F4E1C',
+                        'accent': '#2B8252',
+                        'brand-on': '#F9F9F8',
+                        'accent-on': '#F9F9F8'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @layer base {
+            :root {
+                --surface: #F9F9F8;
+                --surface-alt: #F0EFED;
+                --text: #352F1D;
+                --text-muted: #746B4E;
+                --border: #978E72;
+                --brand: #5F4E1C;
+                --accent: #2B8252;
+                --brand-on: #F9F9F8;
+                --accent-on: #F9F9F8;
+            }
+            body {
+                @apply bg-surface text-text font-sans antialiased;
+            }
+            h1, .font-display {
+                @apply text-[clamp(2.5rem,6vw,4rem)] font-bold leading-tight;
+            }
+            h2, .font-heading {
+                @apply text-[clamp(1.75rem,4vw,2.5rem)] font-semibold leading-snug;
+            }
+            p, .font-body {
+                @apply text-base font-normal leading-relaxed;
+            }
+            .font-subtle {
+                @apply text-sm font-normal leading-normal;
+            }
+        }
+
+        @layer components {
+            .btn {
+                @apply inline-block px-6 py-3 rounded-md font-semibold text-center transition-transform duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2;
+            }
+            .btn-primary {
+                @apply bg-accent text-accent-on focus:ring-accent;
+            }
+            .btn-secondary {
+                @apply bg-brand text-brand-on focus:ring-brand;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-text">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-surface/80 backdrop-blur-sm border-b border-border/20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-xl font-bold text-brand">Nivaala Kitchen</a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <nav class="hidden md:block">
+                        <a href="#menu" class="text-text-muted hover:text-text transition-colors duration-200">Menu</a>
+                    </nav>
+                    <a href="https://instagram.com/nivaala.kitchen" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-sm py-2 px-4">Order on Instagram</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center text-center text-brand-on overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1617228069096-4638a7ffc906?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Y2xvdWQlMjBraXRjaGVuJTIwdmlicmFudHxlbnwxfDB8fHwxNzkwMDg5NzA3fDA&ixlib=rb-4.1.0&q=80&w=1080" 
+                     alt="modern kitchen with island and large window" 
+                     class="w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 bg-black/60 z-10"></div>
+            <div class="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+                <h1 class="font-display max-w-3xl mx-auto hero-text">Your Favourite Street Food, Delivered in Narsingi.</h1>
+                <p class="font-body mt-4 max-w-xl mx-auto hero-text">Authentic, comforting, and flavourful chaats and classics from our kitchen to your door.</p>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section id="menu" class="py-16 sm:py-24 bg-surface-alt">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1613292443284-8d10ef9383fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q2xhc3NpYyUyMEluZGlhbiUyMHN0cmVldCUyMGZvb2R8ZW58MXwwfHx8MTc5MDA4OTcwOXww&ixlib=rb-4.1.0&q=80&w=1080"
+                             alt="brown bread on blue and white ceramic plate"
+                             class="rounded-lg shadow-xl w-full h-full object-cover aspect-[4/5]">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h2 class="font-heading text-text">Sweet. Tangy. Spicy. Creamy.</h2>
+                        <div class="mt-8 space-y-8 border-l-2 border-border pl-6">
+                            <div class="menu-item">
+                                <h3 class="font-semibold text-lg text-brand">Sev Puri</h3>
+                                <p class="text-text-muted mt-1">Crisp papdis topped with potatoes, onions, chutneys, and a generous layer of sev. A perfect bite of texture and flavour.</p>
+                            </div>
+                            <div class="menu-item">
+                                <h3 class="font-semibold text-lg text-brand">Dahi Tikki</h3>
+                                <p class="text-text-muted mt-1">Spiced potato patties, pan-fried until golden, and served with cool yogurt, sweet and tangy chutneys.</p>
+                            </div>
+                            <div class="menu-item">
+                                <h3 class="font-semibold text-lg text-brand">Pav Bhaji</h3>
+                                <p class="text-text-muted mt-1">A rich medley of mashed vegetables in a spiced tomato gravy, served with soft, butter-toasted pav.</p>
+                            </div>
+                            <div class="menu-item">
+                                <h3 class="font-semibold text-lg text-brand">Chole Bhature</h3>
+                                <p class="text-text-muted mt-1">Fluffy, deep-fried bhature bread paired with a hearty and aromatic chickpea curry. A classic comfort meal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="py-16 sm:py-24 bg-surface">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl" data-aos="fade-up">
+                <h2 class="font-heading text-text">Narsingi's Cloud Kitchen for Classic Chaat</h2>
+                <p class="font-body mt-4 text-text-muted">
+                    Nivaala Kitchen is a delivery-only kitchen focused on one thing: making authentic Indian street food you'll love. We prepare everything fresh to order and deliver it straight to you, ensuring you get that classic, comforting taste right at home.
+                </p>
+            </div>
+        </section>
+
+        <!-- Order CTA Section -->
+        <section class="bg-brand text-brand-on py-16 sm:py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+                <h2 class="font-heading">Place Your Order via Instagram DM</h2>
+                <p class="font-body mt-4 max-w-2xl mx-auto">Tap the button to head to our Instagram. Check our stories for today's specials and send us a DM to place your order.</p>
+                <div class="mt-8">
+                    <a href="https://instagram.com/nivaala.kitchen" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Order via Instagram DM</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-text-muted">
+            <div class="flex justify-center items-center space-x-4 mb-4">
+                 <a href="https://instagram.com/nivaala.kitchen" target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-brand transition-colors duration-200" aria-label="Instagram">
+                    <i data-lucide="instagram"></i>
+                </a>
+            </div>
+            <p class="font-subtle">&copy; <span id="currentYear"></span> Nivaala Kitchen | Delivering in Narsingi, Hyderabad</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // GSAP animations for hero text
+        gsap.from(".hero-text", {
+            duration: 1,
+            y: 30,
+            opacity: 0,
+            stagger: 0.2,
+            delay: 0.5,
+            ease: "power3.out"
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
