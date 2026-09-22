@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narayana Personal Trainer Online</title>
+
+    <!-- CDNs and Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        :root {
+            --surface: #F9F9F9;
+            --surface-alt: #EEEEEE;
+            --text: #292929;
+            --text-muted: #6B6B6B;
+            --border: #8F8F8F;
+            --brand: #562E2E;
+            --brand-on: #F9F9F9;
+            --accent: #C43131;
+            --accent-on: #F9F9F9;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background-color: var(--surface);
+        }
+        h1, h2, h3 {
+            font-family: 'Anton', sans-serif;
+            letter-spacing: 0.025em;
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        text: 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        border: 'var(--border)',
+                        brand: 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        accent: 'var(--accent)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Anton', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="sticky top-0 z-50 transition-all duration-300 bg-surface/80 backdrop-blur-sm border-b border-transparent">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="text-2xl font-heading text-brand tracking-wider">Narayana Fitness</a>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#programs" class="text-sm font-semibold text-text hover:text-accent transition-colors">Programs</a>
+                    <a href="#expertise" class="text-sm font-semibold text-text hover:text-accent transition-colors">Expertise</a>
+                    <a href="#contact" class="text-sm font-semibold text-text hover:text-accent transition-colors">Contact</a>
+                </nav>
+
+                <div class="flex items-center">
+                    <a href="https://wa.me/919700046947" target="_blank" class="hidden md:inline-block bg-accent text-accent-on font-semibold py-3 px-6 rounded-md hover:opacity-90 transition-opacity text-sm">
+                        Book a Trial
+                    </a>
+                    <button id="menu-btn" class="md:hidden ml-4 p-2 text-text">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface border-t border-border">
+            <nav class="flex flex-col items-center space-y-4 p-4">
+                <a href="#programs" class="mobile-nav-link text-lg font-semibold text-text">Programs</a>
+                <a href="#expertise" class="mobile-nav-link text-lg font-semibold text-text">Expertise</a>
+                <a href="#contact" class="mobile-nav-link text-lg font-semibold text-text">Contact</a>
+                 <a href="https://wa.me/919700046947" target="_blank" class="w-full text-center bg-accent text-accent-on font-semibold py-3 px-6 rounded-md hover:opacity-90 transition-opacity">
+                    Book a Trial
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center text-center bg-text text-brand-on overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1758875568932-0eefd3e60090?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8dHJhaW5lciUyMGJvbGR8ZW58MXwwfHx8MTc5MDA4NTUyNnww&ixlib=rb-4.1.0&q=80&w=1080" 
+                     alt="A certified personal trainer stands confidently in a gym setting." 
+                     class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-text opacity-60"></div>
+            </div>
+            <div class="relative z-10 p-4 max-w-4xl mx-auto" data-aos="fade-up">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading uppercase text-shadow-lg">
+                    Online Personal Training, Certified Across Five Disciplines
+                </h1>
+                <p class="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-surface">
+                    Personalized workout and nutrition plans from Kasa Venkata Narayana Murthy. For all ages and fitness levels, delivered online via WhatsApp, Skype, or Zoom.
+                </p>
+                <a href="https://wa.me/919700046947" target="_blank" class="mt-10 inline-block bg-accent text-accent-on font-semibold text-lg py-4 px-10 rounded-md hover:opacity-90 transition-all duration-300 transform hover:scale-105">
+                    Book Your Free Trial Session
+                </a>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="programs" class="py-20 lg:py-28 bg-surface-alt">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-heading text-brand" data-aos="fade-up">Training Programs Across Five Fitness Disciplines</h2>
+                    <p class="mt-4 text-lg text-text-muted" data-aos="fade-up" data-aos-delay="100">
+                        Choose a focus area or combine them for a holistic fitness plan tailored to your goals.
+                    </p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-surface p-8 rounded-lg shadow-sm text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex justify-center items-center mb-4">
+                           <i data-lucide="dumbbell" class="h-10 w-10 text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-heading text-text">Weight Training</h3>
+                        <p class="mt-2 text-text-muted text-sm">Build strength and muscle with structured, progressive resistance training programs.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="bg-surface p-8 rounded-lg shadow-sm text-center" data-aos="fade-up" data-aos-delay="250">
+                        <div class="flex justify-center items-center mb-4">
+                           <i data-lucide="apple" class="h-10 w-10 text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-heading text-text">Nutrition Coaching</h3>
+                        <p class="mt-2 text-text-muted text-sm">Learn to fuel your body effectively with personalized nutrition guidance.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="bg-surface p-8 rounded-lg shadow-sm text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex justify-center items-center mb-4">
+                           <i data-lucide="timer" class="h-10 w-10 text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-heading text-text">HIIT</h3>
+                        <p class="mt-2 text-text-muted text-sm">Maximize calorie burn and improve cardiovascular health with high-intensity interval training.</p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="bg-surface p-8 rounded-lg shadow-sm text-center" data-aos="fade-up" data-aos-delay="350">
+                        <div class="flex justify-center items-center mb-4">
+                           <i data-lucide="lotus" class="h-10 w-10 text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-heading text-text">Yoga</h3>
+                        <p class="mt-2 text-text-muted text-sm">Increase flexibility, improve balance, and reduce stress with guided yoga sessions.</p>
+                    </div>
+                    <!-- Service Card 5 -->
+                    <div class="bg-surface p-8 rounded-lg shadow-sm text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex justify-center items-center mb-4">
+                           <i data-lucide="atom" class="h-10 w-10 text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-heading text-text">Sports Science</h3>
+                        <p class="mt-2 text-text-muted text-sm">Apply scientific principles to enhance your athletic performance and prevent injury.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section id="expertise" class="py-20 lg:py-28 bg-surface">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-4xl md:text-5xl font-heading text-brand">Certified Expertise Since 2011</h2>
+                        <p class="mt-6 text-lg text-text-muted leading-relaxed">
+                            My name is Kasa Venkata Narayana Murthy. My approach is built on years of experience and a deep understanding of fitness science across a wide range of disciplines. I provide professional, personalized coaching to help you achieve your goals safely and effectively.
+                        </p>
+                    </div>
+                    <div data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1605296867724-fa87a8ef53fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Zml0bmVzcyUyMG1vdGl2YXRpb258ZW58MXwwfHx8MTc5MDA4NTc4MXww&ixlib=rb-4.1.0&q=80&w=1080" 
+                             alt="A fitness expert ready for a workout in a gym." 
+                             class="rounded-lg shadow-xl w-full h-auto object-cover aspect-square">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 lg:py-28 bg-brand text-brand-on">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-heading" data-aos="fade-up">Reach Your Fitness Goals From Home</h2>
+                    <p class="mt-4 text-lg text-surface opacity-90" data-aos="fade-up" data-aos-delay="100">
+                        Contact me to book your free trial online session. Let's discuss your goals and create a plan that works for you.
+                    </p>
+                    <div class="mt-8 flex justify-center items-center gap-3 text-lg" data-aos="fade-up" data-aos-delay="200">
+                        <i data-lucide="phone" class="h-5 w-5"></i>
+                        <span>Call or WhatsApp: 
+                            <a href="tel:+919700046947" class="font-semibold hover:text-accent transition-colors">919700046947</a>
+                        </span>
+                    </div>
+                    <div class="mt-10" data-aos="fade-up" data-aos-delay="300">
+                         <a href="https://wa.me/919700046947" target="_blank" class="inline-block bg-accent text-accent-on font-semibold text-lg py-4 px-10 rounded-md hover:opacity-90 transition-all duration-300 transform hover:scale-105">
+                            Start on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left space-y-4 sm:space-y-0">
+                <p class="text-sm text-text-muted">&copy; 2024 Narayana Personal Trainer Online</p>
+                <a href="https://instagram.com/fitnessexpert_narayana" target="_blank" class="flex items-center gap-2 text-sm text-text-muted hover:text-accent transition-colors">
+                    <i data-lucide="instagram" class="h-4 w-4"></i>
+                    @fitnessexpert_narayana
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Sticky Header Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md', 'border-border/20');
+            } else {
+                header.classList.remove('shadow-md', 'border-border/20');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for anchor links in main nav
+        document.querySelectorAll('header nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
