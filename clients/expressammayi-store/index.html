@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Ammayi Store | Curated Sarees & Nightwear from Hyderabad</title>
+    
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+        :root {
+            --surface: #F9F8F9;
+            --surface-alt: #EFEDF0;
+            --text: #301D35;
+            --text-muted: #785681;
+            --border: #9D84A4;
+            --brand: #581E67;
+            --brand-on: #F9F8F9;
+            --accent: #C4317C;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+        }
+        .section-padding {
+            @apply px-6 py-16 sm:px-12 sm:py-20 lg:px-24 lg:py-24;
+        }
+        .btn {
+            @apply inline-block px-6 py-3 rounded-md font-bold text-center transition-transform duration-300 ease-in-out transform hover:scale-105;
+        }
+        .btn-accent {
+            @apply bg-accent text-brand-on;
+        }
+        .btn-secondary {
+            @apply border-2 border-brand text-brand hover:bg-brand hover:text-brand-on;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        'text': 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        'border': 'var(--border)',
+                        'brand': 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        'accent': 'var(--accent)',
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                    },
+                    fontSize: {
+                        '4xl': ['2.25rem', { lineHeight: '1.2' }],
+                        '2xl': ['1.5rem', { lineHeight: '1.3' }],
+                        'base': ['1rem', { lineHeight: '1.6' }],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="bg-surface/80 backdrop-blur-lg sticky top-0 z-50 border-b border-border/50">
+        <nav class="container mx-auto px-6 lg:px-24 py-4 flex justify-between items-center">
+            <a href="#" class="font-bold text-lg text-brand">Express Ammayi Store</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#sarees" class="text-text-muted hover:text-brand transition-colors">Sarees</a>
+                <a href="#nightwear" class="text-text-muted hover:text-brand transition-colors">Nightwear</a>
+                <a href="#how-to-order" class="text-text-muted hover:text-brand transition-colors">How to Order</a>
+            </div>
+            <div class="hidden md:block">
+                <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-accent text-sm px-5 py-2">
+                    Shop on Instagram
+                </a>
+            </div>
+            <button id="menu-btn" class="md:hidden">
+                <i data-lucide="menu" class="text-brand"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-surface border-b border-border/50">
+            <a href="#sarees" class="block py-3 px-6 text-text hover:bg-surface-alt">Sarees</a>
+            <a href="#nightwear" class="block py-3 px-6 text-text hover:bg-surface-alt">Nightwear</a>
+            <a href="#how-to-order" class="block py-3 px-6 text-text hover:bg-surface-alt">How to Order</a>
+            <div class="p-4">
+                <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-accent w-full">
+                    Shop on Instagram
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="container mx-auto section-padding grid lg:grid-cols-2 gap-12 items-center overflow-hidden">
+            <div class="space-y-6 hero-text-container">
+                <h1 class="text-4xl font-bold text-text leading-tight hero-text">Every Thread, Every Weave: See the Detail Before You Buy</h1>
+                <p class="text-text-muted hero-text">A curated collection of traditional Indian sarees and cotton nightwear from Hyderabad. We provide transparent pricing and show you exactly what makes each piece special.</p>
+                <div class="hero-text">
+                    <a href="#collections" class="btn btn-accent">Explore All Collections</a>
+                </div>
+            </div>
+            <div data-aos="fade-left" data-aos-duration="1000">
+                <img src="https://images.unsplash.com/photo-1610189012906-4c0aa9b9781e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8TmV3JTIwc2FyZWUlMjBjb2xsZWN0aW9uc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman wearing a vibrant blue and yellow Indian saree." class="rounded-lg shadow-xl aspect-square object-cover w-full h-full">
+            </div>
+        </section>
+
+        <!-- Featured Collections Section -->
+        <section id="collections" class="bg-surface-alt section-padding">
+            <div class="container mx-auto text-center">
+                <h2 class="text-2xl font-bold text-text mb-10" data-aos="fade-up">Curated Sarees & Nightwear from Hyderabad</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <a href="#sarees" class="group relative block rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1717585679395-bbe39b5fb6bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8TmV3JTIwc2FyZWUlMjBjb2xsZWN0aW9uc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A neatly folded stack of colorful sarees." class="w-full h-80 object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">Sarees</h3>
+                        </div>
+                    </a>
+                    <a href="#nightwear" class="group relative block rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1780319235002-e1b48cdaec8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Ym91dGlxdWUlMjB2aWJyYW50fGVufDF8MHx8fDE3OTAwODIzOTR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A vibrant display of colorful bangles." class="w-full h-80 object-cover transform transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h3 class="text-3xl font-bold text-white">Cotton Nightwear</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How To Order Section (Home) -->
+        <section class="section-padding">
+            <div class="container mx-auto">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-2xl font-bold text-text">Simple Ordering Through Instagram</h2>
+                </div>
+                <div class="max-w-4xl mx-auto space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-10">
+                    <div class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-6xl font-bold text-border/60">1</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">Browse Our Collections</h3>
+                            <p class="text-text-muted">Explore our full range of sarees and nightwear here on the website to find your perfect piece.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-6xl font-bold text-border/60">2</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">DM to Order</h3>
+                            <p class="text-text-muted">Send a screenshot or the name of the item you love to our Instagram account, @expressammayi_store.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-6xl font-bold text-border/60">3</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">Confirm & Receive</h3>
+                            <p class="text-text-muted">We'll confirm availability and payment details. Once complete, your order will be on its way to you.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12" data-aos="fade-up">
+                    <a href="#how-to-order" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sarees Section -->
+        <section id="sarees" class="bg-surface-alt section-padding">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-text" data-aos="fade-up">A Curated Collection: Banarasi, Chiffon & More</h1>
+                    <p class="max-w-2xl mx-auto text-text-muted mt-4" data-aos="fade-up" data-aos-delay="100">
+                        Explore our curated selection of Banarasi, Chiffon, Crape Silk, and more. Each piece comes with a detailed description so you know exactly what you're getting.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Product Card -->
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1610189337543-1c5d8e64f574?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8TmV3JTIwc2FyZWUlMjBjb2xsZWN0aW9uc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="woman in yellow and red sari dress" class="w-full h-72 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="font-bold text-lg">Classic Crape Silk Saree</h3>
+                            <p class="text-text-muted mt-1 flex-grow">With elegant floral print</p>
+                            <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a>
+                        </div>
+                    </div>
+                     <!-- Product Card -->
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1717585679395-bbe39b5fb6bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8TmV3JTIwc2FyZWUlMjBjb2xsZWN0aW9uc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="a pile of different types of cloths on a table" class="w-full h-72 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="font-bold text-lg">Royal Blue Banarasi Silk</h3>
+                            <p class="text-text-muted mt-1 flex-grow">Intricate gold zari work</p>
+                            <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a>
+                        </div>
+                    </div>
+                     <!-- Product Card -->
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1610189012906-4c0aa9b9781e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8TmV3JTIwc2FyZWUlMjBjb2xsZWN0aW9uc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="woman in blue and yellow sari dress" class="w-full h-72 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="font-bold text-lg">Lightweight Chiffon Saree</h3>
+                            <p class="text-text-muted mt-1 flex-grow">Perfect for summer elegance</p>
+                            <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a>
+                        </div>
+                    </div>
+                    <!-- More cards to reach 9 total -->
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up"><img src="https://images.unsplash.com/photo-1717585679395-bbe39b5fb6bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8TmV3JTIwc2FyZWUlMjBjb2xsZWN0aW9uc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Folded sarees in a neat pile" class="w-full h-72 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-lg">Emerald Green Georgette</h3><p class="text-text-muted mt-1 flex-grow">Subtle sequin detailing</p><a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a></div></div>
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up"><img src="https://images.unsplash.com/photo-1610189337543-1c5d8e64f574?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8TmV3JTIwc2FyZWUlMjBjb2xsZWN0aW9uc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman in a vibrant saree" class="w-full h-72 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-lg">Pastel Organza Saree</h3><p class="text-text-muted mt-1 flex-grow">Hand-painted floral motifs</p><a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a></div></div>
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up"><img src="https://images.unsplash.com/photo-1610189012906-4c0aa9b9781e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8TmV3JTIwc2FyZWUlMjBjb2xsZWN0aW9uc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman posing in a saree" class="w-full h-72 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-lg">Deep Maroon Kanjivaram</h3><p class="text-text-muted mt-1 flex-grow">Traditional temple border</p><a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a></div></div>
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up"><img src="https://images.unsplash.com/photo-1717585679395-bbe39b5fb6bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8TmV3JTIwc2FyZWUlMjBjb2xsZWN0aW9uc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Another stack of colourful sarees" class="w-full h-72 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-lg">Printed Linen Saree</h3><p class="text-text-muted mt-1 flex-grow">Breathable and stylish for work</p><a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a></div></div>
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up"><img src="https://images.unsplash.com/photo-1610189337543-1c5d8e64f574?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8TmV3JTIwc2FyZWUlMjBjb2xsZWN0aW9uc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Woman in an elegant saree" class="w-full h-72 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-lg">Black Chiffon Saree</h3><p class="text-text-muted mt-1 flex-grow">Timeless classic with a silver border</p><a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a></div></div>
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up"><img src="https://images.unsplash.com/photo-1610189012906-4c0aa9b9781e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8TmV3JTIwc2FyZWUlMjBjb2xsZWN0aW9uc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Woman in a saree smiling" class="w-full h-72 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-lg">Soft Silk Saree</h3><p class="text-text-muted mt-1 flex-grow">Easy to drape with a modern design</p><a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nightwear Section -->
+        <section id="nightwear" class="section-padding">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-text" data-aos="fade-up">Comfortable & Chic Cotton Nightwear</h1>
+                    <p class="max-w-2xl mx-auto text-text-muted mt-4" data-aos="fade-up" data-aos-delay="100">
+                        Our collection of soft, breathable cotton nightwear is perfect for comfortable elegance.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Product Card -->
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1775039014260-1c5ff118e047?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Ym91dGlxdWUlMjB2aWJyYW50fGVufDF8MHx8fDE3OTAwODIzOTR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Colorful floral arrangement with hanging blossoms" class="w-full h-72 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="font-bold text-lg">Floral Print Cotton Night Suit</h3>
+                            <p class="text-text-muted mt-1 flex-grow">Soft Jaipuri cotton with piping</p>
+                            <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a>
+                        </div>
+                    </div>
+                     <!-- Product Card -->
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1780319235002-e1b48cdaec8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Ym91dGlxdWUlMjB2aWJyYW50fGVufDF8MHx8fDE3OTAwODIzOTR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Colorful bangles and jewelry displayed in a vibrant shop" class="w-full h-72 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="font-bold text-lg">Block Print Cotton Kaftan</h3>
+                            <p class="text-text-muted mt-1 flex-grow">Free-flowing and breathable</p>
+                            <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a>
+                        </div>
+                    </div>
+                     <!-- Product Card -->
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1775039014260-1c5ff118e047?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Ym91dGlxdWUlMjB2aWJyYW50fGVufDF8MHx8fDE3OTAwODIzOTR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Close up of bright flowers" class="w-full h-72 object-cover">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="font-bold text-lg">Striped Cotton Shorts Set</h3>
+                            <p class="text-text-muted mt-1 flex-grow">Comfortable and chic for lounging</p>
+                            <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a>
+                        </div>
+                    </div>
+                    <!-- More cards to reach 6 -->
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up"><img src="https://images.unsplash.com/photo-1780319235002-e1b48cdaec8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Ym91dGlxdWUlMjB2aWJyYW50fGVufDF8MHx8fDE3OTAwODIzOTR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Colorful accessories" class="w-full h-72 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-lg">Solid Color Night Gown</h3><p class="text-text-muted mt-1 flex-grow">Pure cotton with delicate lace trim</p><a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a></div></div>
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up"><img src="https://images.unsplash.com/photo-1775039014260-1c5ff118e047?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Ym91dGlxdWUlMjB2aWJyYW50fGVufDF8MHx8fDE3OTAwODIzOTR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Flowers in a boutique setting" class="w-full h-72 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-lg">Paisley Print Pajama Set</h3><p class="text-text-muted mt-1 flex-grow">Traditional print on modern comfort</p><a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a></div></div>
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden flex flex-col" data-aos="fade-up"><img src="https://images.unsplash.com/photo-1780319235002-e1b48cdaec8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Ym91dGlxdWUlMjB2aWJyYW50fGVufDF8MHx8fDE3OTAwODIzOTR8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Boutique decor" class="w-full h-72 object-cover"><div class="p-6 flex-grow flex flex-col"><h3 class="font-bold text-lg">Short Cotton Nightie</h3><p class="text-text-muted mt-1 flex-grow">Simple, elegant, and ultra-soft</p><a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-4 text-sm w-full">See Details & DM to Order</a></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Order Page Section -->
+        <section id="how-to-order" class="bg-surface-alt section-padding">
+            <div class="container mx-auto max-w-3xl text-center">
+                <h1 class="text-4xl font-bold text-text mb-4" data-aos="fade-up">Ordering From Express Ammayi is Simple</h1>
+                <p class="text-text-muted mb-12" data-aos="fade-up" data-aos-delay="100">Follow these simple steps to purchase your favourite items.</p>
+                <div class="space-y-12 text-left">
+                    <div class="flex items-start space-x-6" data-aos="fade-up">
+                        <div class="text-6xl font-bold text-border/60">1.</div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">Browse the Collections</h3>
+                            <p class="text-text-muted">Take your time exploring our sarees and nightwear on our website. Each item includes detailed photos and specifications so you can choose with confidence.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6" data-aos="fade-up">
+                        <div class="text-6xl font-bold text-border/60">2.</div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">Send Us a Direct Message</h3>
+                            <p class="text-text-muted">Once you've found something you love, send us a screenshot or the product name in a Direct Message on our Instagram page. This is where we handle all orders.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6" data-aos="fade-up">
+                        <div class="text-6xl font-bold text-border/60">3.</div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">Confirm & Pay</h3>
+                            <p class="text-text-muted">We'll reply quickly to confirm availability and share payment details. We believe in transparent pricing, so the price we quote is the price you pay, with no hidden fees.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6" data-aos="fade-up">
+                        <div class="text-6xl font-bold text-border/60">4.</div>
+                        <div>
+                            <h3 class="font-bold text-xl mb-2">Delivery From Hyderabad</h3>
+                            <p class="text-text-muted">After payment is complete, we'll package your order with care and arrange for it to be delivered straight to you.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12" data-aos="fade-up">
+                    <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Message Us on Instagram</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="bg-brand text-brand-on section-padding">
+            <div class="container mx-auto text-center max-w-3xl">
+                <h2 class="text-2xl font-bold" data-aos="fade-up">See Our Latest Arrivals First</h2>
+                <p class="mt-4 mb-8" data-aos="fade-up" data-aos-delay="100">Follow us on Instagram for new collections, updates, and to place your order.</p>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Follow @expressammayi_store</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding">
+            <div class="container mx-auto max-w-2xl text-center">
+                <h1 class="text-4xl font-bold text-text mb-4" data-aos="fade-up">Reach Us Directly on Instagram</h1>
+                <p class="text-text-muted mb-8" data-aos="fade-up" data-aos-delay="100">The best way to reach us for orders, questions, or collaborations is through a Direct Message on Instagram. We're always happy to help.</p>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="btn btn-accent">DM @expressammayi_store</a>
+                </div>
+                <p class="text-text-muted mt-8 text-sm" data-aos="fade-up" data-aos-delay="300">We are an online boutique based in Hyderabad, India.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt border-t border-border/50">
+        <div class="container mx-auto px-6 lg:px-24 py-12 text-center text-text-muted">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#sarees" class="hover:text-brand transition-colors">Sarees</a>
+                <a href="#nightwear" class="hover:text-brand transition-colors">Nightwear</a>
+                <a href="#how-to-order" class="hover:text-brand transition-colors">How to Order</a>
+                <a href="#contact" class="hover:text-brand transition-colors">Contact</a>
+            </div>
+            <div class="flex justify-center items-center mb-6">
+                <a href="https://www.instagram.com/expressammayi_store" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 hover:text-brand transition-colors">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                    <span>@expressammayi_store</span>
+                </a>
+            </div>
+            <p class="text-sm">&copy; 2024 Express Ammayi Store | Hyderabad, India</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lucide Icons
+        lucide.createIcons();
+
+        // AOS Initialization
+        AOS.init({
+            once: true,
+            duration: 800,
+            offset: 100,
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // GSAP Hero Animation
+        gsap.from(".hero-text", {
+            duration: 0.8,
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power3.out",
+            delay: 0.2
+        });
+
+    </script>
+</body>
+</html>
