@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocoon Salon | Unisex Hair Salon in Hyderabad</title>
+    <meta name="description" content="Cocoon Salon offers personalized, confidence-boosting hair transformations across multiple locations in Hyderabad. Book your haircut, color, or styling appointment.">
+
+    <!-- CDNs -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Custom CSS & Tailwind Config -->
+    <style type="text/tailwindcss">
+        :root {
+            --surface: #F9F9F9;
+            --surface-alt: #EEEEEE;
+            --text: #292929;
+            --text-muted: #6B6B6B;
+            --border: #8F8F8F;
+            --brand: #562E2E;
+            --brand-on: #F9F9F9;
+            --accent: #C43131;
+            --accent-on: #F9F9F9;
+        }
+        body {
+            @apply font-body bg-surface text-text;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            @apply font-heading;
+        }
+        .gallery-masonry {
+            column-count: 2;
+            column-gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .gallery-masonry {
+                column-count: 3;
+            }
+        }
+        .gallery-masonry img {
+            margin-bottom: 1rem;
+            break-inside: avoid;
+            width: 100%;
+        }
+        .mobile-nav {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-nav.is-open {
+            transform: translateX(0);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        surface: 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        text: 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        border: 'var(--border)',
+                        brand: 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        accent: 'var(--accent)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="bg-brand text-brand-on sticky top-0 z-50 shadow-md transition-shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-heading font-bold">Cocoon Salon</a>
+            <nav class="hidden md:flex items-center space-x-6 text-sm">
+                <a href="#services" class="hover:opacity-80 transition-opacity">Services</a>
+                <a href="#gallery" class="hover:opacity-80 transition-opacity">Gallery</a>
+                <a href="#contact" class="hover:opacity-80 transition-opacity">Locations</a>
+                <a href="#contact" class="bg-accent text-accent-on px-4 py-2 rounded-md font-semibold text-xs uppercase tracking-wider hover:bg-opacity-90 transition-all">Book Appointment</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden z-50">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-nav fixed top-0 right-0 h-full w-full bg-brand p-6 md:hidden">
+            <div class="flex justify-end mb-8">
+                <button id="close-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col items-center justify-center h-full -mt-16 space-y-8 text-2xl">
+                <a href="#services" class="mobile-nav-link">Services</a>
+                <a href="#gallery" class="mobile-nav-link">Gallery</a>
+                <a href="#contact" class="mobile-nav-link">Locations</a>
+                <a href="#contact" class="mobile-nav-link bg-accent text-accent-on px-6 py-3 rounded-md font-semibold mt-4 text-xl">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center text-center text-white">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8SGFpciUyMHRyYW5zZm9ybWF0aW9uc3xlbnwxfDB8fHwxNzkwMDg5MDgzfDA&ixlib=rb-4.1.0&q=80&w=1080');"></div>
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="relative z-10 px-6">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading leading-tight mb-4 hero-h1">Confidence-Boosting Hair Transformations in Hyderabad</h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 hero-p">We create personalized looks to enhance your natural beauty. Get pampered at one of our four convenient locations.</p>
+                <a href="#contact" class="bg-accent text-accent-on px-8 py-4 rounded-md font-semibold text-lg hover:bg-opacity-90 transition-all hero-btn">Book Your Appointment</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="bg-surface-alt py-16 lg:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading mb-12">From Classic Cuts to Creative Color</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-surface p-8 rounded-lg shadow-sm" data-aos="fade-up">
+                        <h3 class="text-2xl font-heading mb-4">Haircuts & Styling</h3>
+                        <p class="text-text-muted">For men and women. We create looks that are modern, personal, and fit your lifestyle.</p>
+                    </div>
+                    <div class="bg-surface p-8 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-heading mb-4">Hair Coloring</h3>
+                        <p class="text-text-muted">Express your style with our range of coloring services, including global highlights and bold new shades.</p>
+                    </div>
+                    <div class="bg-surface p-8 rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-2xl font-heading mb-4">Specialized Treatments</h3>
+                        <p class="text-text-muted">Revitalize and protect your hair with advanced treatments like our nourishing Hair Botox.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="bg-surface py-16 lg:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-heading text-center mb-12">Witness the Magic for Yourself</h2>
+                <div class="gallery-masonry">
+                    <img src="https://images.unsplash.com/photo-1554881070-dda563db63de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q2xpZW50JTIwc2hvd2Nhc2VzJTIwJTI4bWVuJTIwYW5kJTIwd29tZW4lMjl8ZW58MXwwfHx8MTc5MDA4OTA4NHww&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman in a black shirt with flawless makeup and hair." class="rounded-lg shadow-md" data-aos="fade-in">
+                    <img src="https://images.unsplash.com/photo-1747832802200-7aaceb517e0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8c2Fsb24lMjBib2xkfGVufDF8MHx8fDE3OTAwODkwODN8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="A male client receiving a sharp haircut from a barber in a salon." class="rounded-lg shadow-md" data-aos="fade-in">
+                    <img src="https://images.unsplash.com/photo-1634449571017-5fecfd26ad76?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8SGFpciUyMHRyYW5zZm9ybWF0aW9uc3xlbnwxfDB8fHwxNzkwMDg5MDgzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A stylist carefully sectioning and styling a woman's long hair." class="rounded-lg shadow-md" data-aos="fade-in">
+                    <img src="https://images.unsplash.com/photo-1725000421356-d69d04370385?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8U3BlY2lmaWMlMjB0cmVhdG1lbnRzJTIwJTI4ZS5nLiUyQyUyMGNvbG9yJTJDJTIwQm90b3glMjl8ZW58MXwwfHx8MTc5MDA4OTA4NXww&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman relaxing in a salon chair while a stylist applies a hair treatment." class="rounded-lg shadow-md" data-aos="fade-in">
+                    <img src="https://images.unsplash.com/photo-1582509002687-055c48d3e4ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q2xpZW50JTIwc2hvd2Nhc2VzJTIwJTI4bWVuJTIwYW5kJTIwd29tZW4lMjl8ZW58MXwwfHx8MTc5MDA4OTA4NHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Three stylish women with beautiful hair sitting together on a couch." class="rounded-lg shadow-md" data-aos="fade-in">
+                    <img src="https://images.unsplash.com/photo-1602549179763-ce6c9df961b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8SGFpciUyMHRyYW5zZm9ybWF0aW9uc3xlbnwxfDB8fHwxNzkwMDg5MDgzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A close-up of healthy, shiny brown hair against a white background." class="rounded-lg shadow-md" data-aos="fade-in">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Locations Section -->
+        <section id="contact" class="bg-brand text-brand-on py-16 lg:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading mb-8">Find Your Nearest Cocoon Salon</h2>
+                <div class="flex flex-wrap justify-center gap-x-4 gap-y-3 md:gap-8 mb-12 text-sm md:text-base">
+                    <div class="bg-brand-on/10 px-4 py-2 rounded-full">Alkapur Township</div>
+                    <div class="bg-brand-on/10 px-4 py-2 rounded-full">Sri Nagar Colony</div>
+                    <div class="bg-brand-on/10 px-4 py-2 rounded-full">Manikonda</div>
+                    <div class="bg-brand-on/10 px-4 py-2 rounded-full">Mokila</div>
+                </div>
+                <h3 class="text-2xl font-heading mb-2">Book your appointment now</h3>
+                <p class="max-w-md mx-auto mb-6 text-brand-on/80">All services are by appointment. Please call us to schedule your visit.</p>
+                <a href="tel:+918121631200" class="inline-block bg-accent text-accent-on text-2xl font-semibold px-10 py-4 rounded-md hover:bg-opacity-90 transition-all">
+                    Call: 918121631200
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-text text-surface-alt py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-heading text-lg mb-4">Cocoon Salon</p>
+            <div class="flex justify-center items-center space-x-6">
+                <a href="tel:+918121631200" class="flex items-center space-x-2 hover:text-white transition-colors">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    <span>918121631200</span>
+                </a>
+                <a href="https://instagram.com/cocoonsalons" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+            </div>
+            <p class="text-text-muted text-sm mt-6">&copy; 2024 Cocoon Salon. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // GSAP Hero Animation
+        gsap.from(".hero-h1", { duration: 1, y: 50, opacity: 0, delay: 0.2, ease: "power3.out" });
+        gsap.from(".hero-p", { duration: 1, y: 50, opacity: 0, delay: 0.4, ease: "power3.out" });
+        gsap.from(".hero-btn", { duration: 1, y: 50, opacity: 0, delay: 0.6, ease: "power3.out" });
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('is-open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('is-open');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-open');
+            });
+        });
+    </script>
+</body>
+</html>
