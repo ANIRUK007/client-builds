@@ -153,6 +153,65 @@
       .nav-toggle span, #mobileMenu a { transition: none; animation: none;
         opacity: 1; transform: none; }
     }
+
+    /* ---------- icons ---------- */
+    /* Lucide ships stroke-width 2, which reads heavy and generic at small
+       sizes. 1.6 suits a fine serif brand. */
+    svg.lucide { stroke-width: 1.6; }
+
+    /* Service ticks were bare gold glyphs on grey -- technically legible,
+       visually mush. A filled disc reads as a deliberate mark. */
+    #services li svg.lucide {
+      width: 22px; height: 22px; flex: 0 0 22px;
+      padding: 4px; border-radius: 999px;
+      background: var(--accent); color: var(--surface);
+      stroke-width: 2.6;
+    }
+
+    /* ---------- buttons ---------- */
+    a.bg-accent, button.bg-accent {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; border-radius: 999px; font-weight: 500;
+      letter-spacing: .012em; opacity: 1 !important;
+      transition: background-color .28s ease, color .28s ease,
+                  transform .2s ease, box-shadow .28s ease;
+    }
+    /* Hover darkens to brand instead of fading. Opacity fades wash the label
+       out along with the fill, which is why they look cheap. */
+    a.bg-accent:hover, button.bg-accent:hover {
+      background-color: var(--brand); color: var(--surface);
+      transform: translateY(-2px); box-shadow: 0 10px 26px rgba(53,43,29,.22);
+    }
+    a.bg-accent:active, button.bg-accent:active {
+      transform: translateY(0); box-shadow: 0 3px 10px rgba(53,43,29,.2);
+    }
+    a.bg-accent:focus-visible, button.bg-accent:focus-visible {
+      outline: 2px solid var(--brand); outline-offset: 3px;
+    }
+    /* Sitting on the dark brand band, the accent button needs the inverse. */
+    .bg-brand a.bg-accent:hover { background-color: var(--surface); color: var(--brand); }
+
+    /* ---------- footer social ---------- */
+    footer a[href*="instagram"] {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--text);
+      transition: background-color .28s ease, color .28s ease,
+                  border-color .28s ease, transform .2s ease;
+    }
+    footer a[href*="instagram"]:hover {
+      background: var(--brand); border-color: var(--brand);
+      color: var(--surface); transform: translateY(-2px);
+    }
+    footer a[href*="instagram"]:focus-visible {
+      outline: 2px solid var(--brand); outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      a.bg-accent, button.bg-accent, footer a[href*="instagram"] { transition: none; }
+      a.bg-accent:hover, button.bg-accent:hover,
+      footer a[href*="instagram"]:hover { transform: none; }
+    }
 </style>
 
     <script type="text/tailwindcss">
