@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Mechanism | Science-Backed Fitness for Hyderabad's Professionals</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <!-- Custom CSS and Tailwind Config -->
+    <style>
+        :root {
+          --surface: #F9F9F9;
+          --surface-alt: #EEEEEE;
+          --text: #292929;
+          --text-muted: #6B6B6B;
+          --border: #8F8F8F;
+          --brand: #562E2E;
+          --brand-on: #F9F9F9;
+          --accent: #934242; /* WCAG-compliant version of the provided accent */
+          --accent-on: #F9F9F9;
+        }
+        html { 
+            scroll-behavior: smooth; 
+        }
+        body {
+          font-family: 'Inter', sans-serif;
+          background-color: var(--surface);
+          color: var(--text);
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+        .display-font {
+          font-family: 'Oswald', sans-serif;
+          text-transform: uppercase;
+          font-weight: 600;
+        }
+        .header-scrolled {
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.07);
+            border-bottom: 1px solid var(--surface-alt);
+        }
+         /* Custom style to apply accent color directly, as Tailwind purges classes otherwise */
+        .text-accent {
+            color: var(--accent);
+        }
+        .hover\:text-accent:hover {
+            color: var(--accent);
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                surface: 'var(--surface)',
+                'surface-alt': 'var(--surface-alt)',
+                text: 'var(--text)',
+                'text-muted': 'var(--text-muted)',
+                border: 'var(--border)',
+                brand: 'var(--brand)',
+                'brand-on': 'var(--brand-on)',
+                accent: 'var(--accent)',
+                'accent-on': 'var(--accent-on)',
+              },
+              fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+                display: ['Oswald', 'sans-serif'],
+              },
+            },
+          },
+        };
+    </script>
+</head>
+<body class="bg-surface text-text">
+
+    <!-- Header -->
+    <header id="header" class="bg-surface sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-semibold font-display tracking-wider text-brand">
+                Fit Mechanism
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#services" class="text-sm font-semibold hover:text-accent transition-colors">Services</a>
+                <a href="#approach" class="text-sm font-semibold hover:text-accent transition-colors">Approach</a>
+                <a href="#contact" class="text-sm font-semibold hover:text-accent transition-colors">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden" aria-label="Open menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface-alt absolute top-full left-0 w-full shadow-lg">
+            <nav class="flex flex-col items-center py-4 space-y-4">
+                <a href="#services" class="text-sm font-semibold block hover:text-accent transition-colors">Services</a>
+                <a href="#approach" class="text-sm font-semibold block hover:text-accent transition-colors">Approach</a>
+                <a href="#contact" class="text-sm font-semibold block hover:text-accent transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="lg:min-h-screen grid lg:grid-cols-2">
+            <div class="flex items-center justify-center p-8 sm:p-12 lg:p-16 order-2 lg:order-1">
+                <div class="max-w-md hero-content text-center lg:text-left">
+                    <h1 class="display-font text-4xl sm:text-5xl lg:text-6xl leading-tight">Hyderabad's #1 Fat Loss Specialist for Busy Professionals</h1>
+                    <p class="mt-6 text-text-muted leading-relaxed">
+                        We provide expert, science-backed fitness coaching tailored to improve your strength, energy, and focus. Get measurable results that enhance your performance in and out of the office.
+                    </p>
+                    <a href="#contact" class="inline-block mt-10 px-8 py-3 bg-accent text-accent-on font-semibold rounded-md shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105">
+                        Book a Consultation
+                    </a>
+                </div>
+            </div>
+            <div class="relative min-h-[300px] lg:min-h-screen order-1 lg:order-2">
+                <img src="https://images.unsplash.com/photo-1758875568932-0eefd3e60090?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8dHJhaW5lciUyMGJvbGR8ZW58MXwwfHx8MTc5MDA4NTUyNnww&ixlib=rb-4.1.0&q=80&w=1080" alt="A muscular personal trainer with his arms crossed, standing in a modern gym setting." class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50"></div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 lg:py-32 bg-surface-alt">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                    <h2 class="display-font text-4xl lg:text-5xl">Strong Body. Sharp Mind. Limitless Possibilities.</h2>
+                </div>
+                <div class="mt-16 grid md:grid-cols-2 gap-8 lg:gap-12">
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1675270444770-1a6d1f69aefc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8U2NpZW5jZS1iYWNrZWQlMjBmaXRuZXNzJTIwYW5kJTIwZmF0JTIwbG9zc3xlbnwxfDB8fHwxNzkwMDg1NTI4fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A woman measuring her waist with a measuring tape, signifying measurable results." class="w-full h-64 object-cover">
+                        <div class="p-8">
+                            <h3 class="display-font text-2xl">Personalized Training & Fat Loss</h3>
+                            <p class="mt-4 text-text-muted">Customized workout and wellness plans designed around your schedule and goals. We focus on science-backed methods for effective, sustainable fat loss and strength gain.</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1770653927355-2ba81c1522df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8SG9saXN0aWMlMjB3ZWxsbmVzcyUyMGZvciUyMHByb2Zlc3Npb25hbHN8ZW58MXwwfHx8MTc5MDA4NTUyOXww&ixlib=rb-4.1.0&q=80&w=1080" alt="A holistic health setup with a typewriter, indicating a thoughtful approach to wellness." class="w-full h-64 object-cover">
+                        <div class="p-8">
+                            <h3 class="display-font text-2xl">Corporate Wellness Programs</h3>
+                            <p class="mt-4 text-text-muted">Enhance your team's energy, focus, and overall performance. We develop holistic wellness programs for Hyderabad-based companies to foster a healthier, more productive workforce.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Approach Section -->
+        <section id="approach" class="py-20 lg:py-32 bg-brand text-brand-on">
+            <div class="container mx-auto px-6 text-center" data-aos="fade-in">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="display-font text-4xl lg:text-5xl">Move Better. Feel Better. Live Better.</h2>
+                    <p class="mt-6 text-lg max-w-2xl mx-auto leading-relaxed opacity-90">
+                        Our approach is holistic and built on proven science. We don't just count reps; we engineer a comprehensive plan that integrates fitness, nutrition, and wellness to unlock your peak performance. This is expert coaching for professionals who demand measurable results.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 lg:py-32 bg-surface">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                    <h2 class="display-font text-4xl lg:text-5xl">Schedule Your Consultation in Hyderabad</h2>
+                    <p class="mt-6 text-text-muted max-w-2xl mx-auto">
+                        Ready to enhance your energy and performance? Contact us to schedule your initial consultation. We serve busy professionals and entrepreneurs throughout Hyderabad.
+                    </p>
+                    <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-6 text-lg">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-accent"></i>
+                            <a href="tel:917715977035" class="font-semibold hover:text-accent transition-colors">917715977035</a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="instagram" class="w-5 h-5 text-accent"></i>
+                            <a href="https://www.instagram.com/personaltrainerhyderabad" target="_blank" rel="noopener noreferrer" class="font-semibold hover:text-accent transition-colors">@personaltrainerhyderabad</a>
+                        </div>
+                    </div>
+                    <a href="tel:917715977035" class="inline-block mt-12 px-10 py-4 bg-accent text-accent-on font-semibold rounded-md shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105">
+                        Call to Book Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt py-8">
+        <div class="container mx-auto px-6 text-center text-text-muted text-sm">
+            <p>&copy; 2024 Fit Mechanism</p>
+            <p class="mt-2">Hyderabad, India</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 50,
+      });
+      
+      // GSAP Hero Animation
+      gsap.from(".hero-content > *", {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        stagger: 0.2,
+        delay: 0.5,
+        ease: 'power3.out'
+      });
+      
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+      });
+
+      // Sticky Header on Scroll
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+          header.classList.add('header-scrolled');
+        } else {
+          header.classList.remove('header-scrolled');
+        }
+      });
+
+    </script>
+</body>
+</html>
