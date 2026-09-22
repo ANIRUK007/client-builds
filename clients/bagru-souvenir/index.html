@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagru Souvenir | Authentic Rajasthani Hand-Block Prints</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CDNs for Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+        /* CSS Custom Properties for Colors */
+        :root {
+            --surface: #F9F8F8;
+            --surface-alt: #F0EDEE;
+            --text: #351D24;
+            --text-muted: #815663;
+            --border: #A4848E;
+            --brand: #671E34;
+            --brand-on: #F9F8F8;
+            --accent: #6F6F20;
+            --accent-on: #F9F8F8;
+        }
+
+        /* Basic Styles */
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text);
+        }
+        
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 1.8rem; line-height: 1.3; }
+
+        @media (min-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+        }
+
+        /* Component Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.75rem;
+            border-radius: 0.25rem;
+            font-weight: 700;
+            text-align: center;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            letter-spacing: 0.05em;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--accent-on);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--border);
+            color: var(--text);
+        }
+        .btn-secondary:hover {
+            background-color: var(--surface-alt);
+        }
+        
+        .btn-secondary-on-dark {
+             border: 2px solid var(--brand-on);
+             color: var(--brand-on);
+        }
+        .btn-secondary-on-dark:hover {
+            background-color: var(--brand-on);
+            color: var(--brand);
+        }
+
+        /* Tailwind JIT setup */
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        /* For mobile nav animation */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+    </style>
+
+    <script>
+        // Tailwind Configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        'text': 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        'border': 'var(--border)',
+                        'brand': 'var(--brand)',
+                        'brand-on': 'var(--brand-on)',
+                        'accent': 'var(--accent)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-text">
+
+    <!-- HEADER -->
+    <header id="header" class="sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b border-border">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-brand">Bagru Souvenir</a>
+            <div class="hidden md:flex space-x-8 items-center text-text-muted">
+                <a href="#" class="hover:text-brand transition-colors">Home</a>
+                <a href="#" class="hover:text-brand transition-colors">Ready-to-Wear</a>
+                <a href="#" class="hover:text-brand transition-colors">Fabrics</a>
+                <a href="#" class="hover:text-brand transition-colors">Our Craft</a>
+                <a href="#" class="hover:text-brand transition-colors">Wholesale</a>
+                <a href="#" class="hover:text-brand transition-colors">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-brand">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed top-0 left-0 h-full w-full bg-brand text-brand-on transform -translate-x-full md:hidden z-50">
+            <div class="flex justify-end p-6">
+                <button id="close-mobile-menu">
+                    <i data-lucide="x" class="w-8 h-8"></i>
+                </button>
+            </div>
+            <div class="flex flex-col items-center justify-center h-full -mt-16 space-y-8 text-2xl">
+                <a href="#" class="mobile-nav-link">Home</a>
+                <a href="#" class="mobile-nav-link">Ready-to-Wear</a>
+                <a href="#" class="mobile-nav-link">Fabrics</a>
+                <a href="#" class="mobile-nav-link">Our Craft</a>
+                <a href="#" class="mobile-nav-link">Wholesale</a>
+                <a href="#" class="mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="relative h-[90vh] min-h-[600px] flex items-center justify-center text-center">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1507434745378-235a6297156b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8SGFuZCUyMEJsb2NrJTIwUHJpbnRlZCUyMEZhYnJpY3N8ZW58MXwwfHx8MTc5MDA4NTc2M3ww&ixlib=rb-4.1.0&q=80&w=1080');"></div>
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative z-10 container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight text-brand-on" data-aos="fade-up">Authentic Rajasthani Hand-Block Prints, Direct from the Manufacturer</h1>
+                <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-brand-on/90" data-aos="fade-up" data-aos-delay="200">
+                    Discover our collection of ready-to-wear ethnic apparel and fine fabrics, crafted using traditional Bagru, Sanganeri, and Ikkat techniques.
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#" class="btn btn-primary w-full sm:w-auto">Shop Ready-to-Wear</a>
+                    <a href="#" class="btn btn-secondary-on-dark w-full sm:w-auto">Browse Fabrics</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED READY-TO-WEAR -->
+        <section class="py-16 lg:py-24 bg-surface-alt">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl">Festival Special Lehenga Cholis & Suits</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300" data-aos="fade-up">
+                        <a href="#">
+                            <img src="https://images.unsplash.com/photo-1571587289339-cb7da03fb5a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8VHJhZGl0aW9uYWwlMjBJbmRpYW4lMjBXZWFyfGVufDF8MHx8fDE3OTAwODU3NjN8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="women's grey long-sleeved 2-piece dress" class="w-full h-96 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold">Traditional Lehenga Choli</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <a href="#">
+                            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Ym91dGlxdWUlMjBlYXJ0aHl8ZW58MXwwfHx8MTc5MDA4NTc2Mnww&ixlib=rb-4.1.0&q=80&w=1080" alt="hanged top on brown and white clothes horse" class="w-full h-96 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold">Printed Cotton Suit</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="bg-surface rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <a href="#">
+                            <img src="https://images.unsplash.com/photo-1569810020669-aa9d38003ea7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8VHJhZGl0aW9uYWwlMjBJbmRpYW4lMjBXZWFyfGVufDF8MHx8fDE3OTAwODU3NjN8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="five women wearing red dress standing on pavement" class="w-full h-96 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold">Festive Wear Collection</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR CRAFT -->
+        <section class="py-16 lg:py-24 bg-surface">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1444362408440-274ecb6fc730?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8SGFuZCUyMEJsb2NrJTIwUHJpbnRlZCUyMEZhYnJpY3N8ZW58MXwwfHx8MTc5MDA4NTc2M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="A close up that shows the texture of two different patterned rugs" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div data-aos="fade-left" class="md:pl-8">
+                    <h2 class="text-3xl md:text-4xl">The Living Tradition of Hand-Block Printing</h2>
+                    <p class="mt-4 text-text-muted">
+                        Each piece from Bagru Souvenir is a result of generations of artisanal skill. We specialize in authentic printing techniques that bring unique character and story to every fabric.
+                    </p>
+                    <div class="mt-8">
+                        <a href="#" class="btn btn-secondary">Learn About Our Craft</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHOLESALE CTA -->
+        <section class="py-16 lg:py-24 bg-brand text-brand-on">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-on" data-aos="fade-up">Supply Your Boutique with Authentic Textiles</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-brand-on/90" data-aos="fade-up" data-aos-delay="100">
+                    As wholesale manufacturers, we provide high-quality, hand-printed fabrics and clothing to boutiques across India. Partner with us to bring authentic Rajasthani craft to your customers.
+                </p>
+                <div class="mt-8" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="btn btn-primary">Make a Wholesale Enquiry</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand text-brand-on">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+                <div class="md:col-span-1">
+                    <h3 class="text-2xl font-bold">Bagru Souvenir</h3>
+                    <p class="mt-2 text-brand-on/80">Authentic Rajasthani Hand-Block Prints from Hyderabad.</p>
+                </div>
+                <div class="md:col-span-1">
+                    <h4 class="font-bold text-lg">Explore Bagru Souvenir</h4>
+                    <ul class="mt-4 space-y-2 text-brand-on/80">
+                        <li><a href="#" class="hover:text-brand-on">Home</a></li>
+                        <li><a href="#" class="hover:text-brand-on">Ready-to-Wear</a></li>
+                        <li><a href="#" class="hover:text-brand-on">Fabrics</a></li>
+                        <li><a href="#" class="hover:text-brand-on">Our Craft</a></li>
+                        <li><a href="#" class="hover:text-brand-on">Wholesale</a></li>
+                        <li><a href="#" class="hover:text-brand-on">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-1">
+                    <h4 class="font-bold text-lg">Follow Our Journey</h4>
+                     <p class="mt-4 text-brand-on/80">Follow @bagru.souvenir on Instagram for our latest collections and stories.</p>
+                    <div class="mt-4 flex justify-center md:justify-start">
+                        <a href="https://instagram.com/bagru.souvenir" target="_blank" rel="noopener noreferrer" class="hover:opacity-75 transition-opacity">
+                            <i data-lucide="instagram" class="w-7 h-7"></i>
+                            <span class="sr-only">Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-brand-on/20 text-center text-brand-on/60 text-sm">
+                <p>&copy; Bagru Souvenir. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+
+            // Initialize Lucide Icons
+            lucide.createIcons();
+            
+            // Mobile Menu Logic
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+            const body = document.body;
+
+            const openMenu = () => {
+                mobileMenu.classList.remove('-translate-x-full');
+                body.style.overflow = 'hidden';
+            };
+
+            const closeMenu = () => {
+                mobileMenu.classList.add('-translate-x-full');
+                body.style.overflow = '';
+            };
+
+            mobileMenuButton.addEventListener('click', openMenu);
+            closeMobileMenuButton.addEventListener('click', closeMenu);
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // GSAP Animations
+            gsap.from("#header a", {
+                duration: 0.6,
+                opacity: 0,
+                y: -25,
+                stagger: 0.1,
+                ease: "power2.out",
+                delay: 0.2,
+            });
+        });
+    </script>
+</body>
+</html>
