@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padma's Blissful Bakes | Custom Homemade Cakes for Your Celebration</title>
+    <meta name="description" content="One-of-a-kind, intricately themed cakes for your special moments, from birthdays to engagements. Each bake is a personal creation, made just for you by Padma's Blissful Bakes.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --surface: #F9F9F9;
+            --surface-alt: #EEEEEE;
+            --text: #292929;
+            --text-muted: #6B6B6B;
+            --border: #8F8F8F;
+            --brand: #562E2E;
+            --brand-on: #F9F9F9;
+            --accent: #836B21;
+            --accent-on: #F9F9F9;
+
+            --font-family-headings: 'Caveat', cursive;
+            --font-family-body: 'Nunito Sans', sans-serif;
+        }
+
+        html {
+            font-size: 17px;
+        }
+
+        body {
+            font-family: var(--font-family-body);
+            background-color: var(--surface);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .font-heading {
+            font-family: var(--font-family-headings);
+        }
+        
+        .font-body {
+            font-family: var(--font-family-body);
+        }
+
+        /* Simple Masonry-like Grid */
+        .masonry-grid {
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-grid .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Lightbox Styles */
+        #lightbox {
+            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.85);
+            transition: opacity 0.3s ease-in-out;
+        }
+        #lightbox.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #lightbox img {
+            max-height: 90vh;
+            max-width: 90vw;
+            transition: transform 0.3s ease-in-out;
+            transform: scale(0.95);
+        }
+        #lightbox:not(.hidden) img {
+            transform: scale(1);
+        }
+        .lucide-nav {
+            stroke-width: 1.5px;
+        }
+
+        /* Header shadow on scroll */
+        .header-scrolled {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': '#F9F9F9',
+                        'surface-alt': '#EEEEEE',
+                        'text': '#292929',
+                        'text-muted': '#6B6B6B',
+                        'border': '#8F8F8F',
+                        'brand': '#562E2E',
+                        'brand-on': '#F9F9F9',
+                        'accent': '#836B21',
+                        'accent-on': '#F9F9F9'
+                    },
+                    fontFamily: {
+                        heading: ["'Caveat'", 'cursive'],
+                        body: ["'Nunito Sans'", 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-surface text-text font-body">
+
+    <!-- Header -->
+    <header id="header" class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 transition-shadow duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-heading text-2xl lg:text-3xl text-brand font-bold">Padma's Blissful Bakes</a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#gallery" class="text-text hover:text-accent transition-colors">Gallery</a>
+                <a href="#flavours" class="text-text hover:text-accent transition-colors">Flavours</a>
+                <a href="#order-now" class="text-text hover:text-accent transition-colors">How to Order</a>
+            </div>
+
+            <div class="hidden md:block">
+                <a href="#order-now" class="bg-brand text-brand-on px-6 py-2 rounded-full hover:bg-opacity-90 transition-all">Order Now</a>
+            </div>
+
+            <div class="md:hidden">
+                <button id="menu-btn" class="focus:outline-none">
+                    <i data-lucide="menu" class="lucide-nav text-text"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-surface">
+            <div class="flex justify-end p-6">
+                <button id="close-btn" class="focus:outline-none">
+                    <i data-lucide="x" class="lucide-nav text-text"></i>
+                </button>
+            </div>
+            <div class="flex flex-col items-center justify-center h-full -mt-16 space-y-8 text-2xl">
+                <a href="#gallery" class="mobile-nav-link text-text hover:text-accent transition-colors">Gallery</a>
+                <a href="#flavours" class="mobile-nav-link text-text hover:text-accent transition-colors">Flavours</a>
+                <a href="#order-now" class="mobile-nav-link text-text hover:text-accent transition-colors">How to Order</a>
+                <a href="#order-now" class="mobile-nav-link bg-brand text-brand-on px-8 py-3 rounded-full mt-4">Order Now</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="py-20 lg:py-32">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="font-heading text-5xl lg:text-7xl text-brand leading-tight">Your Celebration, Your Cake. Freshly Homemade.</h1>
+                    <p class="mt-6 text-lg text-text-muted max-w-lg">I create one-of-a-kind, intricately themed cakes for your special moments, from birthdays to engagements. Each bake is a personal creation, made just for you.</p>
+                    <a href="#gallery" class="inline-block mt-10 bg-accent text-accent-on px-8 py-3 rounded-full hover:bg-opacity-90 font-semibold transition-all">See My Creations</a>
+                </div>
+                <div data-aos="fade-left" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Q3VzdG9tJTIwY2VsZWJyYXRpb24lMjBjYWtlc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="An elegant pink and white floral custom cake." class="rounded-lg shadow-xl w-full h-auto object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section id="gallery" class="py-20 lg:py-28 bg-surface-alt">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-heading text-4xl lg:text-6xl text-brand">From Playful Characters to Elegant Florals</h2>
+                </div>
+                <div class="masonry-grid">
+                    <div class="gallery-item" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1671686400734-d9d0a4934f5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8VGhlbWVkJTIwZm9uZGFudCUyMGRlc2lnbnN8ZW58MXwwfHx8MTc5MDA4MjM5NXww&ixlib=rb-4.1.0&q=80&w=1080" alt="A Frozen princess themed cake with detailed fondant figures." class="rounded-lg shadow-md w-full h-auto object-cover cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q3VzdG9tJTIwY2VsZWJyYXRpb24lMjBjYWtlc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A rich chocolate cake with frosting roses and 'Happy Birthday' written in icing." class="rounded-lg shadow-md w-full h-auto object-cover cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                         <img src="https://images.unsplash.com/photo-1759922273720-70171ab08bf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8VGhlbWVkJTIwZm9uZGFudCUyMGRlc2lnbnN8ZW58MXwwfHx8MTc5MDA4MjM5NXww&ixlib=rb-4.1.0&q=80&w=1080" alt="An intricate ocean-themed cake with fondant sea creatures." class="rounded-lg shadow-md w-full h-auto object-cover cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="50">
+                        <img src="https://images.unsplash.com/photo-1623820480456-fbac3e0f8681?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8VGhlbWVkJTIwZm9uZGFudCUyMGRlc2lnbnN8ZW58MXwwfHx8MTc5MDA4MjM5NXww&ixlib=rb-4.1.0&q=80&w=1080" alt="A modern white and brown themed cake." class="rounded-lg shadow-md w-full h-auto object-cover cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                    </div>
+                    <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                        <img src="https://images.unsplash.com/photo-1660383534593-6b5221ab80d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q3VzdG9tJTIwY2VsZWJyYXRpb24lMjBjYWtlc3xlbnwxfDB8fHwxNzkwMDgyMzk0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A fresh cake topped with assorted fruits." class="rounded-lg shadow-md w-full h-auto object-cover cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flavours Section -->
+        <section id="flavours" class="py-20 lg:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="font-heading text-4xl lg:text-6xl text-brand">Designs, Flavours, and Healthier Bites</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-surface-alt p-8 rounded-lg border border-border/20" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="font-heading text-3xl text-brand mb-3">Custom Celebration Cakes</h3>
+                        <p class="text-text-muted">Tell me your theme and I'll bring it to life. We can create elegant floral designs, fun characters with fondant, or anything in between to match your event perfectly.</p>
+                    </div>
+                    <div class="bg-surface-alt p-8 rounded-lg border border-border/20" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="font-heading text-3xl text-brand mb-3">Healthier Options</h3>
+                        <p class="text-text-muted">Looking for a lighter treat? I also offer delicious and freshly homemade whole-wheat muffins, perfect for any time of day.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call To Action Section -->
+        <section id="order-now" class="py-20 lg:py-28 bg-brand text-brand-on">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto" data-aos="zoom-in">
+                    <h2 class="font-heading text-4xl lg:text-6xl">Bringing Your Cake Idea to Life</h2>
+                    <p class="mt-6 text-lg text-brand-on/80 max-w-2xl mx-auto">Ready to plan the perfect cake for your celebration? Send me a message on Instagram or WhatsApp with your ideas, and let's start creating something special together.</p>
+                    <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <a href="https://www.instagram.com/padmas_blissful_bakes" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-accent text-accent-on px-8 py-3 rounded-full hover:bg-opacity-90 font-semibold transition-all w-full sm:w-auto">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                            Message on Instagram
+                        </a>
+                        <a href="https://wa.me/919381236013" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 bg-accent text-accent-on px-8 py-3 rounded-full hover:bg-opacity-90 font-semibold transition-all w-full sm:w-auto">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-surface-alt">
+        <div class="container mx-auto px-6 text-center text-text-muted flex flex-col sm:flex-row justify-between items-center gap-6">
+            <p class="font-semibold text-text">Padma's Blissful Bakes</p>
+            <p><a href="tel:+919381236013" class="hover:text-accent transition-colors">919381236013</a></p>
+            <a href="https://www.instagram.com/padmas_blissful_bakes" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-accent transition-colors">
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+                @padmas_blissful_bakes
+            </a>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed top-0 left-0 w-full h-full flex items-center justify-center p-4 hidden">
+        <img id="lightbox-img" src="" alt="Enlarged gallery view">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-brand-on hover:text-opacity-80 transition-opacity">
+            <i data-lucide="x-circle" class="w-10 h-10"></i>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+        
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
