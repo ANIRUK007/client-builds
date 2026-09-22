@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cake Bites | Custom Eggless Theme Cakes in Kokapet, Hyderabad</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Swiper (not used but required by brief) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        :root {
+            --surface: #F9F9F8;
+            --surface-alt: #EFF0ED;
+            --text: #2B351D;
+            --text-muted: #5F6E49;
+            --border: #83936C;
+            --brand: #475A2A;
+            --accent: #AC4949;
+            --brand-on: #F9F9F8;
+            --accent-on: #F9F9F8;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--surface);
+            color: var(--text);
+        }
+
+        .font-display {
+            font-family: 'Caveat', cursive;
+        }
+        
+        .font-body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Custom styles for the order list */
+        .custom-ol {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+        .custom-ol li {
+            counter-increment: step-counter;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        .custom-ol li::before {
+            content: counter(step-counter);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            background-color: var(--surface-alt);
+            color: var(--brand);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            flex-shrink: 0;
+            margin-right: 1.5rem;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body class="bg-surface text-text">
+
+    <!-- Header -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-display text-2xl md:text-3xl font-bold text-brand-on md:text-brand">The Cake Bites</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#gallery" class="nav-link text-brand-on hover:text-brand-on/80 transition">Gallery</a>
+                <a href="#about" class="nav-link text-brand-on hover:text-brand-on/80 transition">About</a>
+                <a href="#order" class="nav-link text-brand-on hover:text-brand-on/80 transition">Order</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden z-50">
+                <i data-lucide="menu" class="text-brand-on h-6 w-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-brand">
+            <nav class="flex flex-col items-center justify-center h-full space-y-8">
+                <a href="#gallery" class="mobile-nav-link text-brand-on text-2xl">Gallery</a>
+                <a href="#about" class="mobile-nav-link text-brand-on text-2xl">About</a>
+                <a href="#order" class="mobile-nav-link text-brand-on text-2xl">Order</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="h-screen bg-cover bg-center flex items-center justify-center text-center relative" style="background-image: url('https://images.unsplash.com/photo-1557979619-445218f326b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8M3x8Q3VzdG9tJTIwdGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4MjM5OHww&ixlib=rb-4.1.0&q=80&w=1080');">
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative z-10 px-6 text-brand-on max-w-3xl">
+                <h1 class="font-display text-5xl md:text-7xl font-bold mb-4" data-aos="fade-up">Your Favourite Characters, Freshly Baked in Hyderabad.</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">Custom-designed, homemade, and always eggless theme cakes for your special celebrations. Love at first bite.</p>
+                <a href="#order" class="inline-block bg-accent text-accent-on font-semibold py-3 px-8 rounded-md hover:bg-opacity-90 transition-colors" data-aos="fade-up" data-aos-delay="400">Plan Your Cake</a>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 md:py-28 bg-surface">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-semibold text-brand mb-4" data-aos="fade-up">From Fandoms to Florals, All Made to Order</h2>
+                <p class="max-w-2xl mx-auto text-text-muted mb-12" data-aos="fade-up" data-aos-delay="100">Here are a few of the custom designer cakes we've created. We love bringing your ideas to life, from movie themes to personal interests.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1627013817723-3bbb5166cc50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8Mnx8Q3VzdG9tJTIwdGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4MjM5OHww&ixlib=rb-4.1.0&q=80&w=1080" alt="A clean white and blue themed cake topped with fresh strawberries." class="w-full h-80 object-cover rounded-lg shadow-md">
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8Q3VzdG9tJTIwdGhlbWVkJTIwY2FrZXN8ZW58MXwwfHx8MTc5MDA4MjM5OHww&ixlib=rb-4.1.0&q=80&w=1080" alt="An elegant pink and white cake decorated with intricate floral designs." class="w-full h-80 object-cover rounded-lg shadow-md">
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="400">
+                         <img src="https://images.unsplash.com/photo-1709837167684-47d7ccf0ed89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8aG9tZSUyMGJha2VyJTIwcGxheWZ1bHxlbnwxfDB8fHwxNzkwMDgyMzkzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="A home baker carefully crafting a pastry in her kitchen." class="w-full h-80 object-cover rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-28 bg-surface-alt">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1617049092088-8771a80edde2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDc2MjE5fDB8MXxzZWFyY2h8MXx8SG9tZW1hZGUlMjAlMjYlMjBlZ2dsZXNzJTIwcXVhbGl0eXxlbnwxfDB8fHwxNzkwMDg5NTM0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Three white eggs beside a stainless steel fork and knife on a brown wooden table, representing fresh baking ingredients." class="w-full h-auto object-cover rounded-lg shadow-lg aspect-square">
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="100">
+                        <h2 class="text-3xl md:text-4xl font-semibold text-brand mb-4">Every Cake is Fresh, Homemade, and Eggless</h2>
+                        <p class="text-text-muted leading-relaxed">Operating from our home kitchen in Kokapet, we bake everything from scratch for your order. We specialize in detailed, personalized cakes that are completely eggless, without compromising on taste or texture. It's our passion to create something unique and delicious for your event.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Section -->
+        <section id="order" class="py-20 md:py-28 bg-surface">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-semibold text-brand mb-4" data-aos="fade-up">Let's Bake Your Idea Into a Cake</h2>
+                    <p class="text-text-muted mb-12" data-aos="fade-up" data-aos-delay="100">Ordering your custom cake is simple. Just follow these steps to get started.</p>
+                </div>
+                <div class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="custom-ol text-left">
+                        <li>
+                            <div>
+                                <h3 class="font-semibold text-lg text-brand mb-1">Get in Touch</h3>
+                                <p class="text-text-muted">Send a direct message (DM) to our Instagram or call us with your cake idea, theme, and the date of your celebration.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3 class="font-semibold text-lg text-brand mb-1">Design & Details</h3>
+                                <p class="text-text-muted">We'll chat about the design, flavours, and size to make sure we create the perfect cake for you.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3 class="font-semibold text-lg text-brand mb-1">Confirm Your Order</h3>
+                                <p class="text-text-muted">Once you're happy with the plan, we'll confirm your order and schedule it for baking.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h3 class="font-semibold text-lg text-brand mb-1">Collection</h3>
+                                <p class="text-text-muted">Your freshly baked, custom cake will be ready for you to pick up in Kokapet, Hyderabad.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <div class="mt-12 text-center flex flex-col sm:flex-row items-center justify-center gap-6" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://www.instagram.com/thecakebites_22" target="_blank" class="inline-flex items-center justify-center bg-brand text-brand-on font-semibold py-3 px-8 rounded-md hover:bg-opacity-90 transition-colors w-full sm:w-auto">
+                        <i data-lucide="instagram" class="h-5 w-5 mr-2"></i>
+                        DM on Instagram
+                    </a>
+                    <a href="tel:+918604813831" class="inline-flex items-center justify-center bg-surface-alt text-brand border border-border font-semibold py-3 px-8 rounded-md hover:bg-border/20 transition-colors w-full sm:w-auto">
+                        <i data-lucide="phone" class="h-5 w-5 mr-2"></i>
+                        Call Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-alt py-12">
+        <div class="container mx-auto px-6 text-center text-text-muted">
+            <p class="font-semibold text-lg text-brand">The Cake Bites</p>
+            <p class="mb-4">Kokapet, Hyderabad</p>
+            <div class="flex justify-center items-center space-x-4 mb-6">
+                <a href="https://www.instagram.com/thecakebites_22" target="_blank" class="text-text-muted hover:text-brand transition-colors">
+                    <i data-lucide="instagram" class="h-6 w-6"></i>
+                    <span class="sr-only">Instagram</span>
+                </a>
+            </div>
+            <p class="text-sm">&copy; 2024 The Cake Bites. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Tailwind CSS Configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': 'var(--surface)',
+                        'surface-alt': 'var(--surface-alt)',
+                        'text': 'var(--text)',
+                        'text-muted': 'var(--text-muted)',
+                        'border': 'var(--border)',
+                        'brand': 'var(--brand)',
+                        'accent': 'var(--accent)',
+                        'brand-on': 'var(--brand-on)',
+                        'accent-on': 'var(--accent-on)',
+                    },
+                    fontFamily: {
+                        display: ['Caveat', 'cursive'],
+                        body: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+
+            // Initialize Lucide Icons
+            lucide.createIcons();
+            
+            // GSAP ScrollTo Plugin
+            gsap.registerPlugin(ScrollToPlugin);
+
+            // Navbar on scroll
+            const navbar = document.getElementById('navbar');
+            const navLinks = navbar.querySelectorAll('.nav-link');
+            const logo = navbar.querySelector('a');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-brand', 'shadow-md');
+                    navLinks.forEach(link => {
+                        link.classList.remove('md:text-brand-on');
+                        link.classList.add('text-brand-on');
+                    });
+                    logo.classList.remove('md:text-brand');
+                    logo.classList.add('text-brand-on');
+                } else {
+                    navbar.classList.remove('bg-brand', 'shadow-md');
+                    navLinks.forEach(link => {
+                        link.classList.add('md:text-brand-on');
+                        link.classList.remove('text-brand-on');
+                    });
+                    logo.classList.add('md:text-brand');
+                    logo.classList.remove('text-brand-on');
+                }
+            });
+
+            // Smooth scrolling for nav links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        gsap.to(window, {
+                            duration: 1, 
+                            scrollTo: { y: targetElement, offsetY: 70 },
+                            ease: 'power2.inOut'
+                        });
+                        // Close mobile menu if open
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            toggleMenu();
+                        }
+                    }
+                });
+            });
+
+            // Mobile Menu
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = menuBtn.querySelector('i');
+
+            const toggleMenu = () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                
+                if (isOpen) {
+                    menuIcon.setAttribute('data-lucide', 'menu');
+                    document.body.style.overflow = '';
+                } else {
+                    menuIcon.setAttribute('data-lucide', 'x');
+                    document.body.style.overflow = 'hidden';
+                }
+                lucide.createIcons();
+            };
+
+            menuBtn.addEventListener('click', toggleMenu);
+            mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+    </script>
+</body>
+</html>
